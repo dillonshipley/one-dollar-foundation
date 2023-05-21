@@ -1,0 +1,68 @@
+/* --- MIN WIDTH --- */
+
+@media only screen and (max-width: 600px){
+  .moreInfoText{
+    font-size: 1em;
+  }
+}
+
+/* --- MEDIUM WIDTH --- */
+@media only screen and (max-width: 925px) and (min-width: 600px) {
+
+
+  .largeGreeting {
+    margin-top: 7vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+
+    font-size: 3em;
+  }
+
+  .moreInfoText{
+    font-size: 1.15em;
+  }
+
+  .donationButtonSection{
+    height: 40vh;
+    background-color: #262626;
+
+    display: block;
+    padding-top: 10vh;
+  }
+}
+
+@media only screen and (max-width: 1200px){
+  .donationButton{
+     margin-top: 75px;
+     width: 225px;
+   }
+}
+
+/* --- LESS THAN MAX WIDTH --- */
+@media only screen and (max-width: 925px){
+
+  .largeGreeting {
+    margin-top: 5vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+
+    font-size: 2.5em;
+  }
+
+  #mainSection{
+    display: block;
+  }
+
+  #HomeContainer{
+    display: block;
+  }
+
+  .moreInfoText{
+    margin-top: 5vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    text-align: justify;
+
+    display: block;
+  }
+}

@@ -1,0 +1,4 @@
+This is dev information created by Dillon on 5/1/22.
+
+BACKEND:
+To change the setup / configuration of donors, go to backend/odf/models.py
