@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  border-top: 2px solid black;
 }
 
 /* ----- HEADER ----- */
@@ -19,27 +20,97 @@
 .headerText {
   float: left;
   line-height: 100px;
-  font-size: 4.5vw;
-  font-weight: bolder;
+  font-size: 4.0vw;
+  font-weight: bold;
   padding-left: 30px;
 
 }
 .iconContainer{
   height: 100px;
-  float: left;
-}
-.icon {
-  height: 40px;
-}
-.iconSpacer{
-  height: 30px;
+  float: right;
   width: 100px;
 }
-.discord {
+
+.fadingImage {
+  position: relative;
+  height: 40px;
+}
+
+.icon {
+  margin-top: 30px;
+  height: 40px;
+  margin-bottom: 30px;
+}
+
+.instagram{
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: 25  px;
   width: 50px;
 }
-.l40{
-  margin-left: 40px;
+
+.instagram_colors{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  margin-top: 25 px;
+  margin-left: 25px;
+  top: 0;
+  left: 0;
+  width: 50px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.youtube{
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: 25  px;
+  width: 50px;
+}
+
+.youtube_colors {
+  width: 78px;
+  height: 45px;
+  margin-left: 11px;
+  margin-top: 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.image-container {
+    height: 100px;
+  float: right;
+  width: 100px;
+  position: relative;
+}
+
+
+.fading-image {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.image-container:hover .youtube_colors {
+  opacity: 1;
+}
+
+.image-container:hover .instagram_colors {
+  opacity: 1;
+}
+
+.discord {
+  width: 50px;
 }
 .headerUnderline{
   height: 3px;
@@ -101,6 +172,7 @@
     font-size: 2em;
     font-weight: bold;
     -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: black; 
 }
 
 @keyframes colorshift {
@@ -254,58 +326,13 @@
   display: inline-block;
 }
 
-.projectCardDefault {
-    color: #565656;
-    width: 200px;
-    height: 175px;
-    border: 1px solid black;
-    border-radius: 7px;
-}
-.projectCardHovered{
-  color: #eeeeee;
-  width: 200px;
-  height: 175px;
-  border: 1px solid black;
-  border-radius: 7px;
+
+.fade-in-on-mouseover img {
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-#GetInvolvedContainer{
-  width: 100vw;
-  background-color: #262626;
-  height: 88vh;
-
-  color: #eeeeee;
+.fade-in-on-mouseover img.fade-in {
+  opacity: 1;
 }
 
-#projectCard1 .projectCardDefault{
-  background-color: #aedbad;
-}
-
-#projectCard1 .projectCardHovered{
-   background-color: #7f9d7e;
-}
-
-#projectCard2 .projectCardDefault{
-  background-color: #addbd9;
-}
-
-#projectCard2 .projectCardHovered{
-   background-color: #6b8f8e;
-}
-
-#projectCard3 .projectCardDefault{
-  background-color: #adafdb;
-}
-
-#projectCard3 .projectCardHovered{
-   background-color: #6669a1;
-}
-
-#ShowCompleted{
-  color: #4c8a94;
-  font-weight: bolder;
-}
-
-#CurrentProjectsTitle {
-  font-weight: bolder
-}

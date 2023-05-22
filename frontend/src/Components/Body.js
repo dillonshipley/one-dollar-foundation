@@ -14,14 +14,19 @@ class Body extends React.Component {
 
   render(){
     return(
-      <div class = "homepageContainer">
-        <img src={process.env.PUBLIC_URL + '/background.jpeg'} class = 'mainBackground'></img>
-        <p class = 'overlay o1'>Changing the world one step at a time.</p>
-        <p class = 'overlay o2'>Welcome to the One Dollar Foundation.</p>
-        <div className = "donationButtonSection">
-          <div className = "donationButton" onClick = {() => {this.showDonationModal()}}>
-            <p className = "donationText">Step Up Now.</p>
+      <div>
+        <div className = "homepageContainer">
+          <img src={process.env.PUBLIC_URL + '/background.jpeg'} className = 'mainBackground'></img>
+          <p className = 'overlay o1'>Changing the world one step at a time.</p>
+          <p className = 'overlay o2'>Welcome to the One Dollar Foundation.</p>
+          <div className = "donationButtonSection">
+            <div className = "donationButton" onClick = {() => {this.showDonationModal()}}>
+              <p className = "donationText">Step Up Now.</p>
+            </div>
           </div>
+        </div>
+        <div className = "homepageSectionTwo">
+          
         </div>
       </div>
     );
