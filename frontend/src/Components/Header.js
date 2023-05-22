@@ -1,13 +1,18 @@
 import React from 'react';
 
 
-function HeaderOption(props){
+function Icon({link, url, cssClass}){
+  var divClass = 'iconContainer';
+  if(cssClass == 'instagram')
+    divClass =  divClass +  ' l40'
 
   return(
-    <div className = "headerOptions" onClick = {(e) => props.change(props.text)}>
-      <p id = {"headerOption" + props.num}>{props.text}</p>
-    </div>
-  )
+    <a class = {divClass} href = {url}>
+      <div class = 'iconSpacer'></div>
+      <img src = {process.env.PUBLIC_URL + link} alt = 'logo' class = {cssClass + " icon"} />
+      <div class = 'iconSpacer'></div>
+    </a>
+  );
 }
 
 class Header extends React.Component {
@@ -22,15 +27,15 @@ class Header extends React.Component {
 
   render(){
     return(
-      <div className = "header">
-        <img src = "logo" alt = "words"/>
-        <div className = "headerSpacerDiv"></div>
-        <div className = "headerOptionContainer">
-          <HeaderOption text = "Home" num = {1} change = {(e) => this.props.change(e)} />
-          <HeaderOption text = "About" num = {2} change = {(e) => this.props.change(e)}/>
-          <HeaderOption text = "Get Involved" num = {3} change = {(e) => this.props.change(e)}/>
-          <HeaderOption text = "Members" num = {4} change = {(e) => this.props.change(e)}/>
+      <div>
+        <div className = "header">
+          <img src={process.env.PUBLIC_URL+ "/logo.jpeg"} alt = "Logo" class='headerImage'></img>
+          <p class = 'headerText'>The One Dollar Foundation</p>
+          <Icon link = "/instagram.png" url = 'https://www.instagram.com/_alivanov__/' cssClass = "instagram"/>
+          <Icon link = "/youtube.png" url = 'https://www.youtube.com/@alivanov247' cssClass = "youtube" />
+          <Icon link = "/discord.png" url = 'a' cssClass = "discord" />
         </div>
+        <div className = "headerUnderline"></div>
       </div>
     )
   }

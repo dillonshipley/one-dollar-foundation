@@ -23,7 +23,7 @@ class App extends React.Component{
   render(){
     return (
       <div className="App">
-        <Header change = {(e) => this.changeSelection(e)}/>
+        <Header />
         {this.renderBody()}
       </div>
     );

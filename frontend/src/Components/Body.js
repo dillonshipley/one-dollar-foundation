@@ -7,24 +7,24 @@ import Members from './Members';
 
 class Body extends React.Component {
 
+  
+  constructor(props){
+    super(props);
+  }
+
   render(){
-    if(this.props.selection === "Home"){
-      return(
-        <Home />
-      );
-    } else if(this.props.selection === "About"){
-      return(
-        <About />
-      );
-    } else if(this.props.selection === "Get Involved"){
-      return(
-        <GetInvolved />
-      );
-    } else if (this.props.selection === "Members"){
-      return(
-        <Members />
-      );
-    }
+    return(
+      <div class = "homepageContainer">
+        <img src={process.env.PUBLIC_URL + '/background.jpeg'} class = 'mainBackground'></img>
+        <p class = 'overlay o1'>Changing the world one step at a time.</p>
+        <p class = 'overlay o2'>Welcome to the One Dollar Foundation.</p>
+        <div className = "donationButtonSection">
+          <div className = "donationButton" onClick = {() => {this.showDonationModal()}}>
+            <p className = "donationText">Step Up Now.</p>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 
