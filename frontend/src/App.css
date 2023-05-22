@@ -144,8 +144,19 @@
     font-size: 2em;
     font-weight: bold;
     text-shadow: 0px 0px 0px 5px white;
-    background-color: #7248fa;
-}
+
+    background: hsla(259, 33%, 32%, 1);
+
+    background: linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
+    
+    background: -moz-linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
+    
+    background: -webkit-linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#48376C", endColorstr="#C5A6E3", GradientType=1 );}
+
+
+
 @keyframes colorshift {
   from {background-color: rgba(174, 219, 173, .75);}
   25% {background-color: rgba(173, 219, 217, .75);}
