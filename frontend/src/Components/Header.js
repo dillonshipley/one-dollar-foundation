@@ -1,45 +1,34 @@
-import React, { useState, useEffect } from 'react';
-
-
-function Icon({link, url, cssClass}){
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
-  if(cssClass !== 'youtube'){
-    return(
-    <a className = 'iconContainer' href = {url}>
-      <img src = {process.env.PUBLIC_URL + link} alt = 'logo' className = {cssClass + " icon"} />
-    </a>
-    );
-  }
-}
+import React from 'react';
 
 const FadeImage = ({url}) => {
+  var href = "";
+  switch(url){
+    case 'instagram':
+      href = 'https://www.instagram.com/_alivanov__/'
+      break;
+    case 'youtube':
+      href = 'https://www.youtube.com/@alivanov247';
+      break;
+    case 'discord':
+      href = 'https://discord.com/invite/Pge52B5U';
+      break;
+    default:
+      console.log('Error!')
+      break;
+  }
+
   return (
-    <div className="image-container">
-      <img src={'/logos/' + url + ".png"} alt="Background Image" className={"icon " + url + " visible"} />
-      <img src={'/logos/' + url + "_color.png"} alt="Fading Image" className={"icon " + url + "_colors fade"}/>
-    </div>
+    <a href={href}className="image-container">
+      <img src={'/logos/' + url + ".png"} alt="Background" className={"icon " + url + " visible"} />
+      <img src={'/logos/' + url + "_color.png"} alt="Fading" className={"icon " + url + "_colors fade"}/>
+    </a>
   );
 };
 
 class Header extends React.Component {
-
-  constructor(props){
-    super(props);
-  }
-
   render(){
     return(
       <div>
-        
         <div className = "header">
           <img src={process.env.PUBLIC_URL+ "/logo.jpeg"} alt = "Logo" className='headerImage'></img>
           <p className = 'headerText'>The One Dollar Foundation</p>
