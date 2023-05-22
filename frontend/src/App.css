@@ -74,6 +74,8 @@
   margin-left: 25px;
   height: 38px;
 }
+
+/* Todo */
 .headerUnderline{
   height: 3px;
   color: #262626;
@@ -107,6 +109,8 @@
     position: absolute;
     transform: translate(-50%, -50%);
     color: white;
+    font-family: 'Coolvetica', sans-serif;
+    letter-spacing: 2px;
 }
 .o1{
   top: 15%;
@@ -133,9 +137,10 @@
     height: 15vh;
     line-height: 15vh;
 
+    font-family: 'Coolvetica', sans-serif;
     border-radius: 10px;
     border: 2px solid black;
-
+    color: rgba(255, 255, 255, 0.8);
     font-size: 2em;
     font-weight: bold;
     text-shadow: 0px 0px 0px 5px white;
@@ -153,19 +158,17 @@
 .homepageSectionTwo{
   background-color: white;
   width: 100vw;
-  height: 200px;
+  height: 60vh;
   display:grid;
-  grid-template-columns: 50vw;
+  grid-template-columns: 50vw 50vw;
 }
-
 .quote{
   width: 30vw;
-  font-size: 30px;
+  font-size: 1.5em;
   font-weight: bold;
   margin-left: 22vw;
   margin-top: 15vh;
 }
-
 .quoteImg{
   margin-top: 5vh;
   display: block;
@@ -174,6 +177,40 @@
   height: 50vh;
   grid-column: 2;
   border: 2px solid black;
+}
+.homepageSectionThree{
+  display:grid;
+  grid-template-columns: 50vw;
+}
+
+/* ---- OPTIONS ----- */
+.optionTitle {
+  font-size: 24px;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.option {
+  height: 50px;
+  width: 30vw;
+  line-height: 50px;
+  margin-left: 10vw;
+  margin-top: 1vh;
+  border: 1px solid black;
+  position: relative;
+}
+
+.optionIcon{
+  float:left;
+  margin-left: 20px;
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
+}
+.optionText{
+  text-align: left;
+  margin-left: 20px;
+  font-weight: bolder;
 }
 
 /* ----- MODAL ----- */
@@ -239,4 +276,9 @@
   margin-top: 5vh;
 
   border-radius: 20px;
+}
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('Coolvetica.otf') format('truetype');
 }
