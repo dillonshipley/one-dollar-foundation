@@ -3,78 +3,6 @@
   border-top: 2px solid black;
 }
 
-/* ----- HEADER ----- */
-
-.header{
-  margin-top: 20px;
-  height: 15vh;
-  min-height: 50px;
-  width: 100%;
-}
-.headerImage{
-  width: 100px;
-  height: 100px;
-  float: left;
-  margin-left: 30px
-}
-.headerText {
-  float: left;
-  line-height: 100px;
-  font-size: 4.0vw;
-  font-weight: bold;
-  padding-left: 30px;
-
-}
-.icon {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-.image-container {
-  height: 100px;
-  float: right;
-  width: 100px;
-  position: relative;
-}
-.visible{
-  height: auto;
-  position: relative;
-  width: 50px;
-}
-.fade{
-  top: 0;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  transition: opacity 0.5s ease;
-}
-.image-container:hover .fade {
-  opacity: 1;
-}
-.instagram{
-  margin-top: 25px;
-}
-.youtube{
-  top: -5px;
-}
-.instagram_colors{
-  height: auto;
-  position: absolute;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 50px;
-}
-.youtube_colors {
-  width: 78px;
-  height: auto;
-  margin-left: 11px;
-  margin-top: 33px;
-  top: -5px
-}
-.discord_colors{
-  margin-left: 25px;
-  height: 38px;
-}
-
 /* Todo */
 .headerUnderline{
   height: 3px;
@@ -153,7 +81,20 @@
     
     background: -webkit-linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
     
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#48376C", endColorstr="#C5A6E3", GradientType=1 );}
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#48376C", endColorstr="#C5A6E3", GradientType=1 );
+  }
+
+  @media screen and (max-width: 1200px) and (min-width: 950px){
+    .donationButton{
+      font-size: 1.5em;
+    }
+  }
+
+  @media screen and (max-width: 950px){
+      .donationButton{
+        font-size: 1.25em;
+      }
+  }
 
 
 
