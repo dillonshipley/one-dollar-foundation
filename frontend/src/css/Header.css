@@ -15,7 +15,7 @@
   .headerText {
     float: left;
     line-height: 100px;
-    font-size: 4.0vw;
+    font-size: 3.5vw;
     font-weight: bold;
     padding-left: 30px;
   
@@ -68,4 +68,10 @@
   .discord_colors{
     margin-left: 25px;
     height: 38px;
+  }
+
+  @media screen and (max-width: 950px){
+    .headerText{
+        font-size: 5vw;
+    }
   }

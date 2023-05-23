@@ -83,27 +83,15 @@
     
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#48376C", endColorstr="#C5A6E3", GradientType=1 );
   }
-
-  @media screen and (max-width: 1200px) and (min-width: 950px){
+@media screen and (max-width: 1200px) and (min-width: 950px){
+  .donationButton{
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 950px){
     .donationButton{
-      font-size: 1.5em;
+      font-size: 1.25em;
     }
-  }
-
-  @media screen and (max-width: 950px){
-      .donationButton{
-        font-size: 1.25em;
-      }
-  }
-
-
-
-@keyframes colorshift {
-  from {background-color: rgba(174, 219, 173, .75);}
-  25% {background-color: rgba(173, 219, 217, .75);}
-  50%{background-color: rgba(173, 175, 219, .75);}
-  75%{background-color: rgba(173, 219, 217, .75);}
-  to {background-color: rgba(174, 219, 173, .75);}
 }
 
 /* ----- SECTION 2 ----- */
@@ -130,39 +118,66 @@
   grid-column: 2;
   border: 2px solid black;
 }
+
+
+/* ---- OPTIONS ----- */
 .homepageSectionThree{
   display:grid;
   grid-template-columns: 50vw;
+  position: relative;
 }
 
-/* ---- OPTIONS ----- */
+.options {
+  position: absolute;
+  right: 40%;
+  top: 0;
+  width: 50%;
+}
+
 .optionTitle {
   font-size: 24px;
   font-weight: bolder;
   text-decoration: underline;
+  padding-bottom: 15px;
 }
 
 .option {
   height: 50px;
-  width: 30vw;
+  width: 60%;
+  left: 20%;
   line-height: 50px;
-  margin-left: 10vw;
   margin-top: 1vh;
-  border: 1px solid black;
+
+  border-radius: 5px;
+  border-bottom: 1px solid black;
   position: relative;
+  display: flex;
 }
 
 .optionIcon{
-  float:left;
-  margin-left: 20px;
+  flex: .2;
   margin-top: 5px;
   height: 40px;
   width: 40px;
 }
 .optionText{
-  text-align: left;
-  margin-left: 20px;
   font-weight: bolder;
+  margin-left: 20px;
+}
+.optionTitle{
+  text-align: center;
+}
+.optionContainer{
+  height: 500px;
+}
+.optionHovered{
+  background-color: #dddddd;
+}
+.optonHovered::after{
+  content: "";
+  position: absolute;
+  background-image: linear-gradient(to top, rgba(200, 200, 200, 0), rgba(255, 255,255, 1));
+  pointer-events: none;
 }
 
 /* ----- MODAL ----- */

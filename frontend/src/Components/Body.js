@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function HomepageImage(){
   return (
@@ -23,10 +23,36 @@ function DonationButton(){
 }
 
 function Option({image, text}){
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovered(false);
+  };
+
   return (
-    <div className = 'option'>
+    <div className={isHovered ? 'optionHovered option' : 'option'}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+      >
       <img src={process.env.PUBLIC_URL+ "/logos/" + image + ".png"} alt='darn' className = 'optionIcon'/>
       <div className = 'optionText'>{text}</div>
+    </div>
+  );
+}
+
+function Options(){
+  return (
+    <div class = 'options'>
+      <div className = "optionTitle">Our Mission</div>
+      <div className = 'optionContainer'>
+        <Option image="clipboard" text ='Complete Small Projects' />
+        <div className = 'option'>Provide Forward-Thinking Help</div>
+        <Option image="spreadsheet" text = 'Maintain Financial Transparency' />
+      </div>
     </div>
   );
 }
@@ -46,12 +72,7 @@ class Body extends React.Component {
             <img src={process.env.PUBLIC_URL + '/quote.jpg'} alt='Quote here' className ="quoteImg"/>
         </div>
         <div className = "homepageSectionThree">
-          <div className = "optionTitle">Our Mission</div>
-          <div className = 'optionContainer'>
-            <Option image="clipboard" text ='Complete Small Projects' />
-            <div className = 'option'>Provide Forward-Thinking Help</div>
-            <Option image="spreadsheet" text = 'Maintain Financial Transparency' />
-          </div>
+          <Options />
         </div>
       </div>
     );
