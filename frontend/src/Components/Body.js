@@ -1,30 +1,81 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import Home from './Home';
-import About from './About';
-import GetInvolved from './GetInvolved';
-import Members from './Members';
+function HomepageImage(){
+  return (
+    <div className = "rel">
+      <div className="homepageImageContainer">
+        <img src={process.env.PUBLIC_URL + '/background.jpeg'} alt="background" className="mainBackground" />
+        <p className="overlay o1">Changing the world one step at a time.</p>
+        <p className="overlay o2">Welcome to the One Dollar Foundation.</p>
+      </div>
+    </div>
+  );
+}
+
+function DonationButton(){
+  return(
+    <div className="donationButtonSection">
+      <div className="donationButton" onClick={() => { this.showDonationModal() }}>
+        <p className="donationText">Step Up Now &gt;</p>
+      </div>
+    </div>
+  );
+}
+
+function Option({image, text}){
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovered(false);
+  };
+
+  return (
+    <div className={isHovered ? 'optionHovered option' : 'option'}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+      >
+      <img src={process.env.PUBLIC_URL+ "/logos/" + image + ".png"} alt='darn' className = 'optionIcon'/>
+      <div className = 'optionText'>{text}</div>
+    </div>
+  );
+}
+
+function Options(){
+  return (
+    <div class = 'options'>
+      <div className = "optionTitle">Our Mission</div>
+      <div className = 'optionContainer'>
+        <Option image="clipboard" text ='Complete Small Projects' />
+        <div className = 'option'>Provide Forward-Thinking Help</div>
+        <Option image="spreadsheet" text = 'Maintain Financial Transparency' />
+      </div>
+    </div>
+  );
+}
+
+
 
 class Body extends React.Component {
-
   render(){
-    if(this.props.selection === "Home"){
-      return(
-        <Home />
-      );
-    } else if(this.props.selection === "About"){
-      return(
-        <About />
-      );
-    } else if(this.props.selection === "Get Involved"){
-      return(
-        <GetInvolved />
-      );
-    } else if (this.props.selection === "Members"){
-      return(
-        <Members />
-      );
-    }
+    return(
+      <div>
+        <div className = "homepageContainer">
+          <HomepageImage />
+          <DonationButton />
+        </div>
+        <div className = "homepageSectionTwo">
+            <p className = 'quote'>"Every good act is charity. A man's true wealth hereafter is the good that he does in this world to his fellows. - Moliere"</p>
+            <img src={process.env.PUBLIC_URL + '/quote.jpg'} alt='Quote here' className ="quoteImg"/>
+        </div>
+        <div className = "homepageSectionThree">
+          <Options />
+        </div>
+      </div>
+    );
   }
 }
 

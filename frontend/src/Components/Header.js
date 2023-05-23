@@ -1,36 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import {FadeImage} from './FadeImage';
+import '../css/Header.css';
 
+function Icons() {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-function HeaderOption(props){
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
 
-  return(
-    <div className = "headerOptions" onClick = {(e) => props.change(props.text)}>
-      <p id = {"headerOption" + props.num}>{props.text}</p>
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  console.log('rendering');
+
+  return (
+    <div className="icons">
+      {screenWidth >= 950 && (
+        <>
+          <FadeImage url="youtube" />
+          <FadeImage url="instagram" />
+          <FadeImage url="discord" />
+        </>
+      )}
     </div>
-  )
+  );
 }
 
+
+
 class Header extends React.Component {
-
-  constructor(props){
-    super(props);
-  }
-
-  change(){
-
-  }
-
   render(){
     return(
-      <div className = "header">
-        <img src = "logo" alt = "words"/>
-        <div className = "headerSpacerDiv"></div>
-        <div className = "headerOptionContainer">
-          <HeaderOption text = "Home" num = {1} change = {(e) => this.props.change(e)} />
-          <HeaderOption text = "About" num = {2} change = {(e) => this.props.change(e)}/>
-          <HeaderOption text = "Get Involved" num = {3} change = {(e) => this.props.change(e)}/>
-          <HeaderOption text = "Members" num = {4} change = {(e) => this.props.change(e)}/>
+      <div>
+        <div className = "header">
+          <img src={process.env.PUBLIC_URL+ "/logo.jpeg"} alt = "Logo" className='headerImage'></img>
+          <p className = 'headerText'>The One Dollar Foundation</p>
+          {(window.innerWidth >= 950) && <Icons />}
         </div>
+        <div className = "headerUnderline"></div>
       </div>
     )
   }
