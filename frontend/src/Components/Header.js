@@ -3,31 +3,11 @@ import {FadeImage} from './FadeImage';
 import '../css/Header.css';
 
 function Icons() {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  console.log('rendering');
-
   return (
     <div className="icons">
-      {screenWidth >= 950 && (
-        <>
-          <FadeImage url="youtube" />
-          <FadeImage url="instagram" />
-          <FadeImage url="discord" />
-        </>
-      )}
+        <FadeImage url="youtube" />
+        <FadeImage url="instagram" />
+        <FadeImage url="discord" />
     </div>
   );
 }

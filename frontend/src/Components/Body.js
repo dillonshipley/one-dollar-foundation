@@ -12,10 +12,10 @@ function HomepageImage(){
   );
 }
 
-function DonationButton(){
+function DonationButton({click}){
   return(
     <div className="donationButtonSection">
-      <div className="donationButton" onClick={() => { this.showDonationModal() }}>
+      <div className="donationButton" onClick={click}>
         <p className="donationText">Step Up Now &gt;</p>
       </div>
     </div>
@@ -46,7 +46,7 @@ function Option({image, text}){
 
 function Options(){
   return (
-    <div class = 'options'>
+    <div className = 'options'>
       <div className = "optionTitle">Our Mission</div>
       <div className = 'optionContainer'>
         <Option image="clipboard" text ='Complete Small Projects' />
@@ -60,12 +60,38 @@ function Options(){
 
 
 class Body extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      modal: false
+    }
+  }
+
+  showModal = () => {
+    console.log("modal");
+    this.setState({modal: true})
+    const element = document.getElementById('modalContainer');
+    element.classList.add('z3');
+    element.classList.remove('z1');
+
+  }
+
+  hideModal = () => {
+    console.log("unmodal")
+    if(this.state.modal)
+      this.setState({modal: false})
+    const element = document.getElementById('modalContainer');
+    element.classList.add('z1');
+    element.classList.remove('z3');
+  }
+
   render(){
     return(
       <div>
         <div className = "homepageContainer">
           <HomepageImage />
-          <DonationButton />
+          <DonationButton click={this.showModal}/>
         </div>
         <div className = "homepageSectionTwo">
             <p className = 'quote'>"Every good act is charity. A man's true wealth hereafter is the good that he does in this world to his fellows. - Moliere"</p>
@@ -73,6 +99,9 @@ class Body extends React.Component {
         </div>
         <div className = "homepageSectionThree">
           <Options />
+        </div>
+        <div id= 'modalContainer' className = 'z1' onClick={this.hideModal}>
+          {this.state.modal && <div className = 'donationModal'></div>}
         </div>
       </div>
     );
