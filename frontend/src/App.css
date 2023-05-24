@@ -62,6 +62,8 @@
   width: 20vw; 
 }
 .donationButton {
+    position: relative;
+    z-index: 2;
     height: 15vh;
     line-height: 15vh;
 
@@ -182,17 +184,27 @@
 
 /* ----- MODAL ----- */
 
+.z1{
+  z-index: 1;
+}
+.z3{
+  z-index: 3;
+}
+
 .modalContainer {
   position: fixed;
   top: 0vh;
   left: 0vh;
   width: 100vw;
-  height: 100vh;
+  height: 85vh;
 }
+
+
 
 .donationModal {
   position: fixed;
-  top: 20vh;
+  z-index: inherit;
+  top: 15vh;
   left: 30vw;
   right: 30vw;
   width: 40vw;
