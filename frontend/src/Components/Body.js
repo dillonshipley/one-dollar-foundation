@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import DonateModal from './DonateModal'
 
 function HomepageImage(){
   return (
@@ -65,25 +66,19 @@ class Body extends React.Component {
     super(props)
     this.state = {
       modal: false
-    }
+    };
   }
 
-  showModal = () => {
-    console.log("modal");
-    this.setState({modal: true})
-    const element = document.getElementById('modalContainer');
-    element.classList.add('z3');
-    element.classList.remove('z1');
-
-  }
+  showModal = e => {
+    this.setState({
+      modal: true
+    }); 
+  };
 
   hideModal = () => {
-    console.log("unmodal")
-    if(this.state.modal)
-      this.setState({modal: false})
-    const element = document.getElementById('modalContainer');
-    element.classList.add('z1');
-    element.classList.remove('z3');
+    this.setState({
+      modal: false
+    });
   }
 
   render(){
@@ -100,9 +95,7 @@ class Body extends React.Component {
         <div className = "homepageSectionThree">
           <Options />
         </div>
-        <div id= 'modalContainer' className = 'z1' onClick={this.hideModal}>
-          {this.state.modal && <div className = 'donationModal'></div>}
-        </div>
+        <DonateModal show={this.state.modal} close = {this.hideModal}/>
       </div>
     );
   }

@@ -193,17 +193,16 @@
 
 .modalContainer {
   position: fixed;
-  top: 0vh;
-  left: 0vh;
+  top: 0;
+  left: 0;
+  z-index: 3;
   width: 100vw;
   height: 85vh;
 }
 
-
-
 .donationModal {
   position: fixed;
-  z-index: inherit;
+  z-index: 3;
   top: 15vh;
   left: 30vw;
   right: 30vw;

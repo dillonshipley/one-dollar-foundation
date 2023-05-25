@@ -63,7 +63,7 @@ export default class DonationModal extends React.Component {
       return null;
     } else {
       return(
-        <div className = "modalContainer" onClick = {this.props.onClose}>
+        <div className = "modalContainer" onClick = {this.props.close}>
           <div className = "donationModal" onClick = {e => e.stopPropagation()}>
             <div className = "donationMethodOptionContainer">
               <DonationOption text = "Venmo" select = {(e) => this.select("Venmo", e)} selected = {this.state.selected} />
