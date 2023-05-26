@@ -220,7 +220,7 @@
   height: 8vh;
 
   display: grid;
-  grid-template-columns: 13.33vw 13.33vw 13.34vw;
+  grid-template-columns: 20vw 20vw;
 
   background-color: #dddddd;
 
@@ -230,7 +230,7 @@
 }
 
 .donationMethodOption {
-  width: 13.33vw;
+  width: 20vw;
   border-right: 2px solid #999999;
 
   padding-top: 2vh;
@@ -238,8 +238,9 @@
 }
 
 .donationMethodSelected {
-  width: 13.33vw;
+  width: 20vw;
   height: 1vh;
+  margin-top: -.5vh;
   background-color: #bfdce3;
   border-right: 2px solid #999999;
   border-bottom: 1px solid #444444;
@@ -253,6 +254,13 @@
   margin-right: 5vw;
   margin-top: 5vh;
 
+  border-radius: 20px;
+}
+
+.cashAppQR{
+  width: 17vw;
+  height: 20vw;
+  margin-top: 5vh;
   border-radius: 20px;
 }
 

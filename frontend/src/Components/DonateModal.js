@@ -1,5 +1,6 @@
 import React from 'react';
 import venmoImg from './venmo.jpg'
+import cashAppImg from './cashapp.jpeg'
 
 function DonationOption(props){
   if(props.selected === props.text){
@@ -16,27 +17,19 @@ function DonationOption(props){
   }
 }
 
-function DonationDetail(props){
-  if(props.type === "Venmo"){
-    return (
-      <div>
-        <img src = {venmoImg} alt = "this shit broken" className = "venmoQR"/>
-        <p style = {{marginTop: "15px"}}>Select "Scan" in the Venmo App.</p>
-      </div>
-    );
-  } else if(props.type === "CashApp"){
-    return (
-      <div>
+function DonationDetail({type}){
+  var img;
+  if(type == "venmo")
+    img = venmoImg
+  else
+    img = cashAppImg
 
-      </div>
-    );
-  } else if(props.type === "Credit Card"){
-    return (
-      <div>
-
-      </div>
-    );
-  }
+  return (
+    <>
+      <img src = {img} alt = {type + " is broken"} className = {type + "QR"}/>
+      <p style = {{marginTop: "15px"}}>Select scan in the {type} app.</p>
+    </>
+  )
 }
 
 export default class DonationModal extends React.Component {
@@ -44,15 +37,15 @@ export default class DonationModal extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      selected: "Venmo",
+      selected: "venmo",
     }
   }
 
   select(option){
-    if(option === "Venmo"){
-      this.setState({selected: "Venmo"});
-    } else if (option === "CashApp"){
-      this.setState({selected: "CashApp"});
+    if(option === "venmo"){
+      this.setState({selected: "venmo"});
+    } else if (option === "cashApp"){
+      this.setState({selected: "cashApp"});
     } else if (option === "Credit Card"){
       this.setState({selected: "Credit Card"});
     }
@@ -66,10 +59,8 @@ export default class DonationModal extends React.Component {
         <div className = "modalContainer" onClick = {this.props.close}>
           <div className = "donationModal" onClick = {e => e.stopPropagation()}>
             <div className = "donationMethodOptionContainer">
-              <DonationOption text = "Venmo" select = {(e) => this.select("Venmo", e)} selected = {this.state.selected} />
-              <DonationOption text = "CashApp" select = {(e) => this.select("CashApp", e)} selected = {this.state.selected} />
-              <DonationOption text = "Credit Card" select = {(e) => this.select("Credit Card", e)} selected = {this.state.selected} />
-            </div>
+              <DonationOption text = "Venmo" select = {(e) => this.select("venmo", e)} selected = {this.state.selected} />
+              <DonationOption text = "CashApp" select = {(e) => this.select("cashApp", e)} selected = {this.state.selected} />            </div>
             <DonationDetail type = {this.state.selected}/>
           </div>
         </div>
