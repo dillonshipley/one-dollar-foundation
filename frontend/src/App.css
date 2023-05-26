@@ -231,22 +231,20 @@
 
 .donationMethodOption {
   width: 20vw;
+  height: 8vh;
   border-right: 2px solid #999999;
-
-  padding-top: 2vh;
-  padding-bottom: 2vh;
 }
 
 .donationMethodSelected {
   width: 20vw;
   height: 1vh;
-  margin-top: -.5vh;
+  margin-top: -1vh;
   background-color: #bfdce3;
   border-right: 2px solid #999999;
   border-bottom: 1px solid #444444;
 }
 
-.venmoQR {
+.VenmoQR {
   width: 20vw;
   height: 20vw;
 
@@ -257,11 +255,25 @@
   border-radius: 20px;
 }
 
-.cashAppQR{
+.CashAppQR{
   width: 17vw;
   height: 20vw;
   margin-top: 5vh;
   border-radius: 20px;
+}
+
+.VenmoLogo{
+  position: aboslute;
+  width: 80%;
+  height: 100%;
+}
+
+.CashAppLogo{
+  position: aboslute;
+  margin-top: 7%;
+  width: 65%;
+  height: 55%;
+  margin-left: -10%;
 }
 
 @font-face {
