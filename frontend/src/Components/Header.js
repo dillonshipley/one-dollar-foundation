@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {FadeImage} from './FadeImage';
 import '../css/Header.css';
 
