@@ -1,9 +1,9 @@
-import {ApplicationConfig, Odf} from './application';
+import {ApplicationConfig, BackendApplication} from './application';
 
 export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
-  const app = new Odf(options);
+  const app = new BackendApplication(options);
   await app.boot();
   await app.start();
 
