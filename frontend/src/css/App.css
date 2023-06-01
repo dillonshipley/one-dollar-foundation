@@ -51,6 +51,7 @@
   position: absolute;
   top: 55%;
   left: 40%;
+  right: 40%;
   height: 15vh;
   width: 20vw; 
 }
@@ -59,6 +60,7 @@
     z-index: 2;
     height: 15vh;
     line-height: 15vh;
+    min-width: 200px;
 
     font-family: 'Coolvetica', sans-serif;
     border-radius: 10px;
@@ -78,22 +80,20 @@
     
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#48376C", endColorstr="#C5A6E3", GradientType=1 );
   }
-@media screen and (max-width: 1200px) and (min-width: 950px){
+
+@media screen and (max-width: 1200px){
   .donationButton{
     font-size: 1.5em;
   }
 }
-@media screen and (max-width: 950px){
-    .donationButton{
-      font-size: 1.25em;
-    }
-}
 @media screen and (max-width: 600px){
   .o1{
     font-size: 1em;
+    width: 60%;
   }
   .o2{
     font-size: 1.5em;
+    width: 60%;
   }
 }
 

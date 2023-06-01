@@ -1,5 +1,6 @@
 import React from 'react';
 import './css/App.css';
+import './css/Mobile.css'
 import Header from "./Components/Header";
 import Body from "./Components/Body";
 
