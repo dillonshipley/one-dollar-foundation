@@ -1,0 +1,145 @@
+.App {
+  text-align: center;
+  border-top: 2px solid black;
+}
+
+/* ----- BODY ----- */
+.homepageImageContainer{
+  position: relative;
+}
+.homepageContainer{
+  position: relative;
+}
+.mainBackground{
+  display: block;
+  width: 100vw;
+  height: 90vh;
+}
+.homepageImageContainer::after{
+  content: "";
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  left: 0;
+  height: 40%;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(255, 255,255, 1));
+  pointer-events: none;
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    transform: translate(-50%);
+    color: white;
+    font-family: 'Coolvetica', sans-serif;
+    letter-spacing: 2px;
+}
+.o1{
+  top: 15%;
+  left: 42%;
+  font-size: 2em;
+  font-weight: bold;
+}
+.o2{
+  top: 35%;
+  left: 48%;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* ----- DONATION ----- */
+.donationButtonSection{
+  position: absolute;
+  top: 55%;
+  left: 40%;
+  height: 15vh;
+  width: 20vw; 
+}
+.donationButton {
+    position: relative;
+    z-index: 2;
+    height: 15vh;
+    line-height: 15vh;
+
+    font-family: 'Coolvetica', sans-serif;
+    border-radius: 10px;
+    border: 2px solid black;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0px 0px 0px 5px white;
+
+    background: hsla(259, 33%, 32%, 1);
+
+    background: linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
+    
+    background: -moz-linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
+    
+    background: -webkit-linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#48376C", endColorstr="#C5A6E3", GradientType=1 );
+  }
+@media screen and (max-width: 1200px) and (min-width: 950px){
+  .donationButton{
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 950px){
+    .donationButton{
+      font-size: 1.25em;
+    }
+}
+@media screen and (max-width: 600px){
+  .o1{
+    font-size: 1em;
+  }
+  .o2{
+    font-size: 1.5em;
+  }
+}
+
+/* ----- SECTION 2 ----- */
+.homepageSectionTwo{
+  background-color: white;
+  width: 100vw;
+  height: 60vh;
+  display:grid;
+  grid-template-columns: 50vw 50vw;
+}
+.quote{
+  width: 30vw;
+  font-size: 1em;
+  font-weight: bold;
+  margin-left: 22vw;
+  margin-top: 15vh;
+}
+
+.imageContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.quoteImg{
+  margin-top: 3vh;
+  display: flex;
+  align-self: center;
+  width: 60%;
+  height: auto;
+  max-height: 80%;
+  border: 2px solid black;
+}
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('Coolvetica.otf') format('truetype');
+}
+
+.footer{
+  width: 100%;
+}
+
+.footerIcons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Set the desired height */
+}
