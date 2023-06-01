@@ -18,7 +18,9 @@ class Header extends React.Component {
       <div>
         <div className = "header">
           <img src={process.env.PUBLIC_URL+ "/logo.jpeg"} alt = "Logo" className='headerImage'></img>
-          <div className = 'headerText'>The One Dollar Foundation</div>
+          <div className = 'headerTextContainer'>
+            <div className = 'headerText'>The One Dollar Foundation</div>
+          </div>
           {(window.innerWidth >= 960) && <Icons />}
         </div>
         <div className = "headerUnderline"></div>
