@@ -1,0 +1,3 @@
+//install node modules and dependences
+npm install
+npm 
