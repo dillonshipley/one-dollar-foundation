@@ -1,0 +1,93 @@
+/* ----- MODAL ----- */
+
+.z1{
+    z-index: 1;
+  }
+  .z3{
+    z-index: 3;
+  }
+  
+  .modalContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100vw;
+    height: 85vh;
+  }
+  
+  .donationModal {
+    position: fixed;
+    z-index: 3;
+    top: 15vh;
+    left: 30vw;
+    right: 30vw;
+    width: 40vw;
+    height: 65vh;
+    background-color: #eeeeee;
+  
+    border-radius: 10px;
+  
+    box-shadow: 5px 5px 30px 5px #666666;
+  }
+  
+  .donationMethodOptionContainer{
+    width: 40vw;
+    height: 8vh;
+  
+    display: grid;
+    grid-template-columns: 20vw 20vw;
+  
+    background-color: #dddddd;
+  
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom: 1px solid #444444;
+  }
+  
+  .donationMethodOption {
+    width: 20vw;
+    height: 8vh;
+    border-right: 2px solid #999999;
+  }
+  
+  .donationMethodSelected {
+    width: 20vw;
+    height: 1vh;
+    margin-top: -1vh;
+    background-color: #bfdce3;
+    border-right: 2px solid #999999;
+    border-bottom: 1px solid #444444;
+  }
+  
+  .VenmoQR {
+    width: 20vw;
+    height: 20vw;
+  
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 5vh;
+  
+    border-radius: 20px;
+  }
+  
+  .CashAppQR{
+    width: 17vw;
+    height: 20vw;
+    margin-top: 5vh;
+    border-radius: 20px;
+  }
+  
+  .VenmoLogo{
+    position: aboslute;
+    width: 80%;
+    height: 100%;
+  }
+  
+  .CashAppLogo{
+    position: aboslute;
+    margin-top: 7%;
+    width: 65%;
+    height: 55%;
+    margin-left: -10%;
+  }

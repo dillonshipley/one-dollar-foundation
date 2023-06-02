@@ -12,16 +12,16 @@ function Icons() {
   );
 }
 
-
-
 class Header extends React.Component {
   render(){
     return(
       <div>
         <div className = "header">
           <img src={process.env.PUBLIC_URL+ "/logo.jpeg"} alt = "Logo" className='headerImage'></img>
-          <p className = 'headerText'>The One Dollar Foundation</p>
-          {(window.innerWidth >= 950) && <Icons />}
+          <div className = 'headerTextContainer'>
+            <div className = 'headerText'>The One Dollar Foundation</div>
+          </div>
+          {(window.innerWidth >= 960) && <Icons />}
         </div>
         <div className = "headerUnderline"></div>
       </div>

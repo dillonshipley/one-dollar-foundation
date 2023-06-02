@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import DonateModal from './DonateModal'
+import DonateModal from './DonateModal';
+import Footer from "./Footer";
+import '../css/Options.css';
 
 function HomepageImage(){
   return (
     <div className = "rel">
       <div className="homepageImageContainer">
-        <img src={process.env.PUBLIC_URL + '/background.jpeg'} alt="background" className="mainBackground" />
+        <img src={process.env.PUBLIC_URL + '/images/background.jpeg'} alt="background" className="mainBackground" />
         <p className="overlay o1">Changing the world one step at a time.</p>
         <p className="overlay o2">Welcome to the One Dollar Foundation.</p>
       </div>
@@ -65,6 +67,7 @@ class Body extends React.Component {
   constructor(props){
     super(props)
     this.state = {
+      footer: props.footer,
       modal: false
     };
   }
@@ -90,8 +93,11 @@ class Body extends React.Component {
         </div>
         <div className = "homepageSectionTwo">
             <p className = 'quote'>"Every good act is charity. A man's true wealth hereafter is the good that he does in this world to his fellows. - Moliere"</p>
-            <img src={process.env.PUBLIC_URL + '/quote.jpg'} alt='Quote here' className ="quoteImg"/>
+            <div className = "imageContainer">
+              <img src={process.env.PUBLIC_URL + '/quote.jpg'} alt='Quote here' className ="quoteImg"/>
+            </div>
         </div>
+        {this.props.footer && <Footer />}
         <div className = "homepageSectionThree">
           <Options />
         </div>

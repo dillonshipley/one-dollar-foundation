@@ -1,12 +1,8 @@
 import React from 'react';
-import VenmoImg from './venmo.jpg'
-import CashAppImg from './cashapp.jpeg'
-import VenmoLogo from './VenmoLogo.png'
-import CashAppLogo from './CashAppLogo.png'
+import '../css/Modal.css';
 
 function DonationOption(props) {
-  const img = props.text === 'Venmo' ? VenmoLogo : CashAppLogo;
-
+  var img = process.env.PUBLIC_URL + '/images/' + props.text + "Logo.png"
   if (props.selected === props.text) {
     return (
       <div>
@@ -26,11 +22,11 @@ function DonationOption(props) {
 }
 
 function DonationDetail({type}){
-  var img;
-  if(type == "Venmo")
-    img = VenmoImg
+  var img = process.env.PUBLIC_URL + '/images/';
+  if(type === "Venmo")
+    img = img + type + ".jpg"
   else
-    img = CashAppImg
+    img = img + type + ".jpeg"
 
   return (
     <>
@@ -50,11 +46,7 @@ export default class DonationModal extends React.Component {
   }
 
   select(option){
-    if(option === "Venmo"){
-      this.setState({selected: "Venmo"});
-    } else if (option === "CashApp"){
-      this.setState({selected: "CashApp"});
-    }
+      this.setState({selected: option});
   }
 
   render(){

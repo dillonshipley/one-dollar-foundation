@@ -1,20 +1,36 @@
 /* ----- HEADER ----- */
 
 .header{
-    margin-top: 20px;
     height: 15vh;
-    min-height: 50px;
+    min-height: 40px;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
   .headerImage{
-    width: 100px;
-    height: 100px;
+    width: 20%;
+    max-width: 100px;
+    height: auto;
     float: left;
     margin-left: 30px
   }
+
+  .icons{
+    height: 100%;
+    justify-content: left;
+  }
+
+  .headerTextContainer{
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      text-align: left;
+      height: 100%; /* Set the desired height for the container */
+  }
+
   .headerText {
     float: left;
-    line-height: 100px;
+    line-height: 100%;
     font-size: 3.5vw;
     font-weight: bold;
     padding-left: 30px;
@@ -24,8 +40,9 @@
     margin-top: 30px;
     margin-bottom: 30px;
   }
+
   .image-container {
-    height: 100px;
+    height: 100%;
     float: right;
     width: 100px;
     position: relative;
@@ -70,8 +87,20 @@
     height: 38px;
   }
 
-  @media screen and (max-width: 950px){
+  @media screen and (max-width: 960px){
     .headerText{
         font-size: 5vw;
     }
+    .header{
+      justify-content: left;
+    }
+    .headerText{
+      width: 100%;
+    }
   }
+
+.headerUnderline{
+  height: 3px;
+  background-color: #262626;
+  width: 100%;
+}

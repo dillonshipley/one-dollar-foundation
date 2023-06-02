@@ -1,0 +1,59 @@
+/* ---- OPTIONS ----- */
+.homepageSectionThree{
+    display:grid;
+    grid-template-columns: 50vw;
+    position: relative;
+  }
+  
+  .options {
+    position: absolute;
+    right: 40%;
+    top: 0;
+    width: 50%;
+  }
+  
+  .optionTitle {
+    font-size: 24px;
+    font-weight: bolder;
+    text-decoration: underline;
+    padding-bottom: 15px;
+  }
+  
+  .option {
+    height: 50px;
+    width: 60%;
+    left: 20%;
+    line-height: 50px;
+    margin-top: 1vh;
+  
+    border-radius: 5px;
+    border-bottom: 1px solid black;
+    position: relative;
+    display: flex;
+  }
+  
+  .optionIcon{
+    flex: .2;
+    margin-top: 5px;
+    height: 40px;
+    width: 40px;
+  }
+  .optionText{
+    font-weight: bolder;
+    margin-left: 20px;
+  }
+  .optionTitle{
+    text-align: center;
+  }
+  .optionContainer{
+    height: 500px;
+  }
+  .optionHovered{
+    background-color: #dddddd;
+  }
+  .optonHovered::after{
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(to top, rgba(200, 200, 200, 0), rgba(255, 255,255, 1));
+    pointer-events: none;
+  }

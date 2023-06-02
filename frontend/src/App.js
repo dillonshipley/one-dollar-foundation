@@ -1,32 +1,47 @@
 import React from 'react';
-import './App.css';
+import './css/App.css';
+import './css/Mobile.css'
 import Header from "./Components/Header";
 import Body from "./Components/Body";
-import Footer from "./Components/Footer"
 
 class App extends React.Component{
 
   constructor(props){
     super(props);
     this.state = {
-      selection: "Home"
+      selection: "Home",
+      width: window.innerWidth,
     }
   }
+
+  handleResize = () => {
+    this.setState({width: window.innerWidth});
+  };
 
   changeSelection(newSelection){
     this.setState({selection: newSelection});
   }
 
-  renderBody(selection){
-    return <Body selection = {this.state.selection} />;
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  displayBody(){
+    if(this.state.width <= 600)
+      return <Body footer = {true} /> 
+    else 
+      return <Body footer ={false} />
   }
 
   render(){
     return (
       <div className="App">
         <Header />
-        {this.renderBody()}
-        {window.innerWidth <= 600 && <Footer />}
+        {this.displayBody()}
       </div>
     );
   }
