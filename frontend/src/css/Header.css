@@ -1,41 +1,65 @@
 /* ----- HEADER ----- */
 
-.header{
+.h{
+  min-height: 100px;
+}
+
+.headerOne{
+  display: grid;
     height: 15vh;
-    min-height: 40px;
+    grid-template-columns: 10% 50% 40%;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
   }
+
+  .headerTwo{
+    display: grid;
+    height: 15vh;
+    grid-template-columns: 10% 75% 15%;
+    width: 100%;
+  }
+
   .headerImage{
-    width: 20%;
-    max-width: 100px;
-    height: auto;
-    float: left;
-    margin-left: 30px
+    min-width: 100px;
+    width: auto;
+    height: 15vh;
+    margin-left: 5%;
+  }
+
+  .dropdownIconContainer{
+    height: 15vh;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dropdownIcon{
+    min-height: 25px;
+    min-width: auto;
+    height: 3vh;
   }
 
   .icons{
     height: 100%;
     justify-content: left;
-  }
-
-  .headerTextContainer{
-      display: flex;
-      align-items: center;
-      justify-content: left;
-      text-align: left;
-      height: 100%; /* Set the desired height for the container */
+    min-width: 300px;
   }
 
   .headerText {
-    float: left;
-    line-height: 100%;
+    height: 15vh;
+    align-items: center;
+    text-align: left;
     font-size: 3.5vw;
     font-weight: bold;
-    padding-left: 30px;
-  
+    display: flex;
+    justify-content: left;
+    margin-left: 20px;
   }
+
+  .ht{
+    all: unset;
+  }
+
   .icon {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -49,7 +73,6 @@
   }
   .visible{
     height: auto;
-    position: relative;
     width: 50px;
   }
   .fade{
@@ -66,7 +89,7 @@
     margin-top: 25px;
   }
   .youtube{
-    top: -5px;
+    top: 0px;
   }
   .instagram_colors{
     height: auto;
@@ -87,16 +110,36 @@
     height: 38px;
   }
 
-  @media screen and (max-width: 960px){
-    .headerText{
-        font-size: 5vw;
-    }
-    .header{
-      justify-content: left;
+  @media screen and (max-width: 800px){
+    .icons{
+      display: none;
     }
     .headerText{
-      width: 100%;
+      font-size: 5vw;
+      padding-left: 20px;
     }
+  }
+
+  @media screen and (max-width: 600px){
+    .h{
+      min-height:80px;
+    }
+
+    .headerTwo{
+      grid-template-columns: 15% 65% 20%;
+    }
+    .headerText{
+      padding-left: 0px;
+      margin-left: 0px;
+    }
+    .headerImage{
+      min-width: 80px;
+    }
+
+    .dropdownIcon{
+      min-height: 15px;
+    }
+  
   }
 
 .headerUnderline{

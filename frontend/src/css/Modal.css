@@ -81,13 +81,14 @@
   .VenmoLogo{
     position: aboslute;
     width: 80%;
+    max-width: 250px;
     height: 100%;
   }
   
   .CashAppLogo{
     position: aboslute;
-    margin-top: 7%;
     width: 65%;
-    height: 55%;
+    height:60%;
+    margin-top: 5%;
     margin-left: -10%;
   }

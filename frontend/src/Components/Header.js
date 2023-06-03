@@ -12,16 +12,22 @@ function Icons() {
   );
 }
 
+function Dropdown(){
+  return (
+    <div className = "h dropdownIconContainer">
+      <img src = {process.env.PUBLIC_URL+ "/images/dropdown.png"} className = "dropdownIcon" alt = "darn"/>
+    </div>
+  )
+}
+
 class Header extends React.Component {
   render(){
     return(
       <div>
-        <div className = "header">
-          <img src={process.env.PUBLIC_URL+ "/logo.jpeg"} alt = "Logo" className='headerImage'></img>
-          <div className = 'headerTextContainer'>
-            <div className = 'headerText'>The One Dollar Foundation</div>
-          </div>
-          {(window.innerWidth >= 960) && <Icons />}
+        <div className = {window.innerWidth > 800 ? "h headerOne" : "h headerTwo"}>
+          <img src={process.env.PUBLIC_URL+ "/images/logo.jpeg"} alt = "Logo" className='h headerImage'></img>
+          <div className = 'h headerText'><p className = "ht">The One Dollar Foundation</p></div>
+          {window.innerWidth > 800 ? <Icons /> : <Dropdown />}
         </div>
         <div className = "headerUnderline"></div>
       </div>
