@@ -88,8 +88,8 @@
       padding-left: 30px;
     }
     .headerImage{
-      height: 100%;
-      padding-top: 0;
+      height: 80%;
+      padding-top: 0;;
     }
     
   }
@@ -102,11 +102,16 @@
       font-size: 7vw;
       padding-left: 25px;
     }
+    .headerImage{
+      height: 100%;
+    }
+
   }
+
 
   @media screen and (max-width: 600px){
     .h{
-      min-height:70px;
+      max-height:70px;
     }
 
     .headerTwo{
@@ -118,7 +123,7 @@
       font-size: 6vw;
     }
     .headerImage{
-      min-width: 70px;
+      height: 15vh;
     }
 
     .dropdownIcon{

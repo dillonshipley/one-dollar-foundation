@@ -8,6 +8,10 @@
   position: relative;
 }
 
+.flex{
+  display: flex;
+}
+
 .hp{
   position: absolute;
   top: 0;
@@ -23,7 +27,11 @@
 }
 
 .mobileHomepage{
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .homepageImageContainer{
@@ -67,8 +75,12 @@
 .overlayContainer{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+}
+
+.mobileHomepage .overlayContainer{
+  width: 100%;
 }
 
 .overlay{
@@ -79,11 +91,19 @@
 
 
 .o1{
-  width: 80%;
+  height: 15%;
+  width: 60%;
   font-size: 2em;
   font-weight: bold;
+  margin-top: 10%;
 }
+
+.o1 p{
+  min-width: 300px;
+}
+
 .o2{
+  height: 30%;
   width: 70%;
   font-size: 2.5em;
   font-weight: bold;
@@ -91,11 +111,9 @@
 
 /* ----- DONATION ----- */
 .donationButtonSection{
-  top: 55%;
-  left: 40%;
-  right: 40%;
   height: 15vh;
   width: 20vw; 
+  min-width: 200px;
 }
 .donationButton {
     z-index: 3;
