@@ -17,7 +17,6 @@ function Dropdown({dropdownSelected}){
   return (
     <div className = "h dropdownIconContainer" onClick = {dropdownSelected}>
       <img src = {process.env.PUBLIC_URL+ "/images/dropdown.png"} className = "dropdownIcon" alt = "darn"/>
-      <div className = "dropdown-content">hello</div>
     </div>
   )
 }

@@ -14,18 +14,24 @@ function Subscribe(){
     return (
         <div className = "subscribeContainer">
             <div className = "subscribe">
-                <p>Subscribe to see how we use every dollar donated.</p>
-                <p></p>
+                <div className = "c">
+                  <div className = "subscribeHeader">Subscribe to see how we use every dollar donated.</div>
+                </div>
                 <form>
-                    <input className = "input email">
+                    <label for ="st email label">Email:</label>
+                    <input id = "email" className = "st input email" placeholder = "Enter your email here">
                         
                     </input>
+                    <label for ="suggestion label">Suggestion:</label>
                     <input className = "input suggestion">
             
                     </input>
                 </form>
-                <p>We will <u>only</u> email you once a month for our newsletter and expenditures report.</p>
-                <p>We will never send you email asking for money or personal information.</p>
+                <div className = "c">
+                  <p className = "st email">We will <u>only</u> email you once a month for our newsletter and expenditures report.</p>
+                  <p className = "st suggestion">We will never send you email asking for money or personal information.</p>
+                  <div className = "subscribeButton">Subscribe</div>
+                </div>
             </div>
         </div>
     );

@@ -1,3 +1,9 @@
+.icons{
+  height: 100%;
+  justify-content: left;
+  min-width: 300px;
+}
+
 .visible{
     height: auto;
     width: 50px;
@@ -25,6 +31,11 @@
     margin-left: 25px;
     width: 50px;
   }
+
+  .youtube{
+    margin-top: 25px;
+  }
+  
   .youtube_colors {
     width: 78px;
     height: auto;

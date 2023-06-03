@@ -40,12 +40,6 @@
     height: 3vh;
   }
 
-  .icons{
-    height: 100%;
-    justify-content: left;
-    min-width: 300px;
-  }
-
   .headerText {
     height: 15vh;
     align-items: center;
