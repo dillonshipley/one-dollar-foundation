@@ -4,17 +4,55 @@
 }
 
 /* ----- BODY ----- */
-.homepageImageContainer{
-  position: relative;
-}
 .homepageContainer{
   position: relative;
 }
-.mainBackground{
-  display: block;
-  width: 100vw;
+
+.hp{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.desktopHomepage{
+  position: absolute;
+  display: grid;
+  grid-template-columns: 50vw 50vw;
   height: 90vh;
 }
+
+.mobileHomepage{
+  display: flex;
+}
+
+.homepageImageContainer{
+  position: relative;
+  height: 90v
+}
+
+.mainBackground{
+  position: absolute;
+  width: 100%;
+  height: 90vh;
+  z-index: 1;
+
+}
+
+.bgImage{
+  width: 100%;
+  height: 90vh;
+}
+
+.darken {
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    );
+  z-index: 2;
+}
+
 .homepageImageContainer::after{
   content: "";
   position: absolute;
@@ -25,30 +63,34 @@
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(255, 255,255, 1));
   pointer-events: none;
 }
+
+.overlayContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .overlay{
-    position: absolute;
-    width: 100%;
-    transform: translate(-50%);
     color: white;
     font-family: 'Coolvetica', sans-serif;
     letter-spacing: 2px;
 }
+
+
 .o1{
-  top: 15%;
-  left: 42%;
+  width: 80%;
   font-size: 2em;
   font-weight: bold;
 }
 .o2{
-  top: 35%;
-  left: 48%;
+  width: 70%;
   font-size: 2.5em;
   font-weight: bold;
 }
 
 /* ----- DONATION ----- */
 .donationButtonSection{
-  position: absolute;
   top: 55%;
   left: 40%;
   right: 40%;
@@ -56,8 +98,7 @@
   width: 20vw; 
 }
 .donationButton {
-    position: relative;
-    z-index: 2;
+    z-index: 3;
     height: 15vh;
     line-height: 15vh;
     min-width: 200px;
@@ -128,10 +169,7 @@
   border: 2px solid black;
 }
 
-@font-face {
-  font-family: 'Coolvetica';
-  src: url('Coolvetica.otf') format('truetype');
-}
+
 
 .footer{
   width: 100%;
@@ -142,4 +180,14 @@
   justify-content: center;
   align-items: center;
   height: 100%; /* Set the desired height */
+}
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('Coolvetica.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Olympia';
+  src: url('Olympia.otf') format('truetype')
 }

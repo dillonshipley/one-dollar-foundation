@@ -2,14 +2,49 @@ import React, {useState} from 'react';
 import DonateModal from './DonateModal';
 import Footer from "./Footer";
 import '../css/Options.css';
+import '../css/Subscribe.css';
+
+function Subscribe(){
+  return (
+    <div className = "subscribe">
+      <p>Subscribe to see how we use every dollar donated.</p>
+      <p></p>
+      <form>
+        <input className = "input email">
+          
+        </input>
+        <input className = "input suggestion">
+
+        </input>
+      </form>
+      <p>We will <u>only</u> email you once a month for our newsletter and expenditures report.</p>
+      <p>We will never send you email asking for money or personal information.</p>
+    </div>
+  );
+}
+
 
 function HomepageImage(){
   return (
-    <div className = "rel">
+    <div class = 'homepageContainer'>
       <div className="homepageImageContainer">
-        <img src={process.env.PUBLIC_URL + '/images/background.jpeg'} alt="background" className="mainBackground" />
-        <p className="overlay o1">Changing the world one step at a time.</p>
-        <p className="overlay o2">Welcome to the One Dollar Foundation.</p>
+        <div className="mainBackground">
+          <img src={process.env.PUBLIC_URL + '/images/background.jpeg'} alt="background" className = "bgImage"/>
+        </div>
+        <div className = "mainBackground darken" />
+      </div>
+      <div className = {window.innerWidth > 1200 ? "hp desktopHomepage" : "hp mobileHomepage"}>
+        <div className = 'overlayContainer'>
+          <p className="overlay o1">Changing the world one step at a time.</p>
+          <p className="overlay o2">Welcome to the One Dollar Foundation.</p>
+          <DonationButton />
+        </div>
+        {window.innerWidth > 1200 && 
+          <div className = "subscribeContainer">
+            <Subscribe />
+          </div>
+        }
+
       </div>
     </div>
   );
@@ -88,8 +123,7 @@ class Body extends React.Component {
     return(
       <div>
         <div className = "homepageContainer">
-          <HomepageImage />
-          <DonationButton click={this.showModal}/>
+          <HomepageImage modal = 'showModal'/>
         </div>
         <div className = "homepageSectionTwo">
             <p className = 'quote'>"Every good act is charity. A man's true wealth hereafter is the good that he does in this world to his fellows. - Moliere"</p>
