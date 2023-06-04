@@ -27,7 +27,7 @@ function Subscribe(){
             
                     </input>
                 </form>
-                <div className = "c">
+                <div className = "moreSubText c">
                   <p className = "st email">We will <u>only</u> email you once a month for our newsletter and expenditures report.</p>
                   <p className = "st suggestion">We will never send you email asking for money or personal information.</p>
                   <div className = "subscribeButton">Subscribe</div>
@@ -41,10 +41,10 @@ function Subscribe(){
 function Background(){
     return (
         <div className="homepageImageContainer">
-            <div className="mainBackground">
+            <div className="mainBackground hpSize">
                 <img src={process.env.PUBLIC_URL + '/images/background.jpeg'} alt="background" className = "bgImage"/>
             </div>
-            <div className = "mainBackground darken" />
+            <div className = "mainBackground hpSize darken" />
       </div>
     );
 }
