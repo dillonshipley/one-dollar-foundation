@@ -1,7 +1,8 @@
-import React from 'react';
 import {FadeImage} from './FadeImage';
 import '../css/Header.css';
 import '../css/HeaderIcons.css';
+import '../css/SocialDropdown.css';
+import React, {useState} from 'react';
 
 function Icons() {
   return (
@@ -13,18 +14,27 @@ function Icons() {
   );
 }
 
-function Dropdown({dropdownSelected}){
+function Dropdown({swap, status}){
   return (
-    <div className = "h dropdownIconContainer" onClick = {dropdownSelected}>
+    <div className = {status ? "h dropdownIconContainer ddOpen" : "h dropdownIconContainer ddClosed"} onClick = {swap}>
       <img src = {process.env.PUBLIC_URL+ "/images/dropdown.png"} className = "dropdownIcon" alt = "darn"/>
     </div>
   )
 }
 
-class Header extends React.Component {
+export default class Header extends React.Component{
 
-  enableDropdown(){
-    console.log('beans');
+  constructor(props){
+    super(props);
+    this.state = {
+      dropdown: false,
+    }
+  }
+
+  enableDropdown = () => {
+    let newVal = !this.state.dropdown;
+    this.setState({dropdown: newVal});
+    this.props.dropdown(newVal);
   }
 
   render(){
@@ -33,12 +43,10 @@ class Header extends React.Component {
         <div className = {window.innerWidth > 800 ? "h headerOne" : "h headerTwo"}>
           <img src={process.env.PUBLIC_URL+ "/images/logo.jpeg"} alt = "Logo" className='h headerImage'></img>
           <div className = 'h headerText'><p className = "ht">The One Dollar Foundation</p></div>
-          {window.innerWidth > 800 ? <Icons /> : <Dropdown dropdownSelected = {this.enableDropdown}/>}
+          {window.innerWidth > 800 ? <Icons /> : <Dropdown swap = {this.enableDropdown} status = {this.state.dropdown}/>}
         </div>
         <div className = "headerUnderline"></div>
       </div>
     )
   }
 }
-
-export default Header;

@@ -1,0 +1,36 @@
+.ddOpen{
+    transform: rotate(180deg);
+}
+
+.ddClosed{
+    transform: rotate(0deg);
+}
+
+.SocialDropdown{
+    z-index: 6;
+    position: relative;
+    width: 40%;
+    float: right;
+    border-bottom-left-radius: 3px;
+}
+
+.SocialDropdown .closed{
+    height: 0;
+}
+
+.SocialDropdown .open{
+    height: 500px;
+}
+
+.SocialDropdownOption{
+    min-height: 75px;
+    background-color: white;
+    border-bottom-left-radius: 3px;
+    line-height: 75px;
+    border-bottom: 1px solid black;
+}
+
+.socialOption{
+    width: 100%;
+    height: auto;
+}

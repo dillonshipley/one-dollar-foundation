@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import '../../css/SocialDropdown.css'
 
 function DonationButton({click}){
     return(
@@ -23,7 +24,7 @@ function Subscribe(){
                         
                     </input>
                     <label for ="suggestion label">Suggestion:</label>
-                    <input className = "input suggestion">
+                    <input className = "st input suggestion" placeholder = "Please let us know of any events in your community you'd like us to be involved in">
             
                     </input>
                 </form>
@@ -48,10 +49,38 @@ function Background(){
       </div>
     );
 }
-  
-export default function HomepageImage({modal}){
+
+function SocialDropdown({dropdown}){
+  useEffect(() => {
+    console.log(dropdown);
+  }, [dropdown]);
+
+  if(dropdown){
+    console.log("lit");
     return (
-      <div class = 'homepageContainer'>
+      <div className = 'SocialDropdown closed'>
+      </div>
+    );
+  } else {
+    return (
+      <div className = 'SocialDropdown open'>
+        <div className = 'SocialDropdownOption'>
+          <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/InstagramLogo.png'}/>
+        </div>
+        <div className = 'SocialDropdownOption'>
+          <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/DiscordLogo.png'}/>
+        </div>
+        <div className = 'SocialDropdownOption'>
+          <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/YoutubeLogo.png'}/>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default function HomepageImage({modal, expanded}){
+    return (
+      <div className = 'homepageContainer'>
         <Background />
         <div className = {window.innerWidth > 1200 ? "hp desktopHomepage" : "hp mobileHomepage"}>
           <div className = 'overlayContainer'>
@@ -63,6 +92,7 @@ export default function HomepageImage({modal}){
           </div>
           {window.innerWidth > 1200 && <Subscribe />}
         </div>
+        <SocialDropdown dropdown = {expanded} />
       </div>
     );
   }

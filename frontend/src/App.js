@@ -9,7 +9,7 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      selection: "Home",
+      dropdown: false,
       width: window.innerWidth,
     }
   }
@@ -31,16 +31,17 @@ class App extends React.Component{
   }
 
   displayBody(){
-    if(this.state.width <= 600)
-      return <Body footer = {true} /> 
-    else 
-      return <Body footer ={false} />
+      return <Body footer = {this.state.width <= 600} dropdown = {this.state.dropdown}/> 
+  }
+
+  setDropdown = (e) => {
+    this.setState({dropdown: e})
   }
 
   render(){
     return (
       <div className="App">
-        <Header />
+        <Header dropdown = {this.setDropdown}/>
         {this.displayBody()}
       </div>
     );

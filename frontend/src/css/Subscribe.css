@@ -1,14 +1,15 @@
 .subscribeContainer{
   display: flex;
   justify-content: center;
-  height: vw;
-  max-height: 600px;
+  max-height: 90vh;
+  min-height: 500px;
+  width: 50vw;
 }
 
 .subscribe{
     position: relative;
     width: 70%;
-    height: 100%;
+    height: 70%;
     min-height: 500px;
     margin-top: 5%;
     background-color: white;
@@ -44,18 +45,28 @@ form{
 label{
   text-align: left;
   margin-left: 5%;
+  font-size: 1vw;
 }
 
 .input{
   display: block;
-  width: 80%;
+  width: 90%;
   margin-left: 5%;
   margin-bottom: 20px;
 }
 
-.email::placeholder{
+.input::placeholder{
   color: gray;
   font-style: italic;
+  white-space: pre-wrap;
+}
+
+.suggestion::placeholder{
+  margin-top: -15px;
+}
+
+.suggestion{
+  height: 70px;
 }
 
 .subscribeHeader{
@@ -79,4 +90,47 @@ label{
   border-radius: 4px;
   border: 2px solid black;
   margin-bottom: 50px;
+}
+
+@media screen and (min-width: 1700px){
+  .subscribe{
+    font-size: 25px;
+  }
+  form{
+    margin-top: 20px;
+  }
+  label{
+    text-align: left;
+    margin-left: 5%;
+    font-size: 20px;
+  }
+  .st{
+    font-size: 20px;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1500px){
+  form{
+    margin-top: 20px;
+  }
+  label{
+    text-align: left;
+    margin-left: 5%;
+    font-size: 20px;
+  }
+  .st{
+    font-size: 20px;
+  }
+  .moreSubText{
+    margin-left: 10%;
+    width: 80%;
+  }
+  .subscribeButton{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 70%;
+    height: 80%;
+  }
+  
 }

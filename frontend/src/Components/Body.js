@@ -3,7 +3,7 @@ import DonateModal from './DonateModal';
 import Footer from "./Footer";
 import '../css/Options.css';
 import '../css/Subscribe.css';
-import HomepageImage from './Homepage';
+import Homepage from './Homepage/Homepage';
 
 
 function Option({image, text}){
@@ -49,7 +49,7 @@ class Body extends React.Component {
     super(props)
     this.state = {
       footer: props.footer,
-      modal: false
+      modal: false,
     };
   }
 
@@ -68,7 +68,7 @@ class Body extends React.Component {
   render(){
     return(
       <div>
-        <HomepageImage modal = {this.showModal}/>
+        <Homepage modal = {this.showModal} expanded = {this.props.dropdown}/>
         <div className = "homepageSectionTwo">
             <p className = 'quote'>"Every good act is charity. A man's true wealth hereafter is the good that he does in this world to his fellows. - Moliere"</p>
             <div className = "imageContainer">
