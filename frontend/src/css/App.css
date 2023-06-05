@@ -1,63 +1,132 @@
 .App {
   text-align: center;
-  border-top: 2px solid black;
+  margin-top: 2px;
 }
 
 /* ----- BODY ----- */
+.homepageContainer{
+  position: relative;
+  display: block;
+  height: 90vh;
+  min-height: 500px;
+}
+
+.flex{
+  display: flex;
+}
+
+.hp{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 90vh;
+  min-height: 500px;
+  z-index: 4;
+}
+
+.hpSize{
+  height: 90vh;
+  min-height: 500px;
+}
+
+.desktopHomepage{
+  position: absolute;
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+}
+
+.mobileHomepage{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .homepageImageContainer{
   position: relative;
 }
-.homepageContainer{
-  position: relative;
-}
+
 .mainBackground{
-  display: block;
-  width: 100vw;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.mainBackground::before{
+    content: "";
+    position: absolute;
+    top: 70%;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    background-clip: padding-box;
+    pointer-events: none;
+}
+
+.bgImage{
+  width: 100%;
   height: 90vh;
 }
-.homepageImageContainer::after{
-  content: "";
-  position: absolute;
-  top: 60%;
-  width: 100%;
-  left: 0;
-  height: 40%;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(255, 255,255, 1));
-  pointer-events: none;
+
+.darken {
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    );
+  z-index: 2;
 }
+
+.overlayContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 70vh;
+}
+
+.mobileHomepage .overlayContainer{
+  width: 100%;
+}
+
 .overlay{
-    position: absolute;
-    width: 100%;
-    transform: translate(-50%);
     color: white;
     font-family: 'Coolvetica', sans-serif;
     letter-spacing: 2px;
+
 }
+
+
 .o1{
-  top: 15%;
-  left: 42%;
+  height: 15%;
+  width: 60%;
   font-size: 2em;
   font-weight: bold;
+  margin-top: 10%;
 }
+
+.o1 p{
+  min-width: 300px;
+}
+
 .o2{
-  top: 35%;
-  left: 48%;
+  height: 30%;
+  width: 70%;
   font-size: 2.5em;
   font-weight: bold;
 }
 
 /* ----- DONATION ----- */
 .donationButtonSection{
-  position: absolute;
-  top: 55%;
-  left: 40%;
-  right: 40%;
   height: 15vh;
   width: 20vw; 
+  min-width: 200px;
 }
 .donationButton {
-    position: relative;
-    z-index: 2;
+    z-index: 3;
     height: 15vh;
     line-height: 15vh;
     min-width: 200px;
@@ -88,11 +157,11 @@
 }
 @media screen and (max-width: 600px){
   .o1{
-    font-size: 1em;
+    font-size: 2em;
     width: 60%;
   }
   .o2{
-    font-size: 1.5em;
+    font-size: 2em;
     width: 60%;
   }
 }
@@ -128,10 +197,7 @@
   border: 2px solid black;
 }
 
-@font-face {
-  font-family: 'Coolvetica';
-  src: url('Coolvetica.otf') format('truetype');
-}
+
 
 .footer{
   width: 100%;
@@ -142,4 +208,14 @@
   justify-content: center;
   align-items: center;
   height: 100%; /* Set the desired height */
+}
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('./fonts/Coolvetica.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Olympia';
+  src: url('./fonts/Olympia.otf') format('truetype')
 }

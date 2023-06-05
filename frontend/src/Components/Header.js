@@ -1,6 +1,8 @@
-import React from 'react';
 import {FadeImage} from './FadeImage';
 import '../css/Header.css';
+import '../css/HeaderIcons.css';
+import '../css/SocialDropdown.css';
+import React, {useState} from 'react';
 
 function Icons() {
   return (
@@ -12,21 +14,39 @@ function Icons() {
   );
 }
 
-class Header extends React.Component {
+function Dropdown({swap, status}){
+  return (
+    <div className = {status ? "h dropdownIconContainer ddOpen" : "h dropdownIconContainer ddClosed"} onClick = {swap}>
+      <img src = {process.env.PUBLIC_URL+ "/images/dropdown.png"} className = "dropdownIcon" alt = "darn"/>
+    </div>
+  )
+}
+
+export default class Header extends React.Component{
+
+  constructor(props){
+    super(props);
+    this.state = {
+      dropdown: false,
+    }
+  }
+
+  enableDropdown = () => {
+    let newVal = !this.state.dropdown;
+    this.setState({dropdown: newVal});
+    this.props.dropdown(newVal);
+  }
+
   render(){
     return(
       <div>
-        <div className = "header">
-          <img src={process.env.PUBLIC_URL+ "/logo.jpeg"} alt = "Logo" className='headerImage'></img>
-          <div className = 'headerTextContainer'>
-            <div className = 'headerText'>The One Dollar Foundation</div>
-          </div>
-          {(window.innerWidth >= 960) && <Icons />}
+        <div className = {window.innerWidth > 800 ? "h headerOne" : "h headerTwo"}>
+          <img src={process.env.PUBLIC_URL+ "/images/logo.jpeg"} alt = "Logo" className='h headerImage'></img>
+          <div className = 'h headerText'><p className = "ht">The One Dollar Foundation</p></div>
+          {window.innerWidth > 800 ? <Icons /> : <Dropdown swap = {this.enableDropdown} status = {this.state.dropdown}/>}
         </div>
         <div className = "headerUnderline"></div>
       </div>
     )
   }
 }
-
-export default Header;

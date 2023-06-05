@@ -1,0 +1,49 @@
+.icons{
+  height: 100%;
+  justify-content: left;
+  min-width: 300px;
+}
+
+.visible{
+    height: auto;
+    width: 50px;
+  }
+  .fade{
+    top: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.5s ease;
+  }
+  .image-container:hover .fade {
+    opacity: 1;
+  }
+  .instagram{
+    margin-top: 25px;
+  }
+  .youtube{
+    top: 0px;
+  }
+  .instagram_colors{
+    height: auto;
+    position: absolute;
+    margin-top: 25px;
+    margin-left: 25px;
+    width: 50px;
+  }
+
+  .youtube{
+    margin-top: 25px;
+  }
+  
+  .youtube_colors {
+    width: 78px;
+    height: auto;
+    margin-left: 11px;
+    margin-top: 33px;
+    top: -5px
+  }
+  .discord_colors{
+    margin-left: 25px;
+    height: 38px;
+  }

@@ -1,41 +1,61 @@
 /* ----- HEADER ----- */
 
-.header{
+.h{
+  max-height: 100px;
+}
+
+.headerOne{
+  display: grid;
     height: 15vh;
-    min-height: 40px;
+    grid-template-columns: 10% 50% 40%;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
   }
+
+  .headerTwo{
+    display: grid;
+    height: 15vh;
+    grid-template-columns: 10% 75% 15%;
+    width: 100%;
+  }
+
   .headerImage{
-    width: 20%;
-    max-width: 100px;
-    height: auto;
-    float: left;
-    margin-left: 30px
+    min-width: 100px;
+    width: auto;
+    padding-top: 10%;
+    height: 80%;
+    margin-left: 5%;
   }
 
-  .icons{
-    height: 100%;
-    justify-content: left;
+  .dropdownIconContainer{
+    height: 15vh;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .headerTextContainer{
-      display: flex;
-      align-items: center;
-      justify-content: left;
-      text-align: left;
-      height: 100%; /* Set the desired height for the container */
+  .dropdownIcon{
+    min-height: 25px;
+    min-width: auto;
+    height: 3vh;
   }
 
   .headerText {
-    float: left;
-    line-height: 100%;
-    font-size: 3.5vw;
+    height: 15vh;
+    align-items: center;
+    text-align: left;
+    font-size: 5vw;
     font-weight: bold;
-    padding-left: 30px;
-  
+    display: flex;
+    justify-content: left;
+    margin-left: 20px;
+    font-family: 'Olympia';
   }
+
+  .ht{
+    all: unset;
+  }
+
   .icon {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -47,60 +67,98 @@
     width: 100px;
     position: relative;
   }
-  .visible{
-    height: auto;
-    position: relative;
-    width: 50px;
-  }
-  .fade{
-    top: 0;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    transition: opacity 0.5s ease;
-  }
-  .image-container:hover .fade {
-    opacity: 1;
-  }
-  .instagram{
-    margin-top: 25px;
-  }
-  .youtube{
-    top: -5px;
-  }
-  .instagram_colors{
-    height: auto;
-    position: absolute;
-    margin-top: 25px;
-    margin-left: 25px;
-    width: 50px;
-  }
-  .youtube_colors {
-    width: 78px;
-    height: auto;
-    margin-left: 11px;
-    margin-top: 33px;
-    top: -5px
-  }
-  .discord_colors{
-    margin-left: 25px;
-    height: 38px;
+
+  .headerUnderline{
+    height: 3px;
+    background-color: #262626;
+    width: 100%;
   }
 
-  @media screen and (max-width: 960px){
-    .headerText{
-        font-size: 5vw;
-    }
-    .header{
-      justify-content: left;
+  @media screen and (max-width: 1000px){
+    .headerOne{  
+      grid-template-columns: 10% 55% 35%;
     }
     .headerText{
-      width: 100%;
+      padding-left: 30px;
+    }
+    .headerImage{
+      height: 80%;
+      padding-top: 0;;
+    }
+    
+  }
+
+  @media screen and (max-width: 800px){
+    .icons{
+      display: none;
+    }
+    .headerText{
+      font-size: 7vw;
+      padding-left: 25px;
+    }
+    .headerImage{
+      height: 100%;
+    }
+
+  }
+
+
+  @media screen and (max-width: 600px){
+    .h{
+      max-height:70px;
+    }
+
+    .headerTwo{
+      grid-template-columns: 15% 65% 20%;
+    }
+    .headerText{
+      padding-left: 28px;
+      margin-left: 0px;
+      font-size: 6vw;
+    }
+    .headerImage{
+      height: 15vh;
+    }
+
+    .dropdownIcon{
+      min-height: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 12px 16px;
+      z-index: 1;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  
+  }
+  
+  @media screen and (max-width: 450px){
+    .headerTwo{
+      grid-template-columns: 15% 70% 15%;
+    }
+    .h{
+      height: 8vh;
+      min-height:60px;
+    }
+    .headerImage{
+      min-width: 60px;
+    }
+    .headerText{
+      padding-left: 30px;
+      font-size: 6vw;
+    }
+    .dropdownIcon{
+      min-height: 10px;
     }
   }
 
-.headerUnderline{
-  height: 3px;
-  background-color: #262626;
-  width: 100%;
-}

@@ -2,28 +2,9 @@ import React, {useState} from 'react';
 import DonateModal from './DonateModal';
 import Footer from "./Footer";
 import '../css/Options.css';
+import '../css/Subscribe.css';
+import Homepage from './Homepage/Homepage';
 
-function HomepageImage(){
-  return (
-    <div className = "rel">
-      <div className="homepageImageContainer">
-        <img src={process.env.PUBLIC_URL + '/images/background.jpeg'} alt="background" className="mainBackground" />
-        <p className="overlay o1">Changing the world one step at a time.</p>
-        <p className="overlay o2">Welcome to the One Dollar Foundation.</p>
-      </div>
-    </div>
-  );
-}
-
-function DonationButton({click}){
-  return(
-    <div className="donationButtonSection">
-      <div className="donationButton" onClick={click}>
-        <p className="donationText">Step Up Now &gt;</p>
-      </div>
-    </div>
-  );
-}
 
 function Option({image, text}){
   const [isHovered, setIsHovered] = useState(false);
@@ -68,11 +49,11 @@ class Body extends React.Component {
     super(props)
     this.state = {
       footer: props.footer,
-      modal: false
+      modal: false,
     };
   }
 
-  showModal = e => {
+  showModal = () => {
     this.setState({
       modal: true
     }); 
@@ -87,10 +68,7 @@ class Body extends React.Component {
   render(){
     return(
       <div>
-        <div className = "homepageContainer">
-          <HomepageImage />
-          <DonationButton click={this.showModal}/>
-        </div>
+        <Homepage modal = {this.showModal} expanded = {this.props.dropdown}/>
         <div className = "homepageSectionTwo">
             <p className = 'quote'>"Every good act is charity. A man's true wealth hereafter is the good that he does in this world to his fellows. - Moliere"</p>
             <div className = "imageContainer">

@@ -3,13 +3,3 @@
     font-size: 1.5em;
   }
 }
-@media screen and (max-width: 600px){
-  .o1{
-    font-size: 1em;
-    width: 60%;
-  }
-  .o2{
-    font-size: 1.5em;
-    width: 60%;
-  }
-}
