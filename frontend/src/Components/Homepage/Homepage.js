@@ -50,32 +50,26 @@ function Background(){
     );
 }
 
+function DropdownOption({type}){
+  return (
+    <div className = 'SocialDropdownOption'>
+      <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/' + type + 'Logo.png'}/>
+    </div>
+    );
+}
+
 function SocialDropdown({dropdown}){
   useEffect(() => {
     console.log(dropdown);
   }, [dropdown]);
 
-  if(dropdown){
-    console.log("lit");
     return (
-      <div className = 'SocialDropdown closed'>
+      <div className = {`SocialDropdown ${dropdown ? 'slide-down' : 'slide-up'}`}>
+        <DropdownOption type = 'Discord'/>
+        <DropdownOption type = 'Instagram'/>
+        <DropdownOption type = 'YouTube' />
       </div>
     );
-  } else {
-    return (
-      <div className = 'SocialDropdown open'>
-        <div className = 'SocialDropdownOption'>
-          <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/InstagramLogo.png'}/>
-        </div>
-        <div className = 'SocialDropdownOption'>
-          <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/DiscordLogo.png'}/>
-        </div>
-        <div className = 'SocialDropdownOption'>
-          <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/YoutubeLogo.png'}/>
-        </div>
-      </div>
-    );
-  }
 }
 
 export default function HomepageImage({modal, expanded}){
