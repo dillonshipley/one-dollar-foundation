@@ -14,12 +14,14 @@
     z-index: 7;
     width: 100vw;
     height: 85vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .donationModal {
-    position: fixed;
     z-index: 7;
-    top: 15vh;
     left: 30vw;
     right: 30vw;
     width: 40vw;
@@ -32,32 +34,38 @@
   }
   
   .donationMethodOptionContainer{
-    width: 40vw;
+    width: 100%;
     height: 8vh;
   
-    display: grid;
-    grid-template-columns: 20vw 20vw;
-  
     background-color: #dddddd;
+    display: flex;
+    flex-direction: row;
   
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     border-bottom: 1px solid #444444;
   }
+
+  .donationMethodContainer{
+    width: 100%;
+
+    min-height: 75px;
+
+  }
   
   .donationMethodOption {
-    width: 20vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     height: 8vh;
     border-right: 2px solid #999999;
   }
   
   .donationMethodSelected {
-    width: 20vw;
+    width: 100%;
     height: 1vh;
     margin-top: -1vh;
     background-color: #bfdce3;
-    border-right: 2px solid #999999;
-    border-bottom: 1px solid #444444;
   }
   
   .VenmoQR {
@@ -80,15 +88,20 @@
   
   .VenmoLogo{
     position: aboslute;
-    width: 80%;
+    width: 100%;
+    min-width: 200px;
     max-width: 250px;
     height: 100%;
   }
   
   .CashAppLogo{
     position: aboslute;
-    width: 65%;
+    width: 80%;
     height:60%;
-    margin-top: 5%;
-    margin-left: -10%;
+  }
+
+  @media screen and (max-width: 600px){
+    .donationModal{
+      width: 70vw;
+    }
   }

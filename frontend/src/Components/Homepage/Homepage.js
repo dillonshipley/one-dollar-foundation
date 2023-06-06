@@ -51,25 +51,37 @@ function Background(){
 }
 
 function DropdownOption({type}){
+  var href = "";
+  switch(type){
+    case 'Instagram':
+      href = 'https://www.instagram.com/_alivanov__/'
+      break;
+    case 'YouTube':
+      href = 'https://www.youtube.com/@alivanov247';
+      break;
+    case 'Discord':
+      href = 'https://discord.com/invite/Pge52B5U';
+      break;
+    default:
+      console.log('Error!')
+      break;
+  }
+
   return (
-    <div className = 'SocialDropdownOption'>
+    <a href={href} className = 'SocialDropdownOption'>
       <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/' + type + 'Logo.png'}/>
-    </div>
+    </a>
     );
 }
 
 function SocialDropdown({dropdown}){
-  useEffect(() => {
-    console.log(dropdown);
-  }, [dropdown]);
-
-    return (
-      <div className = {`SocialDropdown ${dropdown ? 'slide-down' : 'slide-up'}`}>
-        <DropdownOption type = 'Discord'/>
-        <DropdownOption type = 'Instagram'/>
-        <DropdownOption type = 'YouTube' />
-      </div>
-    );
+  return (
+    <div className = {`SocialDropdown ${dropdown ? 'slide-down' : 'slide-up'}`}>
+      <DropdownOption type = 'Discord'/>
+      <DropdownOption type = 'Instagram'/>
+      <DropdownOption type = 'YouTube' />
+    </div>
+  );
 }
 
 export default function HomepageImage({modal, expanded}){
