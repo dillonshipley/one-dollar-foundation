@@ -41,9 +41,20 @@ function Options(){
   );
 }
 
-
+async function logJSONData() {
+  const response = await fetch("localhost:3000/");
+  const jsonData = await response.json();
+  console.log(jsonData);
+}
 
 class Body extends React.Component {
+
+
+  
+
+  componentDidMount(){
+    logJSONData();
+  }
 
   constructor(props){
     super(props)
