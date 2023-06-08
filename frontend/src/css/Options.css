@@ -54,3 +54,30 @@
     background-image: linear-gradient(to top, rgba(200, 200, 200, 0), rgba(255, 255,255, 1));
     pointer-events: none;
   }
+
+  .revenue{
+    margin-top: 20px;
+  }
+
+  .revenueLineOne{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .revenueType {
+    color:forestgreen;
+    width: 50%;
+    text-align: left;
+    font-size: 20px;
+  }
+
+  .revenueLocation{
+    width: 30%;
+    text-align: right;
+  }
+  .revenueDate{
+    text-align: left;
+    color: gray;
+    font-style: italic;
+  }

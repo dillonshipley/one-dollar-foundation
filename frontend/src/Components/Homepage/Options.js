@@ -25,9 +25,12 @@ function Option({image, text, select}){
 
 function EventElement({data, index}){
     return (
-        <div>
-            <p>Fundraising Event</p>
-            {data.Date}
+        <div className = "revenue">
+            <div className = "revenueLineOne">
+                <div className = "revenueType">Fundraising Event</div>
+                <div className = "revenueLocation">{data.Location}</div>
+            </div>
+            <div className = "revenueDate">{data.Date}</div>
         </div>
     );;
     
