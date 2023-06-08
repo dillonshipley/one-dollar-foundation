@@ -1,67 +1,33 @@
 import React, {useState} from 'react';
 import DonateModal from './DonateModal';
 import Footer from "./Footer";
+import Options from './Homepage/Options'
 import '../css/Options.css';
 import '../css/Subscribe.css';
 import Homepage from './Homepage/Homepage';
 
-
-function Option({image, text}){
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseOver = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseOut = () => {
-    setIsHovered(false);
-  };
-
-  return (
-    <div className={isHovered ? 'optionHovered option' : 'option'}
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
-      >
-      <img src={process.env.PUBLIC_URL+ "/logos/" + image + ".png"} alt='darn' className = 'optionIcon'/>
-      <div className = 'optionText'>{text}</div>
-    </div>
-  );
-}
-
-function Options(){
-  return (
-    <div className = 'options'>
-      <div className = "optionTitle">Our Mission</div>
-      <div className = 'optionContainer'>
-        <Option image="clipboard" text ='Complete Small Projects' />
-        <div className = 'option'>Provide Forward-Thinking Help</div>
-        <Option image="spreadsheet" text = 'Maintain Financial Transparency' />
-      </div>
-    </div>
-  );
-}
-
 async function logJSONData() {
-  const response = await fetch("localhost:3000/");
+  const response = await fetch("http://localhost:3001/");
   const jsonData = await response.json();
-  console.log(jsonData);
+  return jsonData;
 }
 
 class Body extends React.Component {
-
-
-  
-
-  componentDidMount(){
-    logJSONData();
-  }
-
   constructor(props){
     super(props)
     this.state = {
       footer: props.footer,
       modal: false,
     };
+  }
+
+  componentDidMount(){
+    const excelData = logJSONData()
+      .then((data) => {
+        console.log(data);
+        this.setState({optionsExcel: data});
+        console.log(this.state.optionsExcel);
+      });
   }
 
   showModal = () => {
@@ -89,9 +55,7 @@ class Body extends React.Component {
             </div>
         </div>
         {this.props.footer && <Footer />}
-        <div className = "homepageSectionThree">
-          <Options />
-        </div>
+        <Options excel = {this.state.optionsExcel}/>
         <DonateModal show={this.state.modal} close = {this.hideModal}/>
       </div>
     );

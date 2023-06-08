@@ -19,11 +19,11 @@ function Subscribe(){
                   <div className = "subscribeHeader">Subscribe to see how we use every dollar donated.</div>
                 </div>
                 <form>
-                    <label for ="st email label">Email:</label>
+                    <label htmlFor ="email" className = "st input label">Email:</label>
                     <input id = "email" className = "st input email" placeholder = "Enter your email here">
                         
                     </input>
-                    <label for ="suggestion label">Suggestion:</label>
+                    <label htmlFor ="suggestion label">Suggestion:</label>
                     <input className = "st input suggestion" placeholder = "Please let us know of any events in your community you'd like us to be involved in">
             
                     </input>
