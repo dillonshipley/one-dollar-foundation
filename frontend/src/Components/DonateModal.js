@@ -1,24 +1,16 @@
 import React from 'react';
 import '../css/Modal.css';
 
-function DonationOption(props) {
-  var img = process.env.PUBLIC_URL + '/images/' + props.text + "Logo.png"
-  if (props.selected === props.text) {
+function DonationOption({text, select, selected}) {
+  var img = process.env.PUBLIC_URL + '/images/' + text + "Logo.png"
     return (
-      <div>
-        <div className="donationMethodOption">
-          <img src={img} alt="fuck" className={props.text + 'Logo'} />
+      <div className = "donationMethodContainer" onClick={select} onClick={select}>
+        <div className="donationMethodOption" >
+          <img src={img} alt="fuck" className={text + 'Logo'} />
         </div>
-        {props.selected === props.text && <div className="donationMethodSelected" />}
+        {selected === text && <div className="donationMethodSelected" />}
       </div>
     );
-  } else {
-    return (
-      <div className="donationMethodOption" onClick={props.select}>
-        <img src={img} alt="fuck" className={props.text + 'Logo'} />
-      </div>
-    );
-  }
 }
 
 function DonationDetail({type}){
@@ -58,7 +50,8 @@ export default class DonationModal extends React.Component {
           <div className = "donationModal" onClick = {e => e.stopPropagation()}>
             <div className = "donationMethodOptionContainer">
               <DonationOption text = "Venmo" select = {(e) => this.select("Venmo", e)} selected = {this.state.selected} />
-              <DonationOption text = "CashApp" select = {(e) => this.select("CashApp", e)} selected = {this.state.selected} />            </div>
+              <DonationOption text = "CashApp" select = {(e) => this.select("CashApp", e)} selected = {this.state.selected} />            
+            </div>
             <DonationDetail type = {this.state.selected}/>
           </div>
         </div>

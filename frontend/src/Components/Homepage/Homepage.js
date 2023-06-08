@@ -19,11 +19,11 @@ function Subscribe(){
                   <div className = "subscribeHeader">Subscribe to see how we use every dollar donated.</div>
                 </div>
                 <form>
-                    <label for ="st email label">Email:</label>
+                    <label htmlFor ="email" className = "st input label">Email:</label>
                     <input id = "email" className = "st input email" placeholder = "Enter your email here">
                         
                     </input>
-                    <label for ="suggestion label">Suggestion:</label>
+                    <label htmlFor ="suggestion label">Suggestion:</label>
                     <input className = "st input suggestion" placeholder = "Please let us know of any events in your community you'd like us to be involved in">
             
                     </input>
@@ -50,32 +50,38 @@ function Background(){
     );
 }
 
-function SocialDropdown({dropdown}){
-  useEffect(() => {
-    console.log(dropdown);
-  }, [dropdown]);
-
-  if(dropdown){
-    console.log("lit");
-    return (
-      <div className = 'SocialDropdown closed'>
-      </div>
-    );
-  } else {
-    return (
-      <div className = 'SocialDropdown open'>
-        <div className = 'SocialDropdownOption'>
-          <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/InstagramLogo.png'}/>
-        </div>
-        <div className = 'SocialDropdownOption'>
-          <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/DiscordLogo.png'}/>
-        </div>
-        <div className = 'SocialDropdownOption'>
-          <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/YoutubeLogo.png'}/>
-        </div>
-      </div>
-    );
+function DropdownOption({type}){
+  var href = "";
+  switch(type){
+    case 'Instagram':
+      href = 'https://www.instagram.com/_alivanov__/'
+      break;
+    case 'YouTube':
+      href = 'https://www.youtube.com/@alivanov247';
+      break;
+    case 'Discord':
+      href = 'https://discord.com/invite/Pge52B5U';
+      break;
+    default:
+      console.log('Error!')
+      break;
   }
+
+  return (
+    <a href={href} className = 'SocialDropdownOption'>
+      <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/' + type + 'Logo.png'}/>
+    </a>
+    );
+}
+
+function SocialDropdown({dropdown}){
+  return (
+    <div className = {`SocialDropdown ${dropdown ? 'slide-down' : 'slide-up'}`}>
+      <DropdownOption type = 'Discord'/>
+      <DropdownOption type = 'Instagram'/>
+      <DropdownOption type = 'YouTube' />
+    </div>
+  );
 }
 
 export default function HomepageImage({modal, expanded}){

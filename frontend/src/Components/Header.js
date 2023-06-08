@@ -16,7 +16,7 @@ function Icons() {
 
 function Dropdown({swap, status}){
   return (
-    <div className = {status ? "h dropdownIconContainer ddOpen" : "h dropdownIconContainer ddClosed"} onClick = {swap}>
+    <div className = {status ? "h dropdownIconContainer ddClosed" : "h dropdownIconContainer ddOpen"} onClick = {swap}>
       <img src = {process.env.PUBLIC_URL+ "/images/dropdown.png"} className = "dropdownIcon" alt = "darn"/>
     </div>
   )
