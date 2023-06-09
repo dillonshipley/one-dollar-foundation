@@ -1,7 +1,6 @@
 .subscribeContainer{
   display: flex;
   justify-content: center;
-  max-height: 90vh;
   min-height: 500px;
   width: 50vw;
 }
@@ -9,7 +8,7 @@
 .subscribe{
     position: relative;
     width: 70%;
-    height: 70%;
+    height: 80%;
     min-height: 500px;
     margin-top: 5%;
     background-color: white;
