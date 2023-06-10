@@ -169,7 +169,6 @@
 /* ----- SECTION 2 ----- */
 .homepageSectionTwo{
   background-color: white;
-  width: 100vw;
   height: 60vh;
   min-height: 400px;
   display:grid;
@@ -198,11 +197,12 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  max-width: 50vw;
 }
 
 .quoteImg{
   margin-left: 10%;
-  max-width: 60%;
+  width: 50%;
   max-height: 60%;
   border: 2px solid black;
 }

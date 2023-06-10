@@ -39,8 +39,10 @@ function EventElement({data, index}){
 function PrettySpreadSheet({data}){
     return (
         <div className = 'spreadSheetContainer'>
-            <div>Revenues</div>
-            <div>Expenses</div>
+            <div className = 'excelHeader'>
+                <div className = 'excelHeaderText'>Revenues</div>
+                <div className = 'excelHeaderText'>Expenses</div>
+            </div>
             {data.map((element, index) => (
                 <EventElement data = {element} key = {index} />
             ))}
@@ -62,9 +64,7 @@ export default function Options({excel}){
                     <Option image="spreadsheet" text = 'Maintain Financial Transparency' select = {() => setDisplay('Finances')}/>
             </div>
         </div>
-        <div>
-            {displayed === 'Finances' && <PrettySpreadSheet data={excel} />}
-        </div>
+        {displayed === 'Finances' && <PrettySpreadSheet data={excel} />}
 
     </div>
     );

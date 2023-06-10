@@ -22,7 +22,7 @@
 .slide-down {
     overflow: hidden;
     height: 0;
-    animation: slideExpandDown .8s ease-out forwards;
+    animation: slideExpandDown .5s ease-out forwards;
   }
 
   .slide-up {
