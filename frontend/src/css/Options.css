@@ -18,16 +18,16 @@
   }
   
   .option {
-    height: 50px;
-    width: 60%;
+    height: 80px;
+    width: 50%;
     left: 20%;
-    line-height: 50px;
+    line-height: 80px;
     margin-top: 1vh;
   
-    border-radius: 5px;
     border-bottom: 1px solid black;
     position: relative;
     display: flex;
+    align-items: center;
   }
   
   .optionIcon{
@@ -51,6 +51,8 @@
   }
   .optionContainer{
     height: 500px;
+    width: 80%;
+    margin-left: 20%;
   }
   .optionHovered{
     background-color: #dddddd;
