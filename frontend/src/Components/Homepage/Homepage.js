@@ -40,7 +40,7 @@ export default function HomepageImage({modal, expanded}){
     return (
       <div className = 'homepageContainer s1height'>
         <Background />
-        <div className = {window.innerWidth > 1200 ? "hp s1height desktopHomepage" : "hp s1height mobileHomepage"}>
+        <div className = {window.innerWidth > 1200 ? "hp s1height desktopHomepage" : "hp s1height mobileHomepage flex"}>
           <Overlay modal = {modal} />
           {window.innerWidth > 1200 && <Subscribe />}
         </div>

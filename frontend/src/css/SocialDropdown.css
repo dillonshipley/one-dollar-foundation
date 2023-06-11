@@ -1,9 +1,10 @@
 .ddOpen{
-    transform: rotate(180deg);
+  transform: rotate(0deg);  
+  
 }
 
 .ddClosed{
-    transform: rotate(0deg);
+  transform: rotate(180deg);
 }
 
 .SocialDropdown{

@@ -47,15 +47,15 @@ class Body extends React.Component {
       <div>
         <Homepage modal = {this.showModal} expanded = {this.props.dropdown}/>
         <div className = "homepageSectionTwo">
-            <div className = 'quoteContainer'>
-              <p className = 'quote'>"Every good act is charity. A man's true wealth hereafter is the good that he does in this world to his fellows. - Moliere"</p>
+            <div className = 'quoteContainer flex'>
+              <p className = 'quote'>"Every good act is charity. A man's true wealth hereafter is the good that he does in this world to his fellows." - Moliere</p>
             </div>
             <div className = "imageContainer">
               <img src={process.env.PUBLIC_URL + '/quote.jpg'} alt='Quote here' className ="quoteImg"/>
             </div>
         </div>
-        {this.props.footer && <Footer />}
         <Options excel = {this.state.optionsExcel}/>
+        {this.props.footer && <Footer />}
         <DonateModal show={this.state.modal} close = {this.hideModal}/>
       </div>
     );

@@ -27,7 +27,7 @@ function EventElement({data, index}){
     return (
         <div className = "revenue">
             <div className = "revenueLineOne">
-                <div className = "revenueType">Fundraising Event</div>
+                <div className = "revenueType">{data.Source}</div>
                 <div className = "revenueLocation">{data.Location}</div>
             </div>
             <div className = "revenueDate">{data.Date}</div>
@@ -36,36 +36,68 @@ function EventElement({data, index}){
     
 }
 
-function PrettySpreadSheet({data}){
+function PrettySpreadSheet({revenues, expenses}){
     return (
         <div className = 'spreadSheetContainer'>
             <div className = 'excelHeader'>
                 <div className = 'excelHeaderText'>Revenues</div>
                 <div className = 'excelHeaderText'>Expenses</div>
             </div>
-            {data.map((element, index) => (
+            {revenues.map((element, index) => (
+                <EventElement data = {element} key = {index} />
+            ))}
+            {expenses.map((element, index) => (
                 <EventElement data = {element} key = {index} />
             ))}
         </div>
     );
 }
 
+function Goal({data}){
+    return(
+        <div>
+            
+        </div>
+    );
+}
+
+function GoalContainer({data}){
+    return (
+        <div className = "goalContainer">
+            <div className="goalImages">
+                <Goal data = {data[0]}/>
+                <Goal data = {data[1]}/>
+                <Goal data = {data[2]}/>
+            </div>
+            <div className = "goalText">
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+
+        </div>
+    )
+}
+
 export default function Options({excel}){
     const [displayed, setDisplay] = useState('Projects');
 
     return (
-        
-    <div className = 'homepageSectionThree'>
-        <div className = 'options'>
+        <>
             <div className = "optionTitle">Our Mission</div>
-            <div className = 'optionContainer'>
-                    <Option image="clipboard" text ='Complete Small Projects' select = {() => setDisplay('Projects')}/>
-                    <div className = 'option'>Provide Forward-Thinking Help</div>
-                    <Option image="spreadsheet" text = 'Maintain Financial Transparency' select = {() => setDisplay('Finances')}/>
-            </div>
-        </div>
-        {displayed === 'Finances' && <PrettySpreadSheet data={excel} />}
+            <div className = 'homepageSectionThree'>
+                
+                <div className = 'options'>
+                    <div className = 'optionContainer'>
+                            <Option image="clipboard" text ='Complete Small Projects' select = {() => setDisplay('Goals')}/>
+                            <div className = 'option'>Provide Forward-Thinking Help</div>
+                            <Option image="spreadsheet" text = 'Maintain Financial Transparency' select = {() => setDisplay('Finances')}/>
+                    </div>
+                </div>
+                {displayed === "Goals" && <GoalContainer data = {excel[2]}/>}
+                {displayed === 'Finances' && <PrettySpreadSheet revenues={excel[0]} expenses = {excel[1]} />}
 
-    </div>
+            </div>
+    </>
     );
   }
