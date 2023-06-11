@@ -2,7 +2,7 @@ import {FadeImage} from './FadeImage';
 import '../css/Header.css';
 import '../css/HeaderIcons.css';
 import '../css/SocialDropdown.css';
-import React, {useState} from 'react';
+import React from 'react';
 
 function Icons() {
   return (

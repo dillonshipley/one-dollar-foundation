@@ -25,9 +25,12 @@ function Option({image, text, select}){
 
 function EventElement({data, index}){
     return (
-        <div>
-            <p>Fundraising Event</p>
-            {data.Date}
+        <div className = "revenue">
+            <div className = "revenueLineOne">
+                <div className = "revenueType">Fundraising Event</div>
+                <div className = "revenueLocation">{data.Location}</div>
+            </div>
+            <div className = "revenueDate">{data.Date}</div>
         </div>
     );;
     
@@ -36,8 +39,10 @@ function EventElement({data, index}){
 function PrettySpreadSheet({data}){
     return (
         <div className = 'spreadSheetContainer'>
-            <div>Revenues</div>
-            <div>Expenses</div>
+            <div className = 'excelHeader'>
+                <div className = 'excelHeaderText'>Revenues</div>
+                <div className = 'excelHeaderText'>Expenses</div>
+            </div>
             {data.map((element, index) => (
                 <EventElement data = {element} key = {index} />
             ))}
@@ -59,9 +64,7 @@ export default function Options({excel}){
                     <Option image="spreadsheet" text = 'Maintain Financial Transparency' select = {() => setDisplay('Finances')}/>
             </div>
         </div>
-        <div>
-            {displayed === 'Finances' && <PrettySpreadSheet data={excel} />}
-        </div>
+        {displayed === 'Finances' && <PrettySpreadSheet data={excel} />}
 
     </div>
     );

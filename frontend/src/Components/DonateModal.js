@@ -4,7 +4,7 @@ import '../css/Modal.css';
 function DonationOption({text, select, selected}) {
   var img = process.env.PUBLIC_URL + '/images/' + text + "Logo.png"
     return (
-      <div className = "donationMethodContainer" onClick={select} onClick={select}>
+      <div className = "donationMethodContainer" onClick={select}>
         <div className="donationMethodOption" >
           <img src={img} alt="fuck" className={text + 'Logo'} />
         </div>
