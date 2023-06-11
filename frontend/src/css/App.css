@@ -108,10 +108,6 @@
   margin-top: 10%;
 }
 
-.o1 p{
-  min-width: 300px;
-}
-
 .o2{
   height: 30%;
   width: 70%;
@@ -156,13 +152,17 @@
   }
 }
 @media screen and (max-width: 600px){
+  .overlay{
+    justify-content: center;
+  }
   .o1{
-    font-size: 2em;
-    width: 60%;
+    font-size: 1.5em;
+    width: 90%;
   }
   .o2{
     font-size: 2em;
-    width: 60%;
+    margin-top: 50px;
+    width: 80%;
   }
 }
 
@@ -203,6 +203,7 @@
 .quoteImg{
   margin-left: 10%;
   width: 50%;
+  max-width: 50%;
   max-height: 60%;
   border: 2px solid black;
 }
