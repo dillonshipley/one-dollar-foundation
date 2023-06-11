@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   min-height: 500px;
-  max-width: 50vw;
 }
 
 .subscribe{
@@ -10,8 +9,10 @@
     width: 70%;
     height: 80%;
     min-height: 500px;
+
     margin-top: 5%;
-    background-color: white;
+    
+    background-color: #F5F5F4;
     border-radius: 6px;
     z-index: 12;
     display: flex;
@@ -34,6 +35,11 @@
   margin-top: 20px;
 }
 
+.subscribeHeader{
+  width: 50%;
+  max-width: 300px;
+}
+
 form{
   width: 100%;
   margin-top: 5%;
@@ -49,9 +55,10 @@ label{
 
 .input{
   display: block;
-  width: 90%;
+  width:90%;
   margin-left: 5%;
   margin-bottom: 20px;
+  font-weight: 200;
 }
 
 .input::placeholder{
@@ -60,43 +67,50 @@ label{
   white-space: pre-wrap;
 }
 
-.suggestion::placeholder{
-  margin-top: -15px;
+.email{
+  max-width: 400px;
+}
+
+.nospam{
+  max-width: 400px;
 }
 
 .suggestionContainer{
   height: 70px;
   position: relative;
+  width: 100%;
 }
 
-.suggestion{
+.lh2{
   height: 70px;
 }
 
 .suggestionOverlay{
   position: absolute;
-  top: 0;
-  left: 0;
+  text-align: left;
+  top: 3px;
+  left: 7px;
+  width: 80%;
+  font-weight: lighter;
+  color: #bbbbbb;
+  font-style: italic;
 }
 
-.subscribeHeader{
-  width: 50%;
+.input .suggestion{
+  margin-left: 0;
 }
 
 .subscribeButton{
   background: hsla(259, 33%, 32%, 1);
-
   background: linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
-  
   background: -moz-linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
-  
   background: -webkit-linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
-  
-  color: rgba(255, 255, 255, 0.8);
-
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#48376C", endColorstr="#C5A6E3", GradientType=1 );
+
+  color: rgba(255, 255, 255, 0.8);
   width: 50%;
   height: 60%;
+  min-height: 60px;
   border-radius: 4px;
   border: 2px solid black;
   margin-bottom: 50px;
