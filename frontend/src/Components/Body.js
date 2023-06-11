@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import DonateModal from './DonateModal';
 import Footer from "./Footer";
 import Options from './Homepage/Options'

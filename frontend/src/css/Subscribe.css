@@ -64,8 +64,19 @@ label{
   margin-top: -15px;
 }
 
+.suggestionContainer{
+  height: 70px;
+  position: relative;
+}
+
 .suggestion{
   height: 70px;
+}
+
+.suggestionOverlay{
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .subscribeHeader{

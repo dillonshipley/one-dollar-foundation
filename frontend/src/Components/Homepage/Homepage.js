@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import '../../css/SocialDropdown.css'
 
 function DonationButton({click}){
@@ -24,9 +24,11 @@ function Subscribe(){
                         
                     </input>
                     <label htmlFor ="suggestion label">Suggestion:</label>
-                    <input className = "st input suggestion" placeholder = "Please let us know of any events in your community you'd like us to be involved in">
-            
-                    </input>
+                    <div className = "suggestionContainer input st suggestion">
+                      <div className = "suggestionOverlay">Please let us know of any events in your community you'd like us to be involved in</div>
+                      <input className = "st input suggestion"></input>
+
+                    </div>            
                 </form>
                 <div className = "moreSubText c">
                   <p className = "st email">We will <u>only</u> email you once a month for our newsletter and expenditures report.</p>
