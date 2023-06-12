@@ -7,7 +7,7 @@
 }
 
 .options {
-  max-width: 50vw;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -86,6 +86,8 @@
   display: flex;
 }
 
+/* -- SPREADSHEET -- */
+
 .spreadSheetContainer{
 max-width: 50vw;
 width: 100%;
@@ -121,14 +123,12 @@ align-items: center;
   flex-direction: row;
   margin-right: 5%;
 }
-
 .eventType {
   color:forestgreen;
   width: 70%;
   text-align: left;
   font-size: 20px;
 }
-
 .eventLocation{
   width: 50%;
   text-align: right;
@@ -143,7 +143,6 @@ align-items: center;
   color: gray;
   font-style: italic;
 }
-
 .eventAmount{
   width: 30%;
   text-align: right;
@@ -169,6 +168,7 @@ align-items: center;
   grid-template-columns: 50% 50%;
 }
 
+/* -- GOALS -- */
 .goalContainer{
   margin-top: 5%;
   width: 100%;
@@ -179,24 +179,6 @@ align-items: center;
   width: 100%;
   display: grid;
   grid-template-columns: 33% 33% 33%;
-}
-
-@media screen and (max-width: 1600px){
-  .event{
-    min-width: 375px;
-  }
-  .excelHeader{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .spreadSheetData{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
 .vertical-progress-bar {
@@ -225,4 +207,37 @@ align-items: center;
   text-align: center;
   font-family: 'Coolvetica';
   letter-spacing: 1.5px;
+}
+
+@media screen and (max-width: 1600px){
+  .event{
+    min-width: 375px;
+  }
+  .excelHeader{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .spreadSheetData{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1200px){
+
+  .options {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .optionContainer{
+    height: 500px;
+    width: 100%;
+    margin-top: 10%;
+    margin-right: 10%;
+  }
 }
