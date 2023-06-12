@@ -1,123 +1,228 @@
 /* ---- OPTIONS ----- */
 .homepageSectionThree{
-    width: 100%;    
-    display:grid;
-    grid-template-columns: 50% 50%;
-  }
-  
-  .options {
-    max-width: 50vw;
-  }
-  
-  .optionTitle {
-    font-size: 24px;
-    font-weight: bolder;
-    text-decoration: underline;
-    padding-bottom: 15px;
-    padding-top: 5%;
-  }
-  
-  .option {
-    height: 80px;
-    width: 50%;
-    left: 20%;
-    line-height: 80px;
-    margin-top: 1vh;
-  
-    border-bottom: 1px solid black;
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
-  .optionIcon{
-    flex: .2;
-    margin-top: 5px;
-    height: 40px;
-    width: 40px;
-  }
+  width: 100%;    
+  display:grid;
+  grid-template-columns: 50% 50%;
+  background: linear-gradient(to bottom, transparent, #222222);
+}
 
-  .optionIcon .goals{
-    width:30px;
-  }
-
-  .optionText{
-    font-weight: bolder;
-    margin-left: 20px;
-  }
-  .optionTitle{
-    text-align: center;
-    width: 100%;
-  }
-  .optionContainer{
-    height: 500px;
-    width: 80%;
-    margin-left: 20%;
-  }
-  .optionHovered{
-    background-color: #dddddd;
-  }
-  .optonHovered::after{
-    content: "";
-    position: absolute;
-    background-image: linear-gradient(to top, rgba(200, 200, 200, 0), rgba(255, 255,255, 1));
-    pointer-events: none;
-  }
-
-  .excelHeader{
-    width: 100%;
-    display: flex;
-  }
-
-.spreadSheetContainer{
+.options {
   max-width: 50vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.optionTitle {
+  font-size: 24px;
+  font-weight: bolder;
+  text-decoration: underline;
+  padding-bottom: 15px;
+  padding-top: 5%;
+}
+
+.optionContainer{
+  height: 500px;
+  width: 60%;
+  margin-left: 40%;
+  margin-top: 10%;
+  margin-right: 10%;
+}
+
+.option {
+  height: 80px;
+  width: 80%;
+  min-width: 350px;
+  line-height: 80px;
+  margin-top: 1vh;
+
+  background-color: #F8F8F7;
+
+  border-bottom: 1px solid black;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: -1px 1px 5px 1px black;
+  border-radius: 4px;
+}
+
+.optionIcon{
+  height: auto;
+  width: 40px;
+  margin-left: 20px;
+}
+
+.optionIcon .goals{
+  width:30px;
+  margin-left: 10px;
+}
+
+.optionText{
+  font-weight: bolder;
+  margin-left: 20px;
+}
+.optionTitle{
+  text-align: center;
   width: 100%;
 }
 
-.excelHeaderText{
-  width: 50%;
-  text-align: center;
-  font-size: 25px;
-  font-weight: bolder;
-  border-bottom: 2px solid black;
+.optionHovered{
+  background-color: #ececec;
+}
+.optonHovered::after{
+  content: "";
+  position: absolute;
+  background-image: linear-gradient(to top, rgba(200, 200, 200, 0), rgba(255, 255,255, 1));
+  pointer-events: none;
 }
 
+.optionSelected{
+  background-color: #cfcfcf;
+}
+
+.excelHeader{
+  width: 100%;
+  display: flex;
+}
+
+.spreadSheetContainer{
+max-width: 50vw;
+width: 100%;
+}
+
+.excelHeaderText{
+width: 50%;
+text-align: center;
+font-size: 25px;
+font-weight: bolder;
+border-bottom: 2px solid black;
+}
+
+.event{
+max-width: 400px;
+margin-top: 10px;
+border: 1px solid black;
+background: linear-gradient(to bottom left, #EBFFEE, #E2E2E2);
+border-radius: 5px;
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+.eventDetail{
+  width: auto;
+  flex-grow: 1;
+}
+
+.eventLineOne{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-right: 5%;
+}
+
+.eventType {
+  color:forestgreen;
+  width: 70%;
+  text-align: left;
+  font-size: 20px;
+}
+
+.eventLocation{
+  width: 50%;
+  text-align: right;
+  font-weight: normal;
+  font-family: 'Coolvetica', sans-serif;
+  letter-spacing: 1.5px;
+  margin-top: 3px;
+}
+.eventDate{
+  text-align: left;
+  width: 70%;
+  color: gray;
+  font-style: italic;
+}
+
+.eventAmount{
+  width: 30%;
+  text-align: right;
+}
+
+.eventImage{
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-right: 15px;
+}
+
+.expense{
+  color: #B6A455;
+}
+
+.spreadSheetData {
+  width: 100%;
+}
+
+.col{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.goalContainer{
+  margin-top: 5%;
+  width: 100%;
+  height: 100%;
+}
+
+.goalGrid{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+
+@media screen and (max-width: 1600px){
   .event{
-    margin-top: 20px;
+    min-width: 375px;
   }
-
-  .eventLineOne{
-    height: 100%;
+  .excelHeader{
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .eventType {
-    color:forestgreen;
-    width: 70%;
-    text-align: left;
-    font-size: 20px;
+  .spreadSheetData{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+}
 
-  .eventLocation{
-    width: 30%;
-    text-align: right;
-  }
-  .eventDate{
-    text-align: left;
-    width: 70%;
-    color: gray;
-    font-style: italic;
-  }
+.vertical-progress-bar {
+  width: 40%; /* Adjust as needed */
+  max-width: 100px;
+  height: 300px; /* Adjust as needed */
+  background: linear-gradient(to bottom, #008502, #e2f4da);
+  position: relative;
+  margin-left: 30%;
+  border-radius: 4px;
+  border: 4px solid black;
+}
 
-  .eventAmount{
-    width: 30%;
-    text-align: right;
-  }
+.progress {
+  background-color: gray; /* Adjust the color of the progress bar */
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transition: height 0.3s ease-in-out; /* Add a smooth transition effect */
+}
 
-  .goalContainer{
-    width: 100%;
-    height: 100%;
-    background-color: black;
-  }
+.progressPercentage{
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Coolvetica';
+  letter-spacing: 1.5px;
+}

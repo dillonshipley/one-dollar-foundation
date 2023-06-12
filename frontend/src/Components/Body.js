@@ -23,11 +23,11 @@ class Body extends React.Component {
 
   componentDidMount(){
     const excelData = logJSONData()
-      .then((data) => {
-        console.log(data);
-        this.setState({optionsExcel: data});
-        console.log(this.state.optionsExcel);
-      });
+    .then((data) => {
+      console.log(data);
+      this.setState({optionsExcel: data});
+      console.log(this.state.optionsExcel);
+    });
   }
 
   showModal = () => {

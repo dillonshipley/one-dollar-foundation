@@ -1,21 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 function EventElement({data, type, index}){
+
+    let imgSrc = null;
+    if(type === "revenues")
+        imgSrc = process.env.PUBLIC_URL + '/logos/checkmark.png';
+    else
+        imgSrc = process.env.PUBLIC_URL + '/logos/achievement.png';
+
     return (
-        <div className = "event">
-            <div className = "eventLineOne">
-                {type==="revenues" && <div className = "eventType">{data.Source}</div>}
-                {type === "expenses" && <div className = "eventType">{data.Event}</div>}
-                <div className = "eventLocation">{data.Location}</div>
+        <div class = "event">
+            <div className = "eventImage">
+                <img className = "eventImage" src= {imgSrc} />
             </div>
+            <div className = "eventDetail">
             <div className = "eventLineOne">
-                <div className = "eventDate">{data.Date}</div>
-                {type==="revenues" && <div className = "eventAmount">{data.Amount}</div>}
-                {type === "expenses" && <div className = "eventAmount">-{data.Amount}</div>}
+                    {type==="revenues" && <div className = "eventType revenue">{data.Source}</div>}
+                    {type === "expenses" && <div className = "expense eventType">{data.Event}</div>}
+                    <div className = "eventLocation">{data.Location}</div>
+                </div>
+                <div className = "eventLineOne">
+                    <div className = "eventDate">{data.Date}</div>
+                    {type==="revenues" && <div className = "eventAmount">{data.Amount}</div>}
+                    {type === "expenses" && <div className = "eventAmount">-{data.Amount}</div>}
+                </div>
             </div>
         </div>
-    );;
+    );
     
 }
 
@@ -26,45 +38,60 @@ function PrettySpreadSheet({revenues, expenses}){
         <div className = 'spreadSheetContainer'>
             <div className = 'excelHeader'>
                 <div className = 'excelHeaderText' onClick = {() => setIsSelected("revenues")}>Revenues</div>
-                <div className = 'excelHeaderText' onClick = {() => setIsSelected("expenses")}>Expenses</div>
+                {window.innerWidth > 1600 && <div className = 'excelHeaderText' onClick = {() => setIsSelected("expenses")}>Expenses</div>}
             </div>
-            {selected === 'revenues' && revenues.map((element, index) => (
-                <EventElement data = {element} type = "revenues" key = {index} />
-            ))}
-            {selected === "expenses" && expenses.map((element, index) => (
-                <EventElement data = {element} type = "expenses" key = {index} />
-            ))}
+            <div className = {window.innerWidth > 1600 ? 'spreadSheetData col' : 'spreadSheetData ind'}>
+                <div className = 'revContainer'>
+                    {selected === 'revenues' && revenues.map((element, index) => (
+                        <EventElement data = {element} type = "revenues" key = {index} />
+                    ))}
+                </div>
+                <div className = 'expContainer'>
+                    {(selected === "expenses" || window.innerWidth > 1600) && expenses.map((element, index) => (
+                        <EventElement data = {element} type = "expenses" key = {index} />
+                    ))}
+                </div>
+            </div>
+           
         </div>
     );
 }
 
-function Goal({data}){
-    return(
-        <div>
-            
+function Goal({amount, prog}){
+
+    return (
+        <div className="vertical-progress-bar">
+          <div
+            className="progress"
+            style={{ height: `${(1 - (prog / amount)) * 100}%` }}
+          ></div>
+          <div className = "progressPercentage">
+            {(prog / amount) * 100}%
+          </div>
         </div>
-    );
+      );
 }
 
 function GoalContainer({data}){
+    console.log(data[0].amount);
     return (
         <div className = "goalContainer">
-            <div className="goalImages">
-                <Goal data = {data[0]}/>
-                <Goal data = {data[1]}/>
-                <Goal data = {data[2]}/>
+            <div className="goalGrid">
+                <Goal amount = {data[0].Amount} prog = {20}/>
+                <Goal amount = {data[1].Amount} prog = {20}/>
+                <Goal amount = {data[2].Amount} prog = {30}/>
             </div>
-            <div className = "goalText">
-                <p></p>
-                <p></p>
-                <p></p>
+            <div className = "goalGrid">
+                <p>{data[0].Goal}</p>
+                <p>{data[1].Goal}</p>
+                <p>{data[2].Goal}</p>
             </div>
 
         </div>
     )
 }
 
-function Option({image, text, select}){
+function Option({image, text, select, selected}){
     const [isHovered, setIsHovered] = useState(false);
   
     const handleMouseOver = () => {
@@ -76,7 +103,7 @@ function Option({image, text, select}){
     };
 
     return (
-        <div className={isHovered ? 'optionHovered option' : 'option'}
+        <div className={(isHovered ? 'optionHovered option' : 'option') + (image === selected ? ' option optionSelected' : '')}
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
           onClick = {select}
@@ -88,7 +115,7 @@ function Option({image, text, select}){
 }
 
 export default function Options({excel}){
-    const [displayed, setDisplay] = useState('Projects');
+    const [displayed, setDisplay] = useState('goals');
 
     return (
         <>
@@ -97,13 +124,13 @@ export default function Options({excel}){
                 
                 <div className = 'options'>
                     <div className = 'optionContainer'>
-                            <Option image="goals" text ='Complete Small Projects' select = {() => setDisplay('Goals')}/>
-                            <Option image = 'help' text = 'Provide Forward-Thinking Help' select = {() => setDisplay('Help')}/>
-                            <Option image="spreadsheet" text = 'Maintain Financial Transparency' select = {() => setDisplay('Finances')}/>
+                            <Option image="goals" text ='Complete Small Projects' select = {() => setDisplay('goals')} selected = {displayed}/>
+                            <Option image = 'help' text = 'Provide Forward-Thinking Help' select = {() => setDisplay('help')} selected = {displayed}/>
+                            <Option image="spreadsheet" text = 'Maintain Financial Transparency' select = {() => setDisplay('spreadsheet')} selected = {displayed}/>
                     </div>
                 </div>
-                {displayed === "Goals" && <GoalContainer data = {excel[2]}/>}
-                {displayed === 'Finances' && <PrettySpreadSheet revenues={excel[0]} expenses = {excel[1]} />}
+                {(displayed === "goals" && excel && excel.length > 2) && <GoalContainer data = {excel[2]}/>}
+                {displayed === 'spreadsheet' && <PrettySpreadSheet revenues={excel[0]} expenses = {excel[1]} />}
 
             </div>
     </>
