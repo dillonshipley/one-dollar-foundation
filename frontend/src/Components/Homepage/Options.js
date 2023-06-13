@@ -57,17 +57,17 @@ function PrettySpreadSheet({revenues, expenses}){
     );
 }
 
-function Goal({amount, prog}){
+function Goal({amount, goal, prog}){
 
     return (
-        <div className="vertical-progress-bar">
-          <div
-            className="progress"
-            style={{ height: `${(1 - (prog / amount)) * 100}%` }}
-          ></div>
-          <div className = "progressPercentage">
-            {(prog / amount) * 100}%
-          </div>
+        <div className = "individualGoal">
+            <div className="vertical-progress-bar">
+                <div className="progress" style={{ width: `${(1 - (prog / amount)) * 100}%` }}></div>
+                <div className = "progressPercentage">
+                    {(prog / amount) * 100}%
+                </div>
+            </div>
+            <div className = "goalTitle">{goal}</div>
         </div>
       );
 }
@@ -77,22 +77,17 @@ function GoalContainer({data}){
     return (
         <div className = "goalContainer">
             <div className="goalGrid">
-                <Goal amount = {data[0].Amount} prog = {20}/>
-                <Goal amount = {data[1].Amount} prog = {20}/>
-                <Goal amount = {data[2].Amount} prog = {30}/>
+                <Goal amount = {data[0].Amount} goal = {data[0].Goal} prog = {20}/>
+                <Goal amount = {data[1].Amount} goal = {data[1].Goal} prog = {20}/>
+                <Goal amount = {data[2].Amount} goal = {data[2].Goal} prog = {30}/>
             </div>
-            <div className = "goalGrid">
-                <p>{data[0].Goal}</p>
-                <p>{data[1].Goal}</p>
-                <p>{data[2].Goal}</p>
-            </div>
-
         </div>
     )
 }
 
 function Option({image, text, select, selected}){
     const [isHovered, setIsHovered] = useState(false);
+    const [optionClass, setOptionClass] = useState("option")
   
     const handleMouseOver = () => {
       setIsHovered(true);
@@ -100,10 +95,22 @@ function Option({image, text, select, selected}){
   
     const handleMouseOut = () => {
       setIsHovered(false);
+      setOptionClass(buildString);
     };
 
+    const buildString = () => {
+        let classString = "optionDesktop ";
+        if(window.innerWidth < 1200)
+            classString = "optionMobile ";
+        if(isHovered)
+            classString = classString + "optionHovered ";
+        if(image === selected)
+            classString = classString + "optionSelected "
+        
+    }
+
     return (
-        <div className={(isHovered ? 'optionHovered option' : 'option') + (image === selected ? ' option optionSelected' : '')}
+        <div className={optionClass}
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
           onClick = {select}
@@ -120,14 +127,12 @@ export default function Options({excel}){
     return (
         <>
             <div className = "optionTitle">Our Mission</div>
-            <div className = 'homepageSectionThree'>
+            <div className={window.innerWidth > 1200 ? 'h3d' : 'h3m'}>
                 
-                <div className = 'options'>
-                    <div className = 'optionContainer'>
-                            <Option image="goals" text ='Complete Small Projects' select = {() => setDisplay('goals')} selected = {displayed}/>
-                            <Option image = 'help' text = 'Provide Forward-Thinking Help' select = {() => setDisplay('help')} selected = {displayed}/>
-                            <Option image="spreadsheet" text = 'Maintain Financial Transparency' select = {() => setDisplay('spreadsheet')} selected = {displayed}/>
-                    </div>
+                <div className = {window.innerWidth > 1200 ? 'optionsDesktop' : 'optionsMobile'}>
+                        <Option image="goals" text ='Complete Small Projects' select = {() => setDisplay('goals')} selected = {displayed}/>
+                        <Option image = 'help' text = 'Provide Forward-Thinking Help' select = {() => setDisplay('help')} selected = {displayed}/>
+                        <Option image="spreadsheet" text = 'Maintain Financial Transparency' select = {() => setDisplay('spreadsheet')} selected = {displayed}/>
                 </div>
                 {(displayed === "goals" && excel && excel.length > 2) && <GoalContainer data = {excel[2]}/>}
                 {displayed === 'spreadsheet' && <PrettySpreadSheet revenues={excel[0]} expenses = {excel[1]} />}
