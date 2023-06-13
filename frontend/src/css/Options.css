@@ -4,16 +4,17 @@
   display:grid;
   grid-template-columns: 50% 50%;
   background: linear-gradient(to bottom, transparent, #222222);
+  height: 400px;
 }
 
 .h3m{
   display: flex;
   flex-direction: column;
   width: 100%;
-
+  background: linear-gradient(to bottom, transparent, #222222);
 }
 
-.optionsDesktop {
+.optionContainerDesktop {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -28,17 +29,11 @@
   padding-top: 5%;
 }
 
-.optionContainer{
-  height: 500px;
-  width: 60%;
-  margin-left: 40%;
-  margin-top: 10%;
-  margin-right: 10%;
-}
 
 .optionDesktop {
   height: 80px;
-  width: 80%;
+  width: 40%;
+  margin-left: 50%;
   min-width: 350px;
   line-height: 80px;
   margin-top: 1vh;
@@ -55,9 +50,14 @@
 }
 
 .optionMobile{
+  background-color: #F8F8F7;
   height: 80px;
-  width: 70%;
-  border:L
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border:1px solid black;
 }
 
 .optionIcon{

@@ -89,6 +89,10 @@ function Option({image, text, select, selected}){
     const [isHovered, setIsHovered] = useState(false);
     const [optionClass, setOptionClass] = useState("option")
   
+    useEffect(() => {
+        setOptionClass(buildString);
+    });
+
     const handleMouseOver = () => {
       setIsHovered(true);
     };
@@ -106,7 +110,7 @@ function Option({image, text, select, selected}){
             classString = classString + "optionHovered ";
         if(image === selected)
             classString = classString + "optionSelected "
-        
+        return classString;
     }
 
     return (
