@@ -34,6 +34,19 @@ function EventElement({data, type, index}){
 function PrettySpreadSheet({revenues, expenses}){
     const [selected, setIsSelected] = useState('revenues');
 
+    let totalRaised = 0;
+    for (let i = 0; i < revenues.length; i++) {
+        totalRaised += revenues[i]["Amount"];
+      }
+      console.log(totalRaised);
+
+    let currentBalance = 0;
+    for (let i = 0; i < expenses.length; i++) {
+        currentBalance -= expenses[i]["Amount"];
+      }
+    currentBalance += totalRaised;
+      console.log(currentBalance);
+
     return (
         <div className = 'spreadSheetContainer'>
             <div className = 'excelHeader'>
@@ -51,6 +64,10 @@ function PrettySpreadSheet({revenues, expenses}){
                         <EventElement data = {element} type = "expenses" key = {index} />
                     ))}
                 </div>
+            </div>
+            <div className = "financialTotals">
+                <div className = "totalRaised">{totalRaised}</div>
+                <div className = "currentBalance">{currentBalance}</div>
             </div>
            
         </div>
@@ -133,7 +150,7 @@ export default function Options({excel}){
             <div className = "optionTitle">Our Mission</div>
             <div className={window.innerWidth > 1200 ? 'h3d' : 'h3m'}>
                 
-                <div className = {window.innerWidth > 1200 ? 'optionsDesktop' : 'optionsMobile'}>
+                <div className = {window.innerWidth > 1200 ? 'optionContainerDesktop' : 'optionContainerMobile'}>
                         <Option image="goals" text ='Complete Small Projects' select = {() => setDisplay('goals')} selected = {displayed}/>
                         <Option image = 'help' text = 'Provide Forward-Thinking Help' select = {() => setDisplay('help')} selected = {displayed}/>
                         <Option image="spreadsheet" text = 'Maintain Financial Transparency' select = {() => setDisplay('spreadsheet')} selected = {displayed}/>
