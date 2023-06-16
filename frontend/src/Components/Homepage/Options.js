@@ -40,18 +40,17 @@ function PrettySpreadSheet({revenues, expenses}){
       }
       console.log(totalRaised);
 
-    let currentBalance = 0;
+    let currentBalance = totalRaised;
     for (let i = 0; i < expenses.length; i++) {
         currentBalance -= expenses[i]["Amount"];
       }
-    currentBalance += totalRaised;
       console.log(currentBalance);
 
     return (
         <div className = 'spreadSheetContainer'>
             <div className = 'excelHeader'>
-                <div className = 'excelHeaderText' onClick = {() => setIsSelected("revenues")}>Revenues</div>
-                {window.innerWidth > 1600 && <div className = 'excelHeaderText' onClick = {() => setIsSelected("expenses")}>Expenses</div>}
+                {selected === "revenues" && <div className = 'excelHeaderText' onClick = {() => setIsSelected("expenses")}>Revenues</div>}
+                {(window.innerWidth > 1600 || selected === "expenses") && <div className = 'excelHeaderText' onClick = {() => setIsSelected("revenues")}>Expenses</div>}
             </div>
             <div className = {window.innerWidth > 1600 ? 'spreadSheetData col' : 'spreadSheetData ind'}>
                 <div className = 'revContainer'>
@@ -59,15 +58,17 @@ function PrettySpreadSheet({revenues, expenses}){
                         <EventElement data = {element} type = "revenues" key = {index} />
                     ))}
                 </div>
-                <div className = 'expContainer'>
-                    {(selected === "expenses" || window.innerWidth > 1600) && expenses.map((element, index) => (
-                        <EventElement data = {element} type = "expenses" key = {index} />
-                    ))}
-                </div>
+                {(selected === "expenses" || window.innerWidth > 1600) &&  
+                    <div className = 'eventContainer'>
+                        {expenses.map((element, index) => (
+                            <EventElement data = {element} type = "expenses" key = {index} />
+                        ))}
+                    </div>
+                }
             </div>
             <div className = "financialTotals">
-                <div className = "totalRaised">{totalRaised}</div>
-                <div className = "currentBalance">{currentBalance}</div>
+                <div className = "financialText">Total Raised: ${totalRaised}</div>
+                <div className = "financialText ftOver">Fund Balance: ${currentBalance}</div>
             </div>
            
         </div>

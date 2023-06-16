@@ -102,10 +102,17 @@
 /* -- SPREADSHEET -- */
 
 .spreadSheetContainer{
-max-width: 50vw;
-width: 100%;
 display: flex;
 flex-direction: column;
+
+max-width: 70%;
+margin-left: 10%;
+margin-top: 5%;
+margin-bottom: 15%;
+border-radius: 10px;
+background-color: white;
+border: 1px solid black;
+height: 60%;
 }
 
 .excelHeaderText{
@@ -174,12 +181,11 @@ align-items: center;
   color: #B6A455;
 }
 
-.revContainer{
-  background-color: white;
-border: 1px solid black;
-height: 100%;
-min-height: 300px;
-min-width: 350px;
+.eventContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .spreadSheetData {
@@ -195,7 +201,8 @@ min-width: 350px;
 /* -- GOALS -- */
 .goalContainer{
   margin-top: 5%;
-  width: 100%;
+  margin-left: 10%;
+  width: 80%;
   height: 95%;
 }
 
@@ -206,8 +213,7 @@ min-width: 350px;
 }
 
 .vertical-progress-bar {
-  width: 60%; /* Adjust as needed */
-  min-width: 450px;
+  width: 100%; /* Adjust as needed */
   height: 50px; /* Adjust as needed */
   background: linear-gradient(to left, #008502, #e2f4da);
   position: relative;
@@ -240,7 +246,7 @@ min-width: 350px;
 
 .goalTitle{
   height: 50px;
-  width: 50%;
+  width: 90%;
   margin-left: 5%;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -254,19 +260,38 @@ min-width: 350px;
 }
 
 .financialTotals{
+  height: 30px;
   width: 100%;
-  color: white;
+  margin-bottom: 10%;
+  color: black;
   display: flex;
   flex-direction: row;
+  font-family: 'Coolvetica';
 }
 
-.totalRaised{
+.financialText{
   text-align: center;
-  width: 50%;
+  width: 40%;
+  margin-left: 5%;
+  box-shadow: -4px 4px 4px 2px; 
+  border-top: 1px solid black;
+}
+
+.financialText .ftOver{
+  margin-left: 15%;
 }
 .currentBalance{
   width: 50%;
   text-align:center;
+}
+
+.swap{
+  right: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  z-index: 4;
 }
 
 @media screen and (max-width: 1600px){
@@ -292,7 +317,13 @@ min-width: 350px;
 
   .event{
     min-width: 200px;
+    width: 100%;
   }
+
+  .eventLocation{
+    font-size: .8em;
+  }
+
 
   .options {
     justify-content: center;
@@ -307,7 +338,11 @@ min-width: 350px;
   }
 
   .spreadSheetContainer{
-    max-width: 100%;
+    width: 80%;
+    max-width: 80%
+  }
+  .revContainer{
+    width: 90%;
   }
 }
 
@@ -318,12 +353,21 @@ min-width: 350px;
   }
 
   .eventType{
-    font-size: 15px;
+    font-size: 13px;
+  }
+
+  .eventLocation{
+    font-size: 12px;
+  }
+
+  .eventDate{
+    font-size: 12px;
   }
 
   .options {
     justify-content: center;
     align-items: center;
+    border: 0;
   }
   
   .optionContainer{
@@ -333,7 +377,19 @@ min-width: 350px;
     margin-right: 10%;
   }
 
+
+}
+
+@media screen and (max-width: 400px){
+
   .spreadSheetContainer{
-    max-width: 100%;
+    width: 90%;
+    max-width: 90%;
+    margin-left: 5%;
+    min-width: 300px;
+  }
+
+  .financialTotals{
+    font-size: 14px;
   }
 }
