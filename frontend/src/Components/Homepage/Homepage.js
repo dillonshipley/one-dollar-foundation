@@ -30,7 +30,7 @@ function Overlay({modal}){
       <div className ="overlay o1">
         <p>Changing the world one step at a time.</p>
       </div>
-      <div className="overlay o2">{"Welcome to the \nOne Dollar Foundation."}</div>
+      <div className="overlay o2">Welcome to the One Dollar Foundation.</div>
       <DonationButton click = {modal}/>
     </div>
 );

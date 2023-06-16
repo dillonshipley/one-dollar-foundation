@@ -95,9 +95,9 @@ function GoalContainer({data}){
     return (
         <div className = "goalContainer">
             <div className="goalGrid">
-                <Goal amount = {data[0].Amount} goal = {data[0].Goal} prog = {20}/>
-                <Goal amount = {data[1].Amount} goal = {data[1].Goal} prog = {20}/>
-                <Goal amount = {data[2].Amount} goal = {data[2].Goal} prog = {30}/>
+                <Goal amount = {data[0].Amount} goal = {data[0].Goal} prog = {data[0].Progress}/>
+                <Goal amount = {data[1].Amount} goal = {data[1].Goal} prog = {data[1].Progress}/>
+                <Goal amount = {data[2].Amount} goal = {data[2].Goal} prog = {data[2].Progress}/>
             </div>
         </div>
     )

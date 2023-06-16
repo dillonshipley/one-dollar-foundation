@@ -4,7 +4,7 @@
   display:grid;
   grid-template-columns: 50% 50%;
   background: linear-gradient(to bottom, transparent, #222222);
-  height: 400px;
+  min-height: 500px;
 }
 
 .h3m{
@@ -17,8 +17,10 @@
 .optionContainerDesktop {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  max-height: 500px;
 }
 
 .optionTitle {
@@ -112,7 +114,8 @@ margin-bottom: 15%;
 border-radius: 10px;
 background-color: white;
 border: 1px solid black;
-height: 60%;
+height: 80%;
+box-shadow: -5px 5px 5px 2px;
 }
 
 .excelHeaderText{
@@ -339,7 +342,7 @@ align-items: center;
 
   .spreadSheetContainer{
     width: 80%;
-    max-width: 80%
+    max-width: 80%;
   }
   .revContainer{
     width: 90%;
