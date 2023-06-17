@@ -143,27 +143,6 @@
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#48376C", endColorstr="#C5A6E3", GradientType=1 );
   }
 
-@media screen and (max-width: 1200px){
-  .donationButton{
-    font-size: 1.5em;
-  }
-}
-@media screen and (max-width: 600px){
-  .overlay{
-    justify-content: center;
-  }
-  .o1{
-    font-size: 1.5em;
-    width: 70%;
-    min-width: 250px;
-  }
-  .o2{
-    font-size: 2em;
-    margin-top: 40px;
-    width: 80%;
-  }
-}
-
 /* ----- SECTION 2 ----- */
 .homepageSectionTwo{
   background-color: white;
@@ -199,8 +178,7 @@
   margin-left: 0%;
   width: auto;
   max-width: 50%;
-  max-height: 60%;
-  min-height: 100%;
+  height: 80%;
   border: 2px solid black;
 }
 
@@ -229,4 +207,33 @@
 @font-face {
   font-family: 'Olympia';
   src: url('./fonts/Olympia.otf') format('truetype')
+}
+
+@media screen and (max-width: 1200px){
+  .donationButton{
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 600px){
+  .overlay{
+    justify-content: center;
+  }
+  .o1{
+    font-size: 1.5em;
+    width: 70%;
+    min-width: 250px;
+  }
+  .o2{
+    font-size: 2em;
+    margin-top: 40px;
+    width: 80%;
+  }
+
+  .quoteImg{
+    margin-top: 15%;
+    max-width: 75%;
+    width: 75%;
+    height: 75%;
+    min-width: 150px;
+  }
 }

@@ -53,7 +53,7 @@ function PrettySpreadSheet({revenues, expenses}){
                 {(window.innerWidth > 1600 || selected === "expenses") && <div className = 'excelHeaderText' onClick = {() => setIsSelected("revenues")}>Expenses</div>}
             </div>
             <div className = {window.innerWidth > 1600 ? 'spreadSheetData col' : 'spreadSheetData ind'}>
-                <div className = 'revContainer'>
+                <div className = 'eventContainer'>
                     {selected === 'revenues' && revenues.map((element, index) => (
                         <EventElement data = {element} type = "revenues" key = {index} />
                     ))}
