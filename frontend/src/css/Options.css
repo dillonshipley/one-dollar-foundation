@@ -384,6 +384,35 @@ align-items: center;
 
 }
 
+.helpTextContainer{
+  padding-left: 5%;
+  margin-left: 5%;  
+  padding-right: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+  padding-top: 5%;
+  background-color: white;
+}
+
+.helpTextBig{
+  font-size: 25px;
+  font-family: 'Coolvetica';
+}
+
+.helpTextAddl{
+  font-size: 20px;
+  font-family: 'AmericanTypewriter';
+  text-align: left;
+  margin-top: 3%;
+}
+
+.helpTextList{
+  margin-top: 2%;
+  text-align: left;
+  font-family: 'AmericanTypewriter';
+  font-size: 16px;
+}
+
 @media screen and (max-width: 400px){
 
   .spreadSheetContainer{

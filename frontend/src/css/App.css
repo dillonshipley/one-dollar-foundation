@@ -209,6 +209,11 @@
   src: url('./fonts/Olympia.otf') format('truetype')
 }
 
+@font-face {
+  font-family: 'AmericanTypewriter';
+  src: url('./fonts/AmericanTypewriter.ttf') format('truetype')
+}
+
 @media screen and (max-width: 1200px){
   .donationButton{
     font-size: 1.5em;

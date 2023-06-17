@@ -143,6 +143,20 @@ function Option({image, text, select, selected}){
       );
 }
 
+function HelpText(){
+    return (
+        <div className = "helpTextContainer">
+            <div className = "helpTextBig">Our short-term goals are simple.</div>
+            <div className = "helpTextBig">Our long-term dreams are limitless.</div>
+            <div className = "helpTextAddl">Right now, we want to help people in immediate need to establish ourselves as a charity and cement ourselves in the community.</div>
+            <div className = "helpTextAddl">Over time, we want to engineer systemic solutions to pressing problems.</div>
+            <div className = "helpTextList">1. Reduce the presence of food deserts in "first-world" environments.</div>
+            <div className = "helpTextList">2. Host community activities and projects that help reverse the trend of isolation in American society.</div>
+            <div className = "helpTextList">3. Create a method of free, temporary housing for the homeless.</div>
+        </div>
+    )
+}
+
 export default function Options({excel}){
     const [displayed, setDisplay] = useState('goals');
 
@@ -158,6 +172,7 @@ export default function Options({excel}){
                 </div>
                 {(displayed === "goals" && excel && excel.length > 2) && <GoalContainer data = {excel[2]}/>}
                 {displayed === 'spreadsheet' && <PrettySpreadSheet revenues={excel[0]} expenses = {excel[1]} />}
+                {displayed  === 'help' && <HelpText />}
 
             </div>
     </>
