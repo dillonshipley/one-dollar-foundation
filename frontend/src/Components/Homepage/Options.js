@@ -158,7 +158,7 @@ function HelpText(){
 }
 
 export default function Options({excel}){
-    const [displayed, setDisplay] = useState('goals');
+    const [displayed, setDisplay] = useState('help');
 
     return (
         <>
@@ -166,8 +166,8 @@ export default function Options({excel}){
             <div className={window.innerWidth > 1200 ? 'h3d' : 'h3m'}>
                 
                 <div className = {window.innerWidth > 1200 ? 'optionContainerDesktop' : 'optionContainerMobile'}>
-                        <Option image="goals" text ='Complete Small Projects' select = {() => setDisplay('goals')} selected = {displayed}/>
                         <Option image = 'help' text = 'Provide Forward-Thinking Help' select = {() => setDisplay('help')} selected = {displayed}/>
+                        <Option image="goals" text ='Complete Small Projects' select = {() => setDisplay('goals')} selected = {displayed}/>
                         <Option image="spreadsheet" text = 'Maintain Financial Transparency' select = {() => setDisplay('spreadsheet')} selected = {displayed}/>
                 </div>
                 {(displayed === "goals" && excel && excel.length > 2) && <GoalContainer data = {excel[2]}/>}
