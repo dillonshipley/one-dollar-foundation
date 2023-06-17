@@ -2,8 +2,12 @@ import React from 'react';
 import DonateModal from './DonateModal';
 import Footer from "./Footer";
 import Options from './Homepage/Options'
-import '../css/Options.css';
+
+import '../css/options/Options.css';
+import '../css/options/Spreadsheet.css';
+import '../css/options/Goals.css';
 import '../css/Subscribe.css';
+
 import Homepage from './Homepage/Homepage';
 
 async function logJSONData() {

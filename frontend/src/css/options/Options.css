@@ -1,0 +1,208 @@
+/* ---- OPTIONS ----- */
+.h3d{
+  width: 100%;    
+  display:grid;
+  grid-template-columns: 50% 50%;
+  background: linear-gradient(to bottom, transparent, #222222);
+  min-height: 500px;
+}
+
+.h3m{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, #222222);
+  min-height: 500px;
+}
+
+.optionContainerDesktop {
+  width: 95%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 500px;
+}
+
+.optionTitle {
+  font-size: 36px;
+  font-weight: bolder;
+  text-decoration: underline;
+  padding-bottom: 15px;
+  padding-top: 5%;
+  font-family: 'Olympia';
+}
+
+
+.optionDesktop {
+  height: 80px;
+  width: 40%;
+  margin-left: 50%;
+  min-width: 350px;
+  line-height: 80px;
+  margin-top: 1vh;
+
+  background-color: #F8F8F7;
+
+  border-bottom: 1px solid black;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: -1px 1px 5px 1px black;
+  border-radius: 4px;
+}
+
+.optionMobile{
+  background-color: #F8F8F7;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border:1px solid black;
+}
+
+.optionIcon{
+  height: auto;
+  width: 40px;
+  margin-left: 20px;
+}
+
+.optionIcon .goals{
+  width:30px;
+  margin-left: 10px;
+}
+
+.optionText{
+  font-weight: bolder;
+  margin-left: 20px;
+}
+.optionTitle{
+  text-align: center;
+  width: 100%;
+}
+
+.optionHovered{
+  background-color: #ececec;
+}
+.optonHovered::after{
+  content: "";
+  position: absolute;
+  background-image: linear-gradient(to top, rgba(200, 200, 200, 0), rgba(255, 255,255, 1));
+  pointer-events: none;
+}
+
+.optionSelected{
+  background-color: #cfcfcf;
+}
+
+.swap{
+  right: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  z-index: 4;
+}
+
+.helpTextContainer{
+  padding-left: 5%;
+  margin-left: 5%;  
+  padding-right: 5%;
+  margin-right: 5%;
+  margin-top: 30px;
+  padding-top: 2%;
+  margin-bottom: 10%;
+  padding-bottom: 5%;
+  border-radius: 3px;
+  border: 2px solid black;
+  background-color: white;
+}
+
+.helpTextBig{
+  font-size: 25px;
+  font-family: 'Coolvetica';
+}
+
+.helpTextAddl{
+  font-size: 20px;
+  font-family: 'AmericanTypewriter';
+  text-align: left;
+  margin-top: 3%;
+}
+
+.helpTextList{
+  margin-top: 2%;
+  text-align: left;
+  font-family: 'AmericanTypewriter';
+  font-size: 16px;
+}
+
+
+@media screen and (max-width: 1600px){
+  .event{
+    min-width: 375px;
+  }
+  .excelHeader{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .spreadSheetData{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: stretch;
+  }
+}
+
+@media screen and (max-width: 1200px){
+
+
+  .options {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .optionContainer{
+    height: 500px;
+    width: 100%;
+    margin-top: 10%;
+    margin-right: 10%;
+  }
+
+}
+
+@media screen and (max-width: 600px){
+
+  .options {
+    justify-content: center;
+    align-items: center;
+    border: 0;
+  }
+  
+  .optionContainer{
+    height: 500px;
+    width: 100%;
+    margin-top: 10%;
+    margin-right: 10%;
+  }
+
+  .helpTextBig{
+    font-size: 20px;
+  }
+  
+  .helpTextAddl{
+    font-size: 15px;
+  }
+
+  .helpTextList{
+    font-size: 12px;
+  }
+
+}

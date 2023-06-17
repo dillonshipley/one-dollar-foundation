@@ -155,11 +155,13 @@
 .quoteContainer{
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: right;
+  margin-left: 10%;
+  margin-right: 5%;
 }
 .quote{
-  width: 200px;
-  margin-left: 10vw;
+  min-width: 200px;
+  max-width: 350px;
   margin-top: 20%;
   font-size: 1em;
 
@@ -167,26 +169,23 @@
 }
 
 .imageContainer{
-  flex-direction: column;
-  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: flex-start;
+  margin-left: 5%;
   max-width: 50vw;
   min-height: 50%;
 }
 
 .quoteImg{
-  margin-left: 0%;
+  margin-left: 5%;
   width: auto;
   max-width: 50%;
   height: 80%;
   border: 2px solid black;
 }
 
-@media screen and (max-width: 900px){
-  .quoteImg{
-    width: 70vw;
-  }
-}
 
 .footer{
   width: 100%;
@@ -219,6 +218,17 @@
     font-size: 1.5em;
   }
 }
+
+@media screen and (max-width: 900px){
+  .quoteImg{
+    max-width: 70%;
+    width: 70%;
+    height: 75%;
+    min-width: 200px;
+    max-width: 50%;
+  }
+}
+
 @media screen and (max-width: 600px){
   .overlay{
     justify-content: center;

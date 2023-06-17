@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 
-
 function EventElement({data, type, index}){
 
     let imgSrc = null;
@@ -139,7 +138,7 @@ function Option({image, text, select, selected}){
           >
           <img src={process.env.PUBLIC_URL+ "/logos/" + image + ".png"} alt='darn' className = {'optionIcon ' + image}/>
           <div className = 'optionText'>{text}</div>
-        </div>
+        </div>  
       );
 }
 
@@ -148,8 +147,8 @@ function HelpText(){
         <div className = "helpTextContainer">
             <div className = "helpTextBig">Our short-term goals are simple.</div>
             <div className = "helpTextBig">Our long-term dreams are limitless.</div>
-            <div className = "helpTextAddl">Right now, we want to help people in immediate need to establish ourselves as a charity and cement ourselves in the community.</div>
-            <div className = "helpTextAddl">Over time, we want to engineer systemic solutions to pressing problems.</div>
+            <div className = "helpTextAddl">Our initial mission is to help people in immediate need and be a resource in the community for its most vulnerable members.</div>
+            <div className = "helpTextAddl">Over time, we want to engineer systemic solutions to the following pressing problems:</div>
             <div className = "helpTextList">1. Reduce the presence of food deserts in "first-world" environments.</div>
             <div className = "helpTextList">2. Host community activities and projects that help reverse the trend of isolation in American society.</div>
             <div className = "helpTextList">3. Create a method of free, temporary housing for the homeless.</div>

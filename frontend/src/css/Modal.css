@@ -63,7 +63,6 @@
     justify-content: center;
     align-items: center;
     height: 8vh;
-    border-right: 2px solid #999999;
   }
   
   .donationMethodSelected {
@@ -71,6 +70,7 @@
     height: 1vh;
     margin-top: -1vh;
     background-color: #bfdce3;
+    border-bottom: 1px solid black;
   }
   
   .VenmoQR {
@@ -94,7 +94,6 @@
   .VenmoLogo{
     position: aboslute;
     width: 100%;
-    min-width: 200px;
     max-width: 250px;
     height: 100%;
   }
@@ -102,7 +101,7 @@
   .CashAppLogo{
     position: aboslute;
     width: 70%;
-    height:80%;
+    height:65%;
   }
 
   @media screen and (max-width: 600px){
