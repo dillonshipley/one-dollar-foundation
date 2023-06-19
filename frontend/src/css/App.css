@@ -13,6 +13,7 @@
   position: relative;
   display: block;
   min-height: 500px;
+  overflow: hidden;
 }
 
 .flex{
@@ -36,11 +37,10 @@
 .desktopHomepage{
   position: absolute;
   display: grid;
-  grid-template-columns: 50vw 50vw;
+  grid-template-columns: 50% 50%;
 }
 
 .mobileHomepage{
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -101,7 +101,6 @@
 
 }
 
-
 .o1{
   height: 15%;
   width: 60%;
@@ -138,56 +137,31 @@
     text-shadow: 0px 0px 0px 5px white;
 
     background: hsla(259, 33%, 32%, 1);
-
     background: linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
-    
     background: -moz-linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
-    
     background: -webkit-linear-gradient(270deg, hsla(259, 33%, 32%, 1) 30%, hsla(270, 52%, 77%, 1) 100%);
-    
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#48376C", endColorstr="#C5A6E3", GradientType=1 );
   }
-
-@media screen and (max-width: 1200px){
-  .donationButton{
-    font-size: 1.5em;
-  }
-}
-@media screen and (max-width: 600px){
-  .overlay{
-    justify-content: center;
-  }
-  .o1{
-    font-size: 1.5em;
-    width: 90%;
-  }
-  .o2{
-    font-size: 2em;
-    margin-top: 50px;
-    width: 80%;
-  }
-}
 
 /* ----- SECTION 2 ----- */
 .homepageSectionTwo{
   background-color: white;
-  height: 60vh;
-  min-height: 400px;
+  height: 40vh;
+  min-height: 300px;
   display:grid;
-  grid-template-columns: 50vw 50vw;
+  grid-template-columns: 50% 50%;
 }
 
 .quoteContainer{
-
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: right;
+  margin-left: 10%;
+  margin-right: 5%;
 }
 .quote{
-  width: 200px;
-  margin-left: 10vw;
+  min-width: 200px;
+  max-width: 350px;
   margin-top: 20%;
   font-size: 1em;
 
@@ -196,29 +170,26 @@
 
 .imageContainer{
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
   justify-content: flex-start;
+  margin-left: 5%;
   max-width: 50vw;
+  min-height: 50%;
 }
 
 .quoteImg{
-  margin-left: 10%;
-  width: 50%;
+  margin-left: 5%;
+  width: auto;
   max-width: 50%;
-  max-height: 60%;
+  height: 80%;
   border: 2px solid black;
-}
-
-@media screen and (max-width: 900px){
-  .quoteImg{
-    width: 70vw;
-  }
 }
 
 
 .footer{
   width: 100%;
+  min-height: 100px;
 }
 
 .footerIcons{
@@ -236,4 +207,69 @@
 @font-face {
   font-family: 'Olympia';
   src: url('./fonts/Olympia.otf') format('truetype')
+}
+
+@font-face {
+  font-family: 'AmericanTypewriter';
+  src: url('./fonts/AmericanTypewriter.ttf') format('truetype')
+}
+
+@media screen and (max-width: 1200px){
+  .donationButton{
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .quoteImg{
+    max-width: 70%;
+    width: 70%;
+    height: 75%;
+    min-width: 200px;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .overlay{
+    justify-content: center;
+  }
+  .o1{
+    font-size: 1.5em;
+    width: 70%;
+    min-width: 250px;
+  }
+  .o2{
+    font-size: 2em;
+    margin-top: 40px;
+    width: 80%;
+  }
+
+  .quoteImg{
+    margin-top: 15%;
+    max-width: 75%;
+    width: 75%;
+    height: 75%;
+    min-width: 150px;
+  }
+
+  .quote{
+    min-width: 150px;
+    max-width: 350px;
+    margin-top: 60%;
+    font-size: .75em;
+  
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .quote{
+    min-width: 150px;
+    max-width: 350px;
+    margin-top: 80%;
+    font-size: .75em;
+  
+    font-weight: bold;
+  }
 }

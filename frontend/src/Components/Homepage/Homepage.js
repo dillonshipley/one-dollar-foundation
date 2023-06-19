@@ -30,7 +30,7 @@ function Overlay({modal}){
       <div className ="overlay o1">
         <p>Changing the world one step at a time.</p>
       </div>
-      <p className="overlay o2">Welcome to the One Dollar Foundation.</p>
+      <div className="overlay o2">Welcome to the One Dollar Foundation.</div>
       <DonationButton click = {modal}/>
     </div>
 );
@@ -40,7 +40,7 @@ export default function HomepageImage({modal, expanded}){
     return (
       <div className = 'homepageContainer s1height'>
         <Background />
-        <div className = {window.innerWidth > 1200 ? "hp s1height desktopHomepage" : "hp s1height mobileHomepage"}>
+        <div className = {window.innerWidth > 1200 ? "hp s1height desktopHomepage" : "hp s1height mobileHomepage flex"}>
           <Overlay modal = {modal} />
           {window.innerWidth > 1200 && <Subscribe />}
         </div>

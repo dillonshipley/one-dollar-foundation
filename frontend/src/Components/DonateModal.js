@@ -23,7 +23,10 @@ function DonationDetail({type}){
   return (
     <>
       <img src = {img} alt = {type + " is broken"} className = {type + "QR"}/>
-      <p style = {{marginTop: "15px"}}>Select scan in the {type} app.</p>
+      <div className = "modalText">If you're on your phone, long tap on the QR code above</div>
+      <div className = "modalText mobileInfo">(must have {type} installed)</div>
+      <div className = "modalText">or</div>
+      <div className = "modalText">If on desktop, scan this code with the {type} app.</div>
     </>
   )
 }
@@ -53,6 +56,7 @@ export default class DonationModal extends React.Component {
               <DonationOption text = "CashApp" select = {(e) => this.select("CashApp", e)} selected = {this.state.selected} />            
             </div>
             <DonationDetail type = {this.state.selected}/>
+            <div className = "closeModal" onClick = {this.props.close}>I'll donate later -></div>
           </div>
         </div>
       )
