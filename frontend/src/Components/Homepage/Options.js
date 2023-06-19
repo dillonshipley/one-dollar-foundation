@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 
 function EventElement({data, type, index}){
 
@@ -11,7 +11,7 @@ function EventElement({data, type, index}){
     return (
         <div class = "event">
             <div className = "eventImage">
-                <img className = "eventImage" src= {imgSrc} />
+                <img className = "eventImage" alt = "Couldn't find event pic!" src= {imgSrc} />
             </div>
             <div className = "eventDetail">
             <div className = "eventLineOne">
@@ -106,9 +106,20 @@ function Option({image, text, select, selected}){
     const [isHovered, setIsHovered] = useState(false);
     const [optionClass, setOptionClass] = useState("option")
   
+    const buildString = useCallback(() => {
+        let classString = "optionDesktop ";
+        if(window.innerWidth < 1200)
+            classString = "optionMobile ";
+        if(isHovered)
+            classString = classString + "optionHovered ";
+        if(image === selected)
+            classString = classString + "optionSelected "
+        return classString;
+    }, [image, isHovered, selected]);
+
     useEffect(() => {
         setOptionClass(buildString);
-    });
+    }, [buildString]);
 
     const handleMouseOver = () => {
       setIsHovered(true);
@@ -118,17 +129,6 @@ function Option({image, text, select, selected}){
       setIsHovered(false);
       setOptionClass(buildString);
     };
-
-    const buildString = () => {
-        let classString = "optionDesktop ";
-        if(window.innerWidth < 1200)
-            classString = "optionMobile ";
-        if(isHovered)
-            classString = classString + "optionHovered ";
-        if(image === selected)
-            classString = classString + "optionSelected "
-        return classString;
-    }
 
     return (
         <div className={optionClass}

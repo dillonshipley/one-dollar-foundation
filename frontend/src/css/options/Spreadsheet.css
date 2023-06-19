@@ -3,7 +3,7 @@
     width: 40%;
     margin-left: 5%;
     box-shadow: -4px 4px 4px 2px; 
-    border-top: 1px solid black;
+    border: 1px solid black;
 }
 
 .financialText .ftOver{
@@ -16,10 +16,11 @@
 
 
 .financialTotals{
+  position: absolute;
 height: 30px;
 width: 100%;
 color: black;
-bottom: 0;
+bottom: 30px;
 display: flex;
 flex-direction: row;
 font-family: 'Coolvetica';
@@ -28,7 +29,7 @@ font-family: 'Coolvetica';
 .spreadSheetContainer{
     display: flex;
     flex-direction: column;
-    
+    position: relative;
     max-width: 70%;
     margin-left: 10%;
     margin-top: 5%;

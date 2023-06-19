@@ -26,9 +26,9 @@
     right: 30%;
     width: 40%;
     min-width: 500px;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-bottom: 10%;
-    height: 60%;
+    height: 80%;
     background-color: #eeeeee;
   
     border-radius: 10px;
@@ -74,19 +74,16 @@
   }
   
   .VenmoQR {
-    width: 20vw;
-    height: 20vw;
-  
-    margin-left: 5vw;
-    margin-right: 5vw;
+    width: 40%;
+    height: auto;
     margin-top: 5vh;
   
     border-radius: 20px;
   }
   
   .CashAppQR{
-    width: 17vw;
-    height: 20vw;
+    width: 40%;
+    height: auto;
     margin-top: 5vh;
     border-radius: 20px;
   }
@@ -94,7 +91,7 @@
   .VenmoLogo{
     position: aboslute;
     width: 100%;
-    max-width: 250px;
+    max-width: 200px;
     height: 100%;
   }
   
@@ -102,6 +99,26 @@
     position: aboslute;
     width: 70%;
     height:65%;
+  }
+
+  .modalText{
+    font-size: 20px;
+    font-family: 'AmericanTypewriter';
+    margin-top: 10px;
+  }
+
+  .mobileInfo{
+    margin-top: 5px;
+    font-size: 15px;
+  }
+
+  .closeModal{
+    position: relative;
+    bottom: 30px;
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 20px;
+    text-decoration: underline;
   }
 
   @media screen and (max-width: 600px){

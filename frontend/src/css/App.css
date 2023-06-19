@@ -189,6 +189,7 @@
 
 .footer{
   width: 100%;
+  min-height: 100px;
 }
 
 .footerIcons{
@@ -250,5 +251,25 @@
     width: 75%;
     height: 75%;
     min-width: 150px;
+  }
+
+  .quote{
+    min-width: 150px;
+    max-width: 350px;
+    margin-top: 60%;
+    font-size: .75em;
+  
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .quote{
+    min-width: 150px;
+    max-width: 350px;
+    margin-top: 80%;
+    font-size: .75em;
+  
+    font-weight: bold;
   }
 }
