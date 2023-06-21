@@ -8,11 +8,13 @@ app.use(cors());
 let formattedData = excel.formatExcel();
 console.log(formattedData);
 
+app.use(express.json());
+
 app.get('/', (request, response) => {
     response.send(formattedData)
 })
 
-app.post('/', (request, response) => {
+app.post('/subscribe', (request, response) => {
     console.log(request.body);
 })
 

@@ -1,15 +1,41 @@
 import React, {useState, useEffect} from "react";
+import DOMPurify from 'dompurify';
 
 export default function Subscribe(){
-   
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+  
+  const sanitizeInput = (input) => {
+    // Implement your input sanitization logic here
+    // For email validation, you can use the built-in validation functions or a library like DOMPurify.
+    // Example using DOMPurify:
+    const sanitizedInput = DOMPurify.sanitize(input);
+    return sanitizedInput;
+  }
+  
+
+
+
     const postSubscribe = () => {
       console.log("clicked");
-      fetch('http://localhost:3001/', {
+      const emailInput = document.getElementById('email').value;
+      const sanitizedEmailInput = sanitizeInput(emailInput);
+      if (validateEmail(sanitizedEmailInput)) {
+        console.log('Email is valid');
+      } else {
+        console.log('Invalid email');
+      }
+
+      const suggestionInput = document.getElementById('suggestion').value;
+      fetch('http://localhost:3001/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: "hiiiii"
+        body: JSON.stringify({'email': emailInput, 'suggestion': suggestionInput})
       });
     }
 
@@ -27,7 +53,7 @@ export default function Subscribe(){
                 </input>
                 <label htmlFor ="suggestion label">Suggestion:</label>
                 <div className = "suggestionContainer input st lh2">
-                  <textarea id = "suggestionInput" placeholder = "Please let us know of any events in your community you'd like us to be involved in" className = "st input suggestion lh2" rows="2"></textarea>
+                  <textarea id = "suggestion" placeholder = "Please let us know of any events in your community you'd like us to be involved in" className = "st input suggestion lh2" rows="2"></textarea>
                 </div>            
             </form>
             
