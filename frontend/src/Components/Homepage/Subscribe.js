@@ -1,8 +1,18 @@
 import React, {useState, useEffect} from "react";
 
 export default function Subscribe(){
-    const [suggestion, toggleSuggestion] = useState(true);
    
+    const postSubscribe = () => {
+      console.log("clicked");
+      fetch('http://localhost:3001/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: "hiiiii"
+      });
+    }
+
     return (
         <div className = "subscribeContainer">
           <div className = "subscribe">
@@ -16,8 +26,7 @@ export default function Subscribe(){
                     
                 </input>
                 <label htmlFor ="suggestion label">Suggestion:</label>
-                <div className = "suggestionContainer input st lh2" onClick = {() => toggleSuggestion(!suggestion)}>
-                  {/*suggestion && <div className = "suggestionOverlay lh2">Please let us know of any events in your community you'd like us to be involved in</div>*/}
+                <div className = "suggestionContainer input st lh2">
                   <textarea id = "suggestionInput" placeholder = "Please let us know of any events in your community you'd like us to be involved in" className = "st input suggestion lh2" rows="2"></textarea>
                 </div>            
             </form>
@@ -25,7 +34,7 @@ export default function Subscribe(){
             <div className = "c">
               <p className = "moreSubText email">We will <u>only</u> email you once a month for our newsletter and expenditures report.</p>
               <p className = "moreSubText nospam">We will never send you email asking for money or personal information.</p>
-              <div className = "subscribeButton">
+              <div className = "subscribeButton" onClick = {() => postSubscribe()}>
                 <div>Subscribe</div>
               </div>
             </div>
