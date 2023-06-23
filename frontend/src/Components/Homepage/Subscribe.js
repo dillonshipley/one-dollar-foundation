@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import DOMPurify from 'dompurify';
 
 export default function Subscribe(){
   const [errorList, setErrorList] = useState([]);
@@ -14,8 +13,8 @@ export default function Subscribe(){
     // Implement your input sanitization logic here
     // For email validation, you can use the built-in validation functions or a library like DOMPurify.
     // Example using DOMPurify:
-    const sanitizedInput = DOMPurify.sanitize(input);
-    return sanitizedInput;
+    //const sanitizedInput = DOMPurify.sanitize(input);
+    return input;
   }
   
 
