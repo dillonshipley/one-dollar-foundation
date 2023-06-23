@@ -1,8 +1,48 @@
 import React, {useState, useEffect} from "react";
 
 export default function Subscribe(){
-    const [suggestion, toggleSuggestion] = useState(true);
-   
+  const [errorList, setErrorList] = useState([]);
+
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+  
+  const sanitizeInput = (input) => {
+    // Implement your input sanitization logic here
+    // For email validation, you can use the built-in validation functions or a library like DOMPurify.
+    // Example using DOMPurify:
+    //const sanitizedInput = DOMPurify.sanitize(input);
+    return input;
+  }
+  
+
+
+
+    const postSubscribe = () => {
+      console.log("clicked");
+      const emailInput = document.getElementById('email').value;
+      if(emailInput == ''){
+        setErrorList(['email'])
+      }
+      const sanitizedEmailInput = sanitizeInput(emailInput);
+      if (validateEmail(sanitizedEmailInput)) {
+        console.log('Email is valid');
+      } else {
+        console.log('Invalid email');
+      }
+
+      const suggestionInput = document.getElementById('suggestion').value;
+      fetch('http://localhost:3001/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({'email': emailInput, 'suggestion': suggestionInput})
+      });
+    }
+
     return (
         <div className = "subscribeContainer">
           <div className = "subscribe">
@@ -12,20 +52,18 @@ export default function Subscribe(){
 
             <form>
                 <label htmlFor ="email" className = "st label">Email:</label>
-                <input id = "email" className = "st input" placeholder = "Enter your email here">
-                    
-                </input>
+                <input id = "email" className = "st input" placeholder = "Enter your email here" />
+                {errorList.includes("email") && <div className = "errorText">Please enter a valid email address</div>}
                 <label htmlFor ="suggestion label">Suggestion:</label>
-                <div className = "suggestionContainer input st lh2" onClick = {() => toggleSuggestion(!suggestion)}>
-                  {/*suggestion && <div className = "suggestionOverlay lh2">Please let us know of any events in your community you'd like us to be involved in</div>*/}
-                  <textarea id = "suggestionInput" placeholder = "Please let us know of any events in your community you'd like us to be involved in" className = "st input suggestion lh2" rows="2"></textarea>
+                <div className = "suggestionContainer input st lh2">
+                  <textarea id = "suggestion" placeholder = "Please let us know of any events in your community you'd like us to be involved in" className = "st input suggestion lh2" rows="2"></textarea>
                 </div>            
             </form>
             
             <div className = "c">
               <p className = "moreSubText email">We will <u>only</u> email you once a month for our newsletter and expenditures report.</p>
               <p className = "moreSubText nospam">We will never send you email asking for money or personal information.</p>
-              <div className = "subscribeButton">
+              <div className = "subscribeButton" onClick = {() => postSubscribe()}>
                 <div>Subscribe</div>
               </div>
             </div>
