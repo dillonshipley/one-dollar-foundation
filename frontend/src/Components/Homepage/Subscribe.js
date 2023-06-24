@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 export default function Subscribe(){
   const [errorList, setErrorList] = useState([]);
@@ -17,31 +17,28 @@ export default function Subscribe(){
     return input;
   }
   
-
-
-
-    const postSubscribe = () => {
-      console.log("clicked");
-      const emailInput = document.getElementById('email').value;
-      if(emailInput == ''){
-        setErrorList(['email'])
-      }
-      const sanitizedEmailInput = sanitizeInput(emailInput);
-      if (validateEmail(sanitizedEmailInput)) {
-        console.log('Email is valid');
-      } else {
-        console.log('Invalid email');
-      }
-
-      const suggestionInput = document.getElementById('suggestion').value;
-      fetch('http://localhost:3001/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({'email': emailInput, 'suggestion': suggestionInput})
-      });
+  const postSubscribe = () => {
+    console.log("clicked");
+    const emailInput = document.getElementById('email').value;
+    if(emailInput === ''){
+      setErrorList(['email'])
     }
+    const sanitizedEmailInput = sanitizeInput(emailInput);
+    if (validateEmail(sanitizedEmailInput)) {
+      console.log('Email is valid');
+    } else {
+      console.log('Invalid email');
+    }
+
+    const suggestionInput = document.getElementById('suggestion').value;
+    fetch('http://localhost:3001/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({'email': emailInput, 'suggestion': suggestionInput})
+    });
+  }
 
     return (
         <div className = "subscribeContainer">

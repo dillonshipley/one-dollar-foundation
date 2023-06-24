@@ -3,6 +3,17 @@ import './css/App.css';
 import './css/Mobile.css'
 import Header from "./Components/Header";
 import Body from "./Components/Body";
+import Unsubscribe from "./Components/Unsubscribe"
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+function Main({dropdown, displayBody}){
+  return (
+    <div className = "App">
+        <Header dropdown = {dropdown}/>
+        {displayBody()}
+    </div>
+  )
+}
 
 class App extends React.Component{
 
@@ -40,9 +51,13 @@ class App extends React.Component{
 
   render(){
     return (
-      <div className="App">
-        <Header dropdown = {this.setDropdown}/>
-        {this.displayBody()}
+      <div className = "router">
+        <BrowserRouter>
+        <Routes>
+            <Route path="/" element = {<Main dropdown = {(e) => this.setDropdown(e)} displayBody={() => this.displayBody()}/>} />
+            <Route path="/unsubscribe" element = {<Unsubscribe />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     );
   }

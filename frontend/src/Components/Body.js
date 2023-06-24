@@ -26,7 +26,7 @@ class Body extends React.Component {
   }
 
   componentDidMount(){
-    const excelData = logJSONData()
+    logJSONData()
     .then((data) => {
       console.log(data);
       this.setState({optionsExcel: data});
