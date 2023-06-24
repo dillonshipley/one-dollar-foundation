@@ -18,16 +18,14 @@ export default function Subscribe(){
   }
   
   const postSubscribe = () => {
-    console.log("clicked");
+    console.log("Sending subscribe post...");
     const emailInput = document.getElementById('email').value;
     if(emailInput === ''){
       setErrorList(['email'])
     }
     const sanitizedEmailInput = sanitizeInput(emailInput);
     if (validateEmail(sanitizedEmailInput)) {
-      console.log('Email is valid');
     } else {
-      console.log('Invalid email');
     }
 
     const suggestionInput = document.getElementById('suggestion').value;
@@ -37,6 +35,16 @@ export default function Subscribe(){
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({'email': emailInput, 'suggestion': suggestionInput})
+    })
+    .then((response) => {
+      console.log(response.message);
+      response.json();
+    })
+    .then((data)=> {
+      console.log(data);
+    })
+    .catch(() => {
+      console.log('Error');
     });
   }
 
@@ -50,7 +58,9 @@ export default function Subscribe(){
             <form>
                 <label htmlFor ="email" className = "st label">Email:</label>
                 <input id = "email" className = "st input" placeholder = "Enter your email here" />
-                {errorList.includes("email") && <div className = "errorText">Please enter a valid email address</div>}
+                <div className = "emailError">
+                  {errorList.includes("email") && <div className = "errorText">Please enter a valid email address.</div>}
+                </div>
                 <label htmlFor ="suggestion label">Suggestion:</label>
                 <div className = "suggestionContainer input st lh2">
                   <textarea id = "suggestion" placeholder = "Please let us know of any events in your community you'd like us to be involved in" className = "st input suggestion lh2" rows="2"></textarea>

@@ -99,10 +99,11 @@ app.post('/subscribe', (request, response) => {
     sendToDB(email, suggestion)
     .then((result) => {
         console.log(result);
+        response.json({message: "Success"})
       })
       .catch((error) => {
         console.log(error);
-        response.status(500).send('An error occurred');
+        response.json({message: "Error"})
       });
 })
 
@@ -111,10 +112,11 @@ app.post('/unsubscribe', (request, response) => {
     deleteFromDB(email)
     .then((result) => {
         console.log(result);
+        response.json({message: "Success"})
       })
       .catch((error) => {
         console.log(error);
-        response.status(500).send('An error occurred');
+        response.json({message: "Error"})
       });
 })
 
