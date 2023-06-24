@@ -33,7 +33,7 @@ const establishConnection = async () => {
     });
     await client.connect();
   } catch (error) {
-    reject(error);
+    throw error;
   }
 }
 establishConnection();
