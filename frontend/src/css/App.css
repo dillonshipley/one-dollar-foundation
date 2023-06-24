@@ -273,3 +273,15 @@
     font-weight: bold;
   }
 }
+
+.unsubscribeWrapper{
+  display: flex;
+  width: 80%;
+  margin-left: 10%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.unsubscribeButton{
+  margin-top: 20px;
+}

@@ -19,7 +19,7 @@ function DropdownOption({type}){
   
     return (
       <a href={href} className = 'SocialDropdownOption'>
-        <img className = 'socialOption' src={process.env.PUBLIC_URL + '/images/' + type + 'Logo.png'}/>
+        <img className = 'socialOption' alt = "" src={process.env.PUBLIC_URL + '/images/' + type + 'Logo.png'}/>
       </a>
       );
   }
