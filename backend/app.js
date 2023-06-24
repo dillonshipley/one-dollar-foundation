@@ -22,20 +22,28 @@ function sanitize(myString){
 
 let client = null;
 
-const establishConnection = async () => {
-  try {
-    client = new Client({
-      user: databaseJSON.username,
-      host: databaseJSON.host,
-      database: databaseJSON.database,
-      password: databaseJSON.password,
-      port: databaseJSON.port
-    });
-    await client.connect();
-  } catch (error) {
-    throw error;
-  }
-}
+const establishConnection = () => {
+  return new Promise((resolve, reject) => {
+    try {
+      client = new Client({
+        user: databaseJSON.username,
+        host: databaseJSON.host,
+        database: databaseJSON.database,
+        password: databaseJSON.password,
+        port: databaseJSON.port
+      });
+      client.connect((error) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(client);
+        }
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
 establishConnection();
 
 const sendToDB = async (email, suggestion, client) => {
