@@ -16,23 +16,31 @@ function sanitize(myString){
     }
     let newEmail = myString.split("@");
     newEmail = newEmail[0] + "&" + newEmail[1];
+    newEmail = newEmail.replace(/['"\\;\/\-\-/*%_\[\]]/g, '');
     return myString;
 }
 
+let client = null;
 
-const sendToDB = async (email, suggestion) => {
+const establishConnection = async () => {
+  try {
+    client = new Client({
+      user: databaseJSON.username,
+      host: databaseJSON.host,
+      database: databaseJSON.database,
+      password: databaseJSON.password,
+      port: databaseJSON.port
+    });
+    await client.connect();
+  } catch (error) {
+    reject(error);
+  }
+}
+establishConnection();
+
+const sendToDB = async (email, suggestion, client) => {
     const newEmail = sanitize(email);
     try {
-        const client = new Client({
-            user: databaseJSON.username,
-            host: databaseJSON.host,
-            database: databaseJSON.database,
-            password: databaseJSON.password,
-            port: databaseJSON.port
-        })
-        
-        console.log(newEmail);
-        await client.connect()
         let count = await client.query('select subscriberid from subscribers order by subscriberid desc limit 1');
         if(count.rows.length == 0)
             count = 1; 
@@ -41,40 +49,29 @@ const sendToDB = async (email, suggestion) => {
 
         let exists = await client.query('select * from subscribers where email = \'' + newEmail + "\'")
         if(exists.rows.length > 0){
-            await client.end();
-            return "Error - email " + email + " already exists";
+            return "Error";
         } else {
             const queryString = 'insert into subscribers (subscriberid, email, suggestion) values (' + (count) + ', \'' + newEmail + '\', \'' + suggestion + '\')';
             const res2 = await client.query(queryString);
-            await client.end();
-            return "Successfully inserted email: " + email + " with suggestion: " + suggestion;
+            return "Success";
         }
     } catch (error) {
         console.log(error)
     }
 }
-const deleteFromDB = (email) => {
+
+const deleteFromDB = (email, client) => {
     return new Promise(async (resolve, reject) => {
       try {
         const newEmail = sanitize(email);
-        const client = new Client({
-          user: databaseJSON.username,
-          host: databaseJSON.host,
-          database: databaseJSON.database,
-          password: databaseJSON.password,
-          port: databaseJSON.port
-        });
-  
         await client.connect();
   
         const queryString = "delete from subscribers where email = '" + newEmail + "'";
         const res = await client.query(queryString);
   
         if (res.rowCount === 0) {
-          await client.end();
           resolve("This email address was not found in our database. Please try again.");
         } else {
-          await client.end();
           resolve("Successfully deleted " + email + " from the database.");
         }
       } catch (error) {
@@ -96,10 +93,14 @@ app.get('/', (request, response) => {
 
 app.post('/subscribe', (request, response) => {
     const {email, suggestion} = request.body;
-    sendToDB(email, suggestion)
+    sendToDB(email, suggestion, client)
     .then((result) => {
-        console.log(result);
-        response.json({message: "Success"})
+        if(result === "Error"){
+          console.log("Error - email " + email + " already exists");
+        } else {
+          console.log("Successfully inserted email: " + email + " with suggestion: " + suggestion)
+        }
+        response.json({message: result})
       })
       .catch((error) => {
         console.log(error);
@@ -109,7 +110,7 @@ app.post('/subscribe', (request, response) => {
 
 app.post('/unsubscribe', (request, response) => {
     const {email} = request.body;
-    deleteFromDB(email)
+    deleteFromDB(email, client)
     .then((result) => {
         console.log(result);
         response.json({message: "Success"})

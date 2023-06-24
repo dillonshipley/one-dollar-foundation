@@ -36,16 +36,10 @@ export default function Subscribe(){
       },
       body: JSON.stringify({'email': emailInput, 'suggestion': suggestionInput})
     })
-    .then((response) => {
-      console.log(response.message);
-      response.json();
-    })
+    .then((response) => response.json())
     .then((data)=> {
-      console.log(data);
+      console.log(data.message);
     })
-    .catch(() => {
-      console.log('Error');
-    });
   }
 
     return (
