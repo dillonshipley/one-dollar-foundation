@@ -10,11 +10,7 @@ import '../css/Subscribe.css';
 
 import Homepage from './Homepage/Homepage';
 
-async function logJSONData() {
-  const response = await fetch("http://localhost:3001/");
-  const jsonData = await response.json();
-  return jsonData;
-}
+
 
 class Body extends React.Component {
   constructor(props){
@@ -23,15 +19,6 @@ class Body extends React.Component {
       footer: props.footer,
       modal: false,
     };
-  }
-
-  componentDidMount(){
-    logJSONData()
-    .then((data) => {
-      console.log(data);
-      this.setState({optionsExcel: data});
-      console.log(this.state.optionsExcel);
-    });
   }
 
   showModal = () => {

@@ -16,7 +16,7 @@ export default function Unsubscribe(){
         } else {
           console.log('Invalid email');
         }
-        fetch('http://localhost:3001/unsubscribe', {
+        fetch('/api/unsubscribe', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

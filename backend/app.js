@@ -1,12 +1,50 @@
+// ---APP DECLARATION---
 const express = require('express')
 const cors = require('cors');
-var postgres = require('postgres');
+const app = express()
+app.use(cors());
+
 const crypto = require('crypto');
-const { Client } = require("pg");
 
+
+// ---DATABASE---
+const { Pool } = require("pg");
+const databaseJSON = require('./config.json')
+const client = new Pool({
+  user: databaseJSON.username,
+  host: databaseJSON.host,
+  database: databaseJSON.database,
+  password: databaseJSON.password,
+  port: databaseJSON.port
+});
+
+
+const executeQuery = async (query) => {
+  console.log("Initiating Database Query: " + query);
+  try {
+    await client.connect();
+    const data = await client.query(query);
+    const result = data.rows;
+    return result;
+  } catch (error) {
+    console.error('Error executing query:', error);
+    throw error; // Optional: Rethrow the error to be handled by the caller
+  }
+};
+
+
+// ---EXCEL / JSON---
 const excel = require('./formatExcel.js')
-const databaseJSON = require('../../config.json')
+let formattedData = excel.formatExcel();
 
+app.use(express.json());
+app.get('/', (request, response) => {
+    console.log("\nSending excel data to client...")
+    response.send(formattedData)
+    console.log("Excel data sent!")
+})
+
+// ---DATA MANAGEMENT---
 function sanitize(myString){
     const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
     if(regex.test(myString)){
@@ -20,47 +58,23 @@ function sanitize(myString){
     return myString;
 }
 
-let client = null;
 
-const establishConnection = () => {
-  return new Promise((resolve, reject) => {
-    try {
-      client = new Client({
-        user: databaseJSON.username,
-        host: databaseJSON.host,
-        database: databaseJSON.database,
-        password: databaseJSON.password,
-        port: databaseJSON.port
-      });
-      client.connect((error) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(client);
-        }
-      });
-    } catch (error) {
-      reject(error);
-    }
-  });
-};
-establishConnection();
 
-const sendToDB = async (email, suggestion, client) => {
+const sendToDB = async (email, suggestion) => {
     const newEmail = sanitize(email);
     try {
-        let count = await client.query('select subscriberid from subscribers order by subscriberid desc limit 1');
+        let count = executeQuery('select subscriberid from subscribers order by subscriberid desc limit 1');
         if(count.rows.length == 0)
             count = 1; 
         else 
             count = count.rows[0].subscriberid;
 
-        let exists = await client.query('select * from subscribers where email = \'' + newEmail + "\'")
+        let exists = executeQuery('select * from subscribers where email = \'' + newEmail + "\'")
         if(exists.rows.length > 0){
             return "Error";
         } else {
             const queryString = 'insert into subscribers (subscriberid, email, suggestion) values (' + (count) + ', \'' + newEmail + '\', \'' + suggestion + '\')';
-            const res2 = await client.query(queryString);
+            const res2 = executeQuery(queryString);
             return "Success";
         }
     } catch (error) {
@@ -68,40 +82,31 @@ const sendToDB = async (email, suggestion, client) => {
     }
 }
 
-const deleteFromDB = (email, client) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const newEmail = sanitize(email);
-        await client.connect();
-  
-        const queryString = "delete from subscribers where email = '" + newEmail + "'";
-        const res = await client.query(queryString);
-  
-        if (res.rowCount === 0) {
-          resolve("This email address was not found in our database. Please try again.");
-        } else {
-          resolve("Successfully deleted " + email + " from the database.");
-        }
-      } catch (error) {
-        reject(error);
+const deleteFromDB = async (email) => {
+    try {
+      const newEmail = sanitize(email);  
+      let queryString = "select * from subscribers where email = \'" + newEmail + "\'";
+      const res = await executeQuery(queryString)
+      if (res.length === 0) {
+        console.log("This email address was not found in our database. Please try again.");
+        return;
       }
-    });
+      
+      queryString = "delete from subscribers where email = \'" + newEmail + "\'";
+      await executeQuery(queryString);
+      console.log("Successfully deleted " + email + " from the database.")
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-const app = express()
-app.use(cors());
 
-let formattedData = excel.formatExcel();
 
-app.use(express.json());
-
-app.get('/', (request, response) => {
-    response.send(formattedData)
-})
 
 app.post('/subscribe', (request, response) => {
     const {email, suggestion} = request.body;
-    sendToDB(email, suggestion, client)
+    sendToDB(email, suggestion)
     .then((result) => {
         if(result === "Error"){
           console.log("Error - email " + email + " already exists");
@@ -117,16 +122,18 @@ app.post('/subscribe', (request, response) => {
 })
 
 app.post('/unsubscribe', (request, response) => {
+    
     const {email} = request.body;
-    deleteFromDB(email, client)
+    console.log("\n-----Initiating Unsubscribtion: " + email + "-----");
+    deleteFromDB(email)
     .then((result) => {
-        console.log(result);
-        response.json({message: "Success"})
-      })
-      .catch((error) => {
-        console.log(error);
-        response.json({message: "Error"})
-      });
+      console.log("Deletion complete.");
+      response.json({message: "Success"})
+    })
+    .catch((error) => {
+      console.log(error);
+      response.json({message: "Error"})
+    });
 })
 
 const PORT = 3001

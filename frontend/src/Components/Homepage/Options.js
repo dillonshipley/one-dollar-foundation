@@ -1,5 +1,28 @@
 import React, {useState, useEffect, useCallback} from 'react';
 
+import { streamToArray } from 'stream-to-array';
+
+const convertStreamToJson = async (stream) => {
+    try {
+      const chunks = await streamToArray(stream);
+      const combinedString = chunks.join('');
+  
+      const jsonData = JSON.parse(combinedString);
+      return jsonData;
+    } catch (error) {
+      console.error('Error converting stream to JSON:', error);
+    }
+  };
+  
+  async function logJSONData() {
+    fetch("https://localhost:3001/")
+    .then(async (response) => {
+        console.log(response);
+        const json = await response.json();
+        console.log("printing data:" + json);
+    })
+  }
+
 function EventElement({data, type, index}){
 
     let imgSrc = null;
@@ -158,6 +181,15 @@ function HelpText(){
 
 export default function Options({excel}){
     const [displayed, setDisplay] = useState('help');
+
+    useEffect(() => {
+        logJSONData()
+        .then((data) => {
+            console.log(data);
+            this.setState({optionsExcel: data});
+            console.log(this.state.optionsExcel);
+        });
+    });
 
     return (
         <>

@@ -29,7 +29,7 @@ export default function Subscribe(){
     }
 
     const suggestionInput = document.getElementById('suggestion').value;
-    fetch('http://localhost:3001/subscribe', {
+    fetch('api/subscribe', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
