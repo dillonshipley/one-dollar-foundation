@@ -63,18 +63,18 @@ function sanitize(myString){
 const sendToDB = async (email, suggestion) => {
     const newEmail = sanitize(email);
     try {
-        let count = executeQuery('select subscriberid from subscribers order by subscriberid desc limit 1');
-        if(count.rows.length == 0)
+        let count = await executeQuery('select subscriberid from subscribers order by subscriberid desc limit 1');
+        if(count.length == 0)
             count = 1; 
         else 
-            count = count.rows[0].subscriberid;
+            count = count[0].subscriberid;
 
-        let exists = executeQuery('select * from subscribers where email = \'' + newEmail + "\'")
-        if(exists.rows.length > 0){
+        let exists = await executeQuery('select * from subscribers where email = \'' + newEmail + "\'")
+        if(exists.length > 0){
             return "Error";
         } else {
             const queryString = 'insert into subscribers (subscriberid, email, suggestion) values (' + (count) + ', \'' + newEmail + '\', \'' + suggestion + '\')';
-            const res2 = executeQuery(queryString);
+            const res2 = await executeQuery(queryString);
             return "Success";
         }
     } catch (error) {
@@ -106,6 +106,9 @@ const deleteFromDB = async (email) => {
 
 app.post('/subscribe', (request, response) => {
     const {email, suggestion} = request.body;
+
+    console.log("\n-----Initiating Subscribtion: " + email + "-----");
+
     sendToDB(email, suggestion)
     .then((result) => {
         if(result === "Error"){
@@ -127,13 +130,12 @@ app.post('/unsubscribe', (request, response) => {
     console.log("\n-----Initiating Unsubscribtion: " + email + "-----");
     deleteFromDB(email)
     .then((result) => {
-      console.log("Deletion complete.");
-      response.json({message: "Success"})
-    })
-    .catch((error) => {
-      console.log(error);
-      response.json({message: "Error"})
-    });
+        response.json({message: "Success"})
+      })
+      .catch((error) => {
+        console.log(error);
+        response.json({message: "Error"})
+      });
 })
 
 const PORT = 3001
