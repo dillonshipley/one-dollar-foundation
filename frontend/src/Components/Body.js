@@ -49,7 +49,7 @@ class Body extends React.Component {
         {this.props.footer && <Footer />}
         <DonateModal show={this.state.modal} close = {this.hideModal}/>
       </div>
-    );
+    ); 
   }
 }
 

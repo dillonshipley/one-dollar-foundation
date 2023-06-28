@@ -1,18 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react';
 
-import { streamToArray } from 'stream-to-array';
-
-const convertStreamToJson = async (stream) => {
-    try {
-      const chunks = await streamToArray(stream);
-      const combinedString = chunks.join('');
-  
-      const jsonData = JSON.parse(combinedString);
-      return jsonData;
-    } catch (error) {
-      console.error('Error converting stream to JSON:', error);
-    }
-  };
   
   async function logJSONData() {
     fetch("https://localhost:3001/")
