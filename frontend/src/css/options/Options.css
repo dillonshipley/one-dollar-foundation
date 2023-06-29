@@ -25,6 +25,13 @@
   max-height: 500px;
 }
 
+
+.goalContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .optionTitle {
   font-size: 36px;
   font-weight: bolder;
@@ -108,7 +115,7 @@
   z-index: 4;
 }
 
-.helpTextContainer{
+.optionDetailContainer{
   padding-left: 5%;
   margin-left: 5%;  
   padding-right: 5%;
@@ -139,6 +146,16 @@
   text-align: left;
   font-family: 'AmericanTypewriter';
   font-size: 16px;
+}
+
+.goalHeaderText{
+  width: 50%;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  border-bottom: 2px solid black;
+  font-family: 'AmericanTypewriter';
 }
 
 

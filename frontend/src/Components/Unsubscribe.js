@@ -16,7 +16,7 @@ export default function Unsubscribe(){
         } else {
           console.log('Invalid email');
         }
-        fetch('/api/unsubscribe', {
+        fetch('https://odfserver-kmusbztw2q-uc.a.run.app//unsubscribe', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
