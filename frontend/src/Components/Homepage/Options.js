@@ -1,5 +1,12 @@
 import React, {useState, useEffect, useCallback} from 'react';
 
+  
+  async function logJSONData() {
+    const response = await fetch("https://odfserver-kmusbztw2q-uc.a.run.app/")
+    const json = await response.json();
+    return json;
+  }
+
 function EventElement({data, type, index}){
 
     let imgSrc = null;
@@ -46,7 +53,7 @@ function PrettySpreadSheet({revenues, expenses}){
       console.log(currentBalance);
 
     return (
-        <div className = 'spreadSheetContainer'>
+        <>
             <div className = 'excelHeader'>
                 {selected === "revenues" && <div className = 'excelHeaderText' onClick = {() => setIsSelected("expenses")}>Revenues</div>}
                 {(window.innerWidth > 1600 || selected === "expenses") && <div className = 'excelHeaderText' onClick = {() => setIsSelected("revenues")}>Expenses</div>}
@@ -70,7 +77,7 @@ function PrettySpreadSheet({revenues, expenses}){
                 <div className = "financialText ftOver">Fund Balance: ${currentBalance}</div>
             </div>
            
-        </div>
+        </>
     );
 }
 
@@ -93,6 +100,7 @@ function GoalContainer({data}){
     console.log(data[0].amount);
     return (
         <div className = "goalContainer">
+            <div className="goalHeaderText">Short-Term Goals</div>
             <div className="goalGrid">
                 <Goal amount = {data[0].Amount} goal = {data[0].Goal} prog = {data[0].Progress}/>
                 <Goal amount = {data[1].Amount} goal = {data[1].Goal} prog = {data[1].Progress}/>
@@ -144,7 +152,7 @@ function Option({image, text, select, selected}){
 
 function HelpText(){
     return (
-        <div className = "helpTextContainer">
+        <>
             <div className = "helpTextBig">Our short-term goals are simple.</div>
             <div className = "helpTextBig">Our long-term dreams are limitless.</div>
             <div className = "helpTextAddl">Our initial mission is to help people in immediate need and be a resource in the community for its most vulnerable members.</div>
@@ -152,12 +160,21 @@ function HelpText(){
             <div className = "helpTextList">1. Reduce the presence of food deserts in "first-world" environments.</div>
             <div className = "helpTextList">2. Host community activities and projects that help reverse the trend of isolation in American society.</div>
             <div className = "helpTextList">3. Create a method of free, temporary housing for the homeless.</div>
-        </div>
+        </>
     )
 }
 
-export default function Options({excel}){
+export default function Options(){
     const [displayed, setDisplay] = useState('help');
+    const [excel, setExcel] = useState(null);
+
+    useEffect(() => {
+        logJSONData()
+        .then((data) => {
+            console.log("data returned from jsondata is" + data);
+            setExcel(data);
+        });
+    }, []);
 
     return (
         <>
@@ -169,9 +186,11 @@ export default function Options({excel}){
                         <Option image="goals" text ='Complete Small Projects' select = {() => setDisplay('goals')} selected = {displayed}/>
                         <Option image="spreadsheet" text = 'Maintain Financial Transparency' select = {() => setDisplay('spreadsheet')} selected = {displayed}/>
                 </div>
-                {(displayed === "goals" && excel && excel.length > 2) && <GoalContainer data = {excel[2]}/>}
-                {displayed === 'spreadsheet' && <PrettySpreadSheet revenues={excel[0]} expenses = {excel[1]} />}
-                {displayed  === 'help' && <HelpText />}
+                <div className = "optionDetailContainer">
+                    {(displayed === "goals" && excel && excel.length > 2) && <GoalContainer data = {excel[2]}/>}
+                    {displayed === 'spreadsheet' && <PrettySpreadSheet revenues={excel[0]} expenses = {excel[1]} />}
+                    {displayed  === 'help' && <HelpText />}
+                </div>
 
             </div>
     </>
