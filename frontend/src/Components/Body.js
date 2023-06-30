@@ -1,7 +1,7 @@
 import React from 'react';
 import DonateModal from './DonateModal';
 import Footer from "./Footer";
-import Options from './Homepage/Options'
+import Options from './Options/Options'
 
 import '../css/options/Options.css';
 import '../css/options/Spreadsheet.css';
