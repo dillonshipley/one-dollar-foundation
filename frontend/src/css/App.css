@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  margin-top: 2px;
 }
 
 /* ----- BODY ----- */
@@ -11,9 +10,10 @@
 }
 
 .homepageContainer{
+  margin-top: 10vh;
   position: relative;
   display: block;
-  min-height: 500px;
+  min-height: 600px;
   overflow: hidden;
 }
 

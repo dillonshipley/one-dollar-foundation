@@ -2,6 +2,7 @@ import React from 'react';
 import DonateModal from './DonateModal';
 import Footer from "./Footer";
 import Options from './Options/Options'
+import Subscribe from './Homepage/Subscribe'
 
 import '../css/options/Options.css';
 import '../css/options/Spreadsheet.css';
@@ -46,6 +47,7 @@ class Body extends React.Component {
             </div>
         </div>
         <Options excel = {this.state.optionsExcel}/>
+        {window.innerWidth <= 1200 && <Subscribe />}
         {this.props.footer && <Footer />}
         <DonateModal show={this.state.modal} close = {this.hideModal}/>
       </div>

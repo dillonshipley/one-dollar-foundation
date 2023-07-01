@@ -80,7 +80,7 @@ function Option({image, text, select, selected}){
 
 function HelpText(){
     return (
-        <>
+        <div className = "helpTextContainer">
             <div className = "helpTextBig">Our short-term goals are simple.</div>
             <div className = "helpTextBig">Our long-term dreams are limitless.</div>
             <div className = "helpTextAddl">Our initial mission is to help people in immediate need and be a resource in the community for its most vulnerable members.</div>
@@ -88,7 +88,7 @@ function HelpText(){
             <div className = "helpTextList">1. Reduce the presence of food deserts in "first-world" environments.</div>
             <div className = "helpTextList">2. Host community activities and projects that help reverse the trend of isolation in American society.</div>
             <div className = "helpTextList">3. Create a method of free, temporary housing for the homeless.</div>
-        </>
+        </div>
     )
 }
 

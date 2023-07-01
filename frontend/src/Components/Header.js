@@ -40,7 +40,7 @@ export default class Header extends React.Component{
   render(){
     return(
       <div>
-        <div className = {window.innerWidth > 800 ? "h headerOne" : "h headerTwo"}>
+        <div className = {window.innerWidth > 800 ? "h headerOne header" : "h headerTwo header"}>
           <img src={process.env.PUBLIC_URL+ "/images/logo.jpeg"} alt = "Logo" className='h headerImage'></img>
           <div className = 'h headerText'><p className = "ht">The One Dollar Foundation</p></div>
           {window.innerWidth > 800 ? <Icons /> : <Dropdown swap = {this.enableDropdown} status = {this.state.dropdown}/>}

@@ -11,7 +11,7 @@
     height: 80%;
     min-height: 500px;
 
-    margin-top: 5%;
+    margin-top: 10%;
     
     background-color: #F5F5F4;
     border-radius: 6px;
@@ -88,7 +88,7 @@ label{
 .suggestionContainer{
   height: 70px;
   position: relative;
-  width: 100%;
+  width: 90%;
 }
 
 #suggestion{

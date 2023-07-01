@@ -2,10 +2,20 @@
 
 .h{
   max-height: 100px;
+  background-color: #f9f9f9;
+  border-bottom: 3px solid black;
+}
+
+.header{
+  position: fixed;
+  height: 15vh;
+  z-index: 10;
+
 }
 
 .headerOne{
-  display: grid;
+    position: fixed;
+    display: grid;
     height: 15vh;
     grid-template-columns: 10% 50% 40%;
     width: 100%;
