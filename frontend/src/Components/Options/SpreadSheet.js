@@ -60,33 +60,9 @@ export default function PrettySpreadSheet({revenues, expenses}){
 
     return (
         <>
-        {/*
-            <div className = 'excelHeader'>
-                {selected === "revenues" && <div className = 'excelHeaderText' onClick = {() => setIsSelected("expenses")}>Revenues</div>}
-                {(window.innerWidth > 1600 || selected === "expenses") && <div className = 'excelHeaderText' onClick = {() => setIsSelected("revenues")}>Expenses</div>}
-            </div>
-            <div className = {window.innerWidth > 1600 ? 'spreadSheetData col' : 'spreadSheetData ind'}>
-                <div className = 'eventContainer'>
-                    {selected === 'revenues' && revenues.map((element, index) => (
-                        <EventElement data = {element} type = "revenues" key = {index} />
-                    ))}
-                </div>
-                {(selected === "expenses" || window.innerWidth > 1600) &&  
-                    <div className = 'eventContainer'>
-                        {expenses.map((element, index) => (
-                            <EventElement data = {element} type = "expenses" key = {index} />
-                        ))}
-                    </div>
-                }
-            </div>
-            <div className = "financialTotals">
-                <div className = "financialText">Total Raised: ${totalRaised}</div>
-                <div className = "financialText ftOver">Fund Balance: ${currentBalance}</div>
-            </div>
-            */}
-            <div className = {"excelContainer " + (window.innerWidth > 1600 ? " twoCol" : " oneCol")}>
+            <div className = {"excelContainer " + ((window.innerWidth > 1600 || (window.innerWidth < 1200 && window.innerWidth > 600)) ? " twoCol" : " oneCol")}>
                 <EventHolder type = "rev" data = {revenues} />
-                {(selected === "expenses" || window.innerWidth > 1600) &&  <EventHolder type = "exp" data = {expenses} />}
+                {(window.innerWidth > 1600 || (window.innerWidth < 1200 && window.innerWidth > 600)) &&  <EventHolder type = "exp" data = {expenses} />}
             </div>
         </>
     );

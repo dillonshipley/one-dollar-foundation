@@ -1,4 +1,16 @@
 /* -- GOALS -- */
+
+
+.goalHeaderText{
+  width: 50%;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  border-bottom: 2px solid black;
+  font-family: 'AmericanTypewriter';
+}
+
 .goalContainer{
     margin-left: 10%;
     width: 80%;
@@ -13,7 +25,7 @@
     grid-template-rows: 33% 33% 33%;
   }
   
-  .vertical-progress-bar {
+  .goal {
     width: 100%; /* Adjust as needed */
     height: 50px; /* Adjust as needed */
     background: linear-gradient(to left, #008502, #e2f4da);
@@ -58,4 +70,28 @@
     font-family: 'Coolvetica';
     color: white;
     letter-spacing: 1.5px;
+  }
+
+  @media screen and (max-width: 600px){
+    .goalTitle{
+      height: 30px;
+      width: 115%;
+      margin-left: -7.5%;
+      line-height: 30px;
+      font-size: 14px;
+    }
+
+    .goalHeaderText{
+      width: 80%;
+      font-size: 18px;
+    }
+
+    .goal{
+      height: 40px;
+    }
+
+    .progressPercentage{
+      line-height: 40px;
+      margin-top: 0;
+    }
   }

@@ -52,7 +52,7 @@ export default function Subscribe(){
                 <div className = "emailError">
                   {errorList.includes("email") && <div className = "errorText">Please enter a valid email address.</div>}
                 </div>
-                <label htmlFor ="suggestion label">Suggestion:</label>
+                <label htmlFor ="suggestion" className = "st label">Suggestion:</label>
                 <div className = "suggestionContainer input st lh2">
                   <textarea id = "suggestion" placeholder = "Please let us know of any events in your community you'd like us to be involved in" className = "st input suggestion lh2" rows="2"></textarea>
                 </div>            

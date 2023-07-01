@@ -13,7 +13,7 @@ function Goal({amount, goal, prog}){
 
     return (
         <div className = "individualGoal">
-            <div className="vertical-progress-bar">
+            <div className="goal">
                 <div className="progress" style={{ width: `${(1 - (prog / amount)) * 100}%` }}></div>
                 <div className = "progressPercentage">
                     {(prog / amount) * 100}%

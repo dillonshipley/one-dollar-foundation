@@ -2,7 +2,7 @@
 
 .h{
   max-height: 100px;
-  background-color: #f9f9f9;
+  background-color: white;
   border-bottom: 3px solid black;
 }
 
@@ -10,12 +10,12 @@
   position: fixed;
   height: 15vh;
   z-index: 10;
-
+  background-color: white;
 }
 
 .headerOne{
-    position: fixed;
-    display: grid;
+  position: fixed;
+  display: grid;
     height: 15vh;
     grid-template-columns: 10% 50% 40%;
     width: 100%;
@@ -116,6 +116,10 @@
   @media screen and (max-width: 600px){
     .h{
       max-height:70px;
+    }
+    
+    .header{
+      max-height: 70px;
     }
 
     .headerTwo{

@@ -229,6 +229,10 @@
 }
 
 @media screen and (max-width: 600px){
+  .homepageContainer{
+    margin-top: 5vh;
+  }
+  
   .overlay{
     justify-content: center;
   }
