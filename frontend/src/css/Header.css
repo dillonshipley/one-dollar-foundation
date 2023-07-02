@@ -36,6 +36,10 @@
     margin-left: 5%;
   }
 
+  .h .headerImage{
+    border-bottom: 0px;
+  }
+
   .dropdownIconContainer{
     height: 15vh;
     align-items: center;

@@ -26,9 +26,9 @@
     right: 30%;
     width: 40%;
     min-width: 500px;
-    margin-top: 5%;
+    margin-top: 20%;
     margin-bottom: 10%;
-    height: 80%;
+    height: 70%;
     background-color: #eeeeee;
   
     border-radius: 10px;
@@ -125,6 +125,11 @@
     .donationModal{
       width: 70vw;
       min-width: 400px;
+      margin-top: 15vh;
+    }
+
+    .modalText{
+      font-size: 14px;
     }
   }
 
