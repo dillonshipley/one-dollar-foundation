@@ -52,6 +52,7 @@ font-family: 'Coolvetica';
 }
     
 .excelHeaderText{
+    margin-left:25%;
     width: 50%;
     text-align: center;
     font-size: 25px;
@@ -138,6 +139,7 @@ font-family: 'Coolvetica';
 
 .excelHeader{
     width: 100%;
+    text-align: center;
     display: flex;
     text-align: center;
   }

@@ -1,31 +1,53 @@
 import React, {useState} from "react";
 
+function PostSubmit(){
+
+}
+
+function Submit(){
+  return (
+    <div>
+      hi
+    </div>
+  );
+}
+
+function PreSubmit({errors, subscribe}){
+  return (
+      <>
+        <div className = "subscribeHeader c">Subscribe to see how we use every dollar donated.</div>
+        <form className = "subscribeForm">
+            <label htmlFor ="email" className = "st label">Email:</label>
+            <input id = "email" className = "st input" placeholder = "Enter your email here" />
+            <div className = "emailError">
+              {errors.includes("email") && <div className = "errorText">Please enter a valid email address.</div>}
+            </div>
+            <label htmlFor ="suggestion" className = "st label">Suggestion:</label>
+            <div className = "suggestionContainer input st lh2">
+              <textarea id = "suggestion" placeholder = "Please let us know of any events in your community you'd like us to be involved in" className = "st input suggestion lh2" rows="2"></textarea>
+            </div>            
+        </form>
+        
+        <div className = "moreSubTextSection c">
+          <p className = "moreSubText email">We will <u>only</u> email you once a month for our newsletter and expenditures report.</p>
+          <p className = "moreSubText nospam">We will never send you email asking for money or personal information.</p>
+          <div className = "subscribeButton" onClick = {() => subscribe()}>
+            <div>Subscribe</div>
+          </div>
+        </div>
+    </>
+    );
+}
+
 export default function Subscribe(){
   const [errorList, setErrorList] = useState([]);
+  const [subscribeState, setSubscribeState] = useState("pre")
 
-
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  }
-  
-  const sanitizeInput = (input) => {
-    // Implement your input sanitization logic here
-    // For email validation, you can use the built-in validation functions or a library like DOMPurify.
-    // Example using DOMPurify:
-    //const sanitizedInput = DOMPurify.sanitize(input);
-    return input;
-  }
-  
   const postSubscribe = () => {
     console.log("Sending subscribe post...");
     const emailInput = document.getElementById('email').value;
     if(emailInput === ''){
       setErrorList(['email'])
-    }
-    const sanitizedEmailInput = sanitizeInput(emailInput);
-    if (validateEmail(sanitizedEmailInput)) {
-    } else {
     }
 
     const suggestionInput = document.getElementById('suggestion').value;
@@ -36,36 +58,22 @@ export default function Subscribe(){
       },
       body: JSON.stringify({'email': emailInput, 'suggestion': suggestionInput})
     })
-    .then((response) => response.json())
+    .then((response) => {
+      setSubscribeState("during")
+      response.json()
+    })
     .then((data)=> {
       console.log(data.message);
+      setSubscribeState("post");
     })
   }
 
     return (
         <div className = "subscribeContainer">
-          <div className = "subscribe">
-              <div className = "subscribeHeader c">Subscribe to see how we use every dollar donated.</div>
-            <form className = "subscribeForm">
-                <label htmlFor ="email" className = "st label">Email:</label>
-                <input id = "email" className = "st input" placeholder = "Enter your email here" />
-                <div className = "emailError">
-                  {errorList.includes("email") && <div className = "errorText">Please enter a valid email address.</div>}
-                </div>
-                <label htmlFor ="suggestion" className = "st label">Suggestion:</label>
-                <div className = "suggestionContainer input st lh2">
-                  <textarea id = "suggestion" placeholder = "Please let us know of any events in your community you'd like us to be involved in" className = "st input suggestion lh2" rows="2"></textarea>
-                </div>            
-            </form>
-            
-            <div className = "moreSubTextSection c">
-              <p className = "moreSubText email">We will <u>only</u> email you once a month for our newsletter and expenditures report.</p>
-              <p className = "moreSubText nospam">We will never send you email asking for money or personal information.</p>
-              <div className = "subscribeButton" onClick = {() => postSubscribe()}>
-                <div>Subscribe</div>
-              </div>
-            </div>
-          
+          <div className="subscribe">
+            {subscribeState === "pre" && <PreSubmit errors = {errorList} subscribe = {() => postSubscribe()}/>}
+            {subscribeState === "during" && <Submit />}
+            {subscribeState === "post" && <PostSubmit />}
           </div>
         </div>
     );
