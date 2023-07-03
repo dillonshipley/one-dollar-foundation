@@ -1,13 +1,17 @@
 import React, {useState} from "react";
 
 function PostSubmit(){
-
+  <div>
+    <div>Thank you for subscribing to our monthly mailing list!</div>
+    <div>Please consider donating if you haven't already.</div>
+    <div>We appreciate your support, and we promise we'll try to make great things happen a little bit at a time.</div>
+  </div>
 }
 
 function Submit(){
   return (
-    <div>
-      hi
+    <div className = "loadingContainer">
+      <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
     </div>
   );
 }
@@ -21,6 +25,7 @@ function PreSubmit({errors, subscribe}){
             <input id = "email" className = "st input" placeholder = "Enter your email here" />
             <div className = "emailError">
               {errors.includes("email") && <div className = "errorText">Please enter a valid email address.</div>}
+              {errors.includes("exists") && <div className = "errorText">That email address already exists!</div>}
             </div>
             <label htmlFor ="suggestion" className = "st label">Suggestion:</label>
             <div className = "suggestionContainer input st lh2">
@@ -40,14 +45,15 @@ function PreSubmit({errors, subscribe}){
 }
 
 export default function Subscribe(){
-  const [errorList, setErrorList] = useState([]);
+  const [error, setError] = useState("");
   const [subscribeState, setSubscribeState] = useState("pre")
 
   const postSubscribe = () => {
+    setSubscribeState("during")
     console.log("Sending subscribe post...");
     const emailInput = document.getElementById('email').value;
     if(emailInput === ''){
-      setErrorList(['email'])
+      setError("email")
     }
 
     const suggestionInput = document.getElementById('suggestion').value;
@@ -59,19 +65,23 @@ export default function Subscribe(){
       body: JSON.stringify({'email': emailInput, 'suggestion': suggestionInput})
     })
     .then((response) => {
-      setSubscribeState("during")
-      response.json()
+      return response.json()
     })
     .then((data)=> {
       console.log(data.message);
-      setSubscribeState("post");
+      if(data.message == "ExistsError"){
+        setSubscribeState("pre");
+        setError("exists")
+      } else {
+        setSubscribeState("post");
+      }
     })
   }
 
     return (
         <div className = "subscribeContainer">
           <div className="subscribe">
-            {subscribeState === "pre" && <PreSubmit errors = {errorList} subscribe = {() => postSubscribe()}/>}
+            {subscribeState === "pre" && <PreSubmit errors = {error} subscribe = {() => postSubscribe()}/>}
             {subscribeState === "during" && <Submit />}
             {subscribeState === "post" && <PostSubmit />}
           </div>
