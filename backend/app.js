@@ -74,7 +74,7 @@ function sanitize(myString){
 const sendToDB = async (email, suggestion) => {
     const newEmail = sanitize(email);
     if(newEmail === ""){
-      return "InvalidError";
+      return "InvalidError";  
     }
     try {
         let count = await executeQuery('select subscriberid from subscribers order by subscriberid desc limit 1');

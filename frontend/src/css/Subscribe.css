@@ -46,7 +46,6 @@
 .subscribeHeader{
   width: 50%;
   margin-left: 25%;
-  max-width: 300px;
   height: 15%;
 }
 
@@ -186,6 +185,14 @@ label{
 }
 
 @media screen and (max-width: 1200px){
+  .subscribeHeader{
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: 16px;
+  }
+
   .subscribeContainer{
     background-color: #222222;
     margin-top: 0;
@@ -199,8 +206,8 @@ label{
 
 @media screen and (max-width: 600px){
   .subscribeHeader{
-    width: 70%;
-    margin-left: 15%;
+    width: 85%;
+    margin-left: 7.5%;
     font-size: 14px;
   }
 
@@ -283,4 +290,41 @@ label{
   justify-content: center;
   width: 100%;
   height: 100%;
+}
+
+.postSubscribeText{
+  height: 100%;
+  margin-top: 15%;
+  margin-left: 5%;
+  width: 90%;
+  font-size: 23px;
+}
+
+.st2{
+  font-size: 20px;
+  margin-top: 5%;
+}
+
+.sig{
+  font-size: 30px;
+  font-family: 'Olympia';
+  text-decoration: underline;
+}
+
+.postSubscribeImg{
+  width: 50px;
+  height: 50px;
+  margin-right: 5%;
+}
+
+.successImgContainer{
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  margin-left: 20%;
+  height: 20%;
+  margin-bottom: 5%;  
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
 }

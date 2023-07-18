@@ -4,8 +4,8 @@
 .goalHeaderText{
   width: 50%;
   text-align: center;
-  font-size: 25px;
-  font-weight: bolder;
+  font-size: 20px;
+  font-weight: lighter;
   margin-bottom: 20px;
   border-bottom: 2px solid black;
   font-family: 'AmericanTypewriter';
@@ -27,7 +27,7 @@
   
   .goal {
     width: 100%; /* Adjust as needed */
-    height: 50px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
     background: linear-gradient(to left, #008502, #e2f4da);
     position: relative;
     border-radius: 4px;
@@ -41,13 +41,14 @@
     height: 100%;
     transition: height 0.3s ease-in-out; /* Add a smooth transition effect */
     border-radius: 0;
+    border-left: 3px solid black
   }
   
   .progressPercentage{
     position: absolute;
     margin-left: 20px;
     height: 100%;
-    line-height: 50px;
+    line-height: 35px;
     width: 100%;
     text-align: left;
     font-weight:bolder;

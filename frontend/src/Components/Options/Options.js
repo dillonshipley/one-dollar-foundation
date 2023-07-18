@@ -29,7 +29,7 @@ function GoalContainer({data}){
     console.log(data[0].amount);
     return (
         <div className = "goalContainer">
-            <div className="goalHeaderText">Short-Term Goals</div>
+            <div className="goalHeaderText">SHORT-TERM GOALS</div>
             <div className="goalGrid">
                 <Goal amount = {data[0].Amount} goal = {data[0].Goal} prog = {data[0].Progress}/>
                 <Goal amount = {data[1].Amount} goal = {data[1].Goal} prog = {data[1].Progress}/>

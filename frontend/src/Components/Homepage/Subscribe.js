@@ -1,11 +1,20 @@
 import React, {useState} from "react";
 
 function PostSubmit(){
-  <div>
-    <div>Thank you for subscribing to our monthly mailing list!</div>
-    <div>Please consider donating if you haven't already.</div>
-    <div>We appreciate your support, and we promise we'll try to make great things happen a little bit at a time.</div>
-  </div>
+  let imgSrc = process.env.PUBLIC_URL + '/logos/checkmark.png';
+  return (
+    <div className = "postSubscribeText">
+      <div className = "successImgContainer">
+        <img src = {imgSrc} className = "postSubscribeImg" alt = "oops" />
+        <div>Success!</div>
+      </div>
+      <div>Thank you for subscribing to our monthly mailing list!</div>
+      <div className = "st2">Please consider donating if you haven't already.</div>
+      <div className = "st2">We appreciate your support, and we promise we'll try to make great things happen a little bit at a time.</div>
+      <div className = "st2">Sincerely,</div>
+      <div className = "st2 sig">The One Dollar Foundation</div>
+    </div>
+  );
 }
 
 function Submit(){

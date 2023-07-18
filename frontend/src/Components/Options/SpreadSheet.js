@@ -30,11 +30,11 @@ function EventElement({data, type, index}){
     
 }
 
-function EventHolder({type, data}){
+function EventHolder({type, data, pos}){
     return(    
         <div className = 'eventContainer'>
             <div className = "excelHeader">
-                <div className = 'excelHeaderText'>{type === "rev" ? "Revenues" : "Expenses"}</div>
+                <div className = {pos ? "excelHeaderText eh1" : "excelHeaderText"}>{type === "rev" ? "Revenues" : "Expenses"}</div>
             </div>
             {data.map((element, index) => (
                 <EventElement data = {element} type = {type} key = {index} />
@@ -61,8 +61,8 @@ export default function PrettySpreadSheet({revenues, expenses}){
     return (
         <>
             <div className = {"excelContainer " + ((window.innerWidth > 1600 || (window.innerWidth < 1200 && window.innerWidth > 600)) ? " twoCol" : " oneCol")}>
-                <EventHolder type = "rev" data = {revenues} />
-                {(window.innerWidth > 1600 || (window.innerWidth < 1200 && window.innerWidth > 600)) &&  <EventHolder type = "exp" data = {expenses} />}
+                <EventHolder type = "rev" data = {revenues} pos = {window.innerWidth > 1600}/>
+                {(window.innerWidth > 1600 || (window.innerWidth < 1200 && window.innerWidth > 600)) &&  <EventHolder type = "exp" data = {expenses} pos = {window.innerWidth > 1600}/>}
             </div>
         </>
     );
