@@ -221,3 +221,26 @@ font-family: 'Coolvetica';
       font-size: 14px;
     }
   }
+
+  .flip{
+    position: absolute;
+    height: 40px;
+    
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .flipImg{
+    z-index: 9;
+    float: right;
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 5px;
+  }
+  
+  .excont{
+    width: 100%;
+    position: relative;
+  }

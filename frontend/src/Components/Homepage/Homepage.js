@@ -39,12 +39,13 @@ function Overlay({modal}){
 export default function HomepageImage({modal, expanded}){
     return (
       <div className = 'homepageContainer s1height'>
+        <SocialDropdown dropdown = {expanded} />
         <Background />
         <div className = {window.innerWidth > 1200 ? "hp s1height desktopHomepage" : "hp s1height mobileHomepage flex"}>
           <Overlay modal = {modal} />
           {window.innerWidth > 1200 && <Subscribe />}
         </div>
-        <SocialDropdown dropdown = {expanded} />
+
       </div>
     );
   }

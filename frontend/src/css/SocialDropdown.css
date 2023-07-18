@@ -5,12 +5,14 @@
 
 .ddClosed{
   transform: rotate(180deg);
+  border: 0px;
 }
 
 .SocialDropdown{
-    z-index: 6;
-    position: relative;
-    float: right;
+    z-index: 10;
+    position: absolute;
+    margin-left: 70%;
+    margin-top: 0;
     border-bottom-left-radius: 3px;
 
     width: 30%;
@@ -24,6 +26,7 @@
     overflow: hidden;
     height: 0;
     animation: slideExpandDown .5s ease-out forwards;
+    border-top: 3px solid black;
   }
 
   .slide-up {
@@ -32,6 +35,8 @@
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 1);
     transition: box-shadow 0.3s ease-out;
     box-shadow: none;
+    height: 500px;
+
   }
   
 

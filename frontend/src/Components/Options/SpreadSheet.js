@@ -44,7 +44,8 @@ function EventHolder({type, data, pos}){
 }
 
 export default function PrettySpreadSheet({revenues, expenses}){
-    const [selected, setIsSelected] = useState('revenues');
+    const [selected, setIsSelected] = useState('rev');
+    let imgSrc = process.env.PUBLIC_URL + '/logos/flip.png';
 
     let totalRaised = 0;
     for (let i = 0; i < revenues.length; i++) {
@@ -58,12 +59,27 @@ export default function PrettySpreadSheet({revenues, expenses}){
       }
       console.log(currentBalance);
 
+    const swapSelected = () => {
+        if(selected === 'rev')
+            setIsSelected('exp');
+        else
+            setIsSelected('rev');
+    }
+
     return (
-        <>
+        <div className = "excont">
+            {(((window.innerWidth < 1600) && (window.innerWidth > 1200) ||  window.innerWidth < 600) &&
+                <div className = "flip">
+                    <img src = {imgSrc} className = "flipImg" alt = "oops" onClick = {swapSelected}/>
+                </div>
+            )}
             <div className = {"excelContainer " + ((window.innerWidth > 1600 || (window.innerWidth < 1200 && window.innerWidth > 600)) ? " twoCol" : " oneCol")}>
-                <EventHolder type = "rev" data = {revenues} pos = {window.innerWidth > 1600}/>
+                {(((window.innerWidth < 1600) && (window.innerWidth > 1200) ||  window.innerWidth < 600) &&
+                    <EventHolder type = {selected} data = {selected === 'rev' ? revenues : expenses} pos = {window.innerWidth > 1600}/>
+                )}
+                {(window.innerWidth > 1600 || (window.innerWidth < 1200 && window.innerWidth > 600)) && <EventHolder type = "rev" data = {revenues} pos = {window.innerWidth > 1600} />}
                 {(window.innerWidth > 1600 || (window.innerWidth < 1200 && window.innerWidth > 600)) &&  <EventHolder type = "exp" data = {expenses} pos = {window.innerWidth > 1600}/>}
             </div>
-        </>
+        </div>
     );
 }

@@ -32,12 +32,12 @@
     min-width: 100px;
     width: auto;
     padding-top: 10%;
-    height: 80%;
+    height: 100%;
     margin-left: 5%;
   }
 
   .h .headerImage{
-    border-bottom: 0px;
+
   }
 
   .dropdownIconContainer{
@@ -96,7 +96,7 @@
       padding-left: 30px;
     }
     .headerImage{
-      height: 80%;
+      height: 100%;
       padding-top: 0;;
     }
     
@@ -162,7 +162,8 @@
   
   @media screen and (max-width: 450px){
     .headerTwo{
-      grid-template-columns: 15% 70% 15%;
+      grid-template-columns: 17% 68% 15%;
+      min-width: 300px;
     }
     .h{
       height: 8vh;

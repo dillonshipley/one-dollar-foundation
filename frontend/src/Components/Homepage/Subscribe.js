@@ -62,7 +62,9 @@ export default function Subscribe(){
     console.log("Sending subscribe post...");
     const emailInput = document.getElementById('email').value;
     if(emailInput === ''){
-      setError("email")
+      setError("email");
+      setSubscribeState("pre");
+      return;
     }
 
     const suggestionInput = document.getElementById('suggestion').value;
