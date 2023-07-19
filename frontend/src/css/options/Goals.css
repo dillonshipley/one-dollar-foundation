@@ -76,7 +76,7 @@
 
   @media screen and (max-width: 600px){
     .goalTitle{
-      height: 30px;
+      height: 40px;
       width: 115%;
       margin-left: -7.5%;
       line-height: 30px;
@@ -96,4 +96,15 @@
       line-height: 40px;
       margin-top: 0;
     }
+  }
+
+  @media screen and (max-width: 400px){
+    .goalTitle{
+      height: 60px;
+      width: 115%;
+      margin-left: -7.5%;
+      line-height: 30px;
+      font-size: 14px;
+    }
+
   }

@@ -26,7 +26,7 @@ function DropdownOption({type}){
   
  export default function SocialDropdown({dropdown}){
     return (
-      <div className = {`SocialDropdown ${dropdown ? 'slide-down' : 'slide-up'}`}>
+      <div className = {`SocialDropdown ${(dropdown && window.innerWidth < 800)? 'slide-down' : 'slide-up'}`}>
         <DropdownOption type = 'Discord'/>
         <DropdownOption type = 'Instagram'/>
         <DropdownOption type = 'YouTube' />

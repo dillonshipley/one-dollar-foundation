@@ -3,13 +3,12 @@
 .h{
   max-height: 100px;
   background-color: white;
-  border-bottom: 3px solid black;
 }
 
 .header{
   position: fixed;
   height: 15vh;
-  z-index: 10;
+  z-index: 7;
   background-color: white;
 }
 
@@ -180,4 +179,3 @@
       min-height: 10px;
     }
   }
-

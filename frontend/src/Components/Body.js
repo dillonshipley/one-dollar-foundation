@@ -36,7 +36,7 @@ class Body extends React.Component {
 
   render(){
     return(
-      <div>
+      <div className = "body">
         <Homepage modal = {this.showModal} expanded = {this.props.dropdown}/>
         <div className = "homepageSectionTwo">
             <div className = 'quoteContainer flex'>

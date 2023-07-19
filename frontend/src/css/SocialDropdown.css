@@ -1,18 +1,19 @@
 .ddOpen{
-  transform: rotate(0deg);  
+  transform: rotate(180deg);  
   
 }
 
 .ddClosed{
-  transform: rotate(180deg);
-  border: 0px;
+  transform: rotate(0deg);
 }
+
+
 
 .SocialDropdown{
     z-index: 10;
-    position: absolute;
+    position: fixed;
     margin-left: 70%;
-    margin-top: 0;
+    margin-top: 0px;
     border-bottom-left-radius: 3px;
 
     width: 30%;
@@ -26,7 +27,7 @@
     overflow: hidden;
     height: 0;
     animation: slideExpandDown .5s ease-out forwards;
-    border-top: 3px solid black;
+
   }
 
   .slide-up {
@@ -74,4 +75,18 @@
     width: 40%;
     min-width: 150px;
     max-height: 75px;
+}
+
+@media screen and (max-width: 600px) {
+  .SocialDropdown{
+    margin-left: 50%;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .SocialDropdown{
+    margin-left: 40%;
+    width: 60%;
+  }
 }
