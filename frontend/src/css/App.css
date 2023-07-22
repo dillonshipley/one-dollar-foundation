@@ -1,9 +1,17 @@
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  margin-top: 2px;
+  overflow: hidden;
+  width: 100%;
 }
 
 /* ----- BODY ----- */
+
+.body{
+  border-top: 3px solid black;
+  margin-top: 100px;;
+}
 
 .s1height{
   height: 90vh;
@@ -11,9 +19,9 @@
 }
 
 .homepageContainer{
-  position: relative;
+  position: relative; 
   display: block;
-  min-height: 500px;
+  min-height: 600px;
   overflow: hidden;
 }
 
@@ -229,6 +237,7 @@
 }
 
 @media screen and (max-width: 600px){
+  
   .overlay{
     justify-content: center;
   }
@@ -258,6 +267,10 @@
     font-size: .75em;
   
     font-weight: bold;
+  }
+
+  .body{
+    margin-top: 70px;
   }
 }
 

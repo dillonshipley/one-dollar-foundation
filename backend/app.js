@@ -2,7 +2,17 @@
 const express = require('express')
 const cors = require('cors');
 const app = express()
-app.use(cors());
+const corsOptions = {
+  origin: 'https://localhost:3000/',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 const crypto = require('crypto');
 
@@ -51,6 +61,7 @@ function sanitize(myString){
         console.log('Email validated');
     } else {
         console.log('Invalid email');
+        return "";
     }
     let newEmail = myString.split("@");
     newEmail = newEmail[0] + "&" + newEmail[1];
@@ -62,6 +73,9 @@ function sanitize(myString){
 
 const sendToDB = async (email, suggestion) => {
     const newEmail = sanitize(email);
+    if(newEmail === ""){
+      return "InvalidError";  
+    }
     try {
         let count = await executeQuery('select subscriberid from subscribers order by subscriberid desc limit 1');
         if(count.length == 0)
@@ -71,7 +85,7 @@ const sendToDB = async (email, suggestion) => {
 
         let exists = await executeQuery('select * from subscribers where email = \'' + newEmail + "\'")
         if(exists.length > 0){
-            return "Error";
+            return "ExistsError";
         } else {
             const queryString = 'insert into subscribers (subscriberid, email, suggestion) values (' + (count) + ', \'' + newEmail + '\', \'' + suggestion + '\')';
             const res2 = await executeQuery(queryString);

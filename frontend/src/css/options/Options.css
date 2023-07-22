@@ -116,15 +116,15 @@
 }
 
 .optionDetailContainer{
-  padding-left: 5%;
+  min-width: 250px;
   margin-left: 5%;  
-  padding-right: 5%;
   margin-right: 5%;
   margin-top: 30px;
   padding-top: 2%;
   margin-bottom: 10%;
   padding-bottom: 5%;
   border-radius: 3px;
+  height: 425px;
   border: 2px solid black;
   background-color: white;
 }
@@ -146,16 +146,6 @@
   text-align: left;
   font-family: 'AmericanTypewriter';
   font-size: 16px;
-}
-
-.goalHeaderText{
-  width: 50%;
-  text-align: center;
-  font-size: 25px;
-  font-weight: bolder;
-  margin-bottom: 20px;
-  border-bottom: 2px solid black;
-  font-family: 'AmericanTypewriter';
 }
 
 
@@ -222,4 +212,10 @@
     font-size: 12px;
   }
 
+}
+
+.helpTextContainer {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
 }

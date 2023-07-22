@@ -2,9 +2,18 @@
 
 .h{
   max-height: 100px;
+  background-color: white;
+}
+
+.header{
+  position: fixed;
+  height: 15vh;
+  z-index: 7;
+  background-color: white;
 }
 
 .headerOne{
+  position: fixed;
   display: grid;
     height: 15vh;
     grid-template-columns: 10% 50% 40%;
@@ -22,8 +31,12 @@
     min-width: 100px;
     width: auto;
     padding-top: 10%;
-    height: 80%;
+    height: 100%;
     margin-left: 5%;
+  }
+
+  .h .headerImage{
+
   }
 
   .dropdownIconContainer{
@@ -82,7 +95,7 @@
       padding-left: 30px;
     }
     .headerImage{
-      height: 80%;
+      height: 100%;
       padding-top: 0;;
     }
     
@@ -106,6 +119,10 @@
   @media screen and (max-width: 600px){
     .h{
       max-height:70px;
+    }
+    
+    .header{
+      max-height: 70px;
     }
 
     .headerTwo{
@@ -144,7 +161,8 @@
   
   @media screen and (max-width: 450px){
     .headerTwo{
-      grid-template-columns: 15% 70% 15%;
+      grid-template-columns: 17% 68% 15%;
+      min-width: 300px;
     }
     .h{
       height: 8vh;
@@ -161,4 +179,3 @@
       min-height: 10px;
     }
   }
-

@@ -6,11 +6,11 @@ import Body from "./Components/Body";
 import Unsubscribe from "./Components/Unsubscribe"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-function Main({dropdown, displayBody}){
+function Main({enableDropdown, dropdownState, width}){
   return (
     <div className = "App">
-        <Header dropdown = {dropdown}/>
-        {displayBody()}
+        <Header propsFunc = {(e) => enableDropdown(e)}/>
+        <Body footer = {width <= 600} dropdown = {dropdownState}/>
     </div>
   )
 }
@@ -41,9 +41,6 @@ class App extends React.Component{
     window.removeEventListener('resize', this.handleResize);
   }
 
-  displayBody(){
-      return <Body footer = {this.state.width <= 600} dropdown = {this.state.dropdown}/> 
-  }
 
   setDropdown = (e) => {
     this.setState({dropdown: e})
@@ -54,7 +51,7 @@ class App extends React.Component{
       <div className = "router">
         <BrowserRouter>
         <Routes>
-            <Route path="/" element = {<Main dropdown = {(e) => this.setDropdown(e)} displayBody={() => this.displayBody()}/>} />
+            <Route path="/" element = {<Main enableDropdown = {(e) => this.setDropdown(e)} width = {this.state.width} dropdownState = {this.state.dropdown}/>} />
             <Route path="/unsubscribe" element = {<Unsubscribe />} />
           </Routes>
         </BrowserRouter>

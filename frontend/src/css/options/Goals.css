@@ -1,4 +1,16 @@
 /* -- GOALS -- */
+
+
+.goalHeaderText{
+  width: 50%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: lighter;
+  margin-bottom: 20px;
+  border-bottom: 2px solid black;
+  font-family: 'AmericanTypewriter';
+}
+
 .goalContainer{
     margin-left: 10%;
     width: 80%;
@@ -13,9 +25,9 @@
     grid-template-rows: 33% 33% 33%;
   }
   
-  .vertical-progress-bar {
+  .goal {
     width: 100%; /* Adjust as needed */
-    height: 50px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
     background: linear-gradient(to left, #008502, #e2f4da);
     position: relative;
     border-radius: 4px;
@@ -29,13 +41,14 @@
     height: 100%;
     transition: height 0.3s ease-in-out; /* Add a smooth transition effect */
     border-radius: 0;
+    border-left: 3px solid black
   }
   
   .progressPercentage{
     position: absolute;
     margin-left: 20px;
     height: 100%;
-    line-height: 50px;
+    line-height: 35px;
     width: 100%;
     text-align: left;
     font-weight:bolder;
@@ -58,4 +71,40 @@
     font-family: 'Coolvetica';
     color: white;
     letter-spacing: 1.5px;
+    border: 3px solid black;
+  }
+
+  @media screen and (max-width: 600px){
+    .goalTitle{
+      height: 40px;
+      width: 115%;
+      margin-left: -7.5%;
+      line-height: 30px;
+      font-size: 14px;
+    }
+
+    .goalHeaderText{
+      width: 80%;
+      font-size: 18px;
+    }
+
+    .goal{
+      height: 40px;
+    }
+
+    .progressPercentage{
+      line-height: 40px;
+      margin-top: 0;
+    }
+  }
+
+  @media screen and (max-width: 400px){
+    .goalTitle{
+      height: 60px;
+      width: 115%;
+      margin-left: -7.5%;
+      line-height: 30px;
+      font-size: 14px;
+    }
+
   }

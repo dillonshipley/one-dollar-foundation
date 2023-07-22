@@ -1,7 +1,8 @@
 import React from 'react';
 import DonateModal from './DonateModal';
 import Footer from "./Footer";
-import Options from './Homepage/Options'
+import Options from './Options/Options'
+import Subscribe from './Homepage/Subscribe'
 
 import '../css/options/Options.css';
 import '../css/options/Spreadsheet.css';
@@ -35,7 +36,7 @@ class Body extends React.Component {
 
   render(){
     return(
-      <div>
+      <div className = "body">
         <Homepage modal = {this.showModal} expanded = {this.props.dropdown}/>
         <div className = "homepageSectionTwo">
             <div className = 'quoteContainer flex'>
@@ -46,6 +47,7 @@ class Body extends React.Component {
             </div>
         </div>
         <Options excel = {this.state.optionsExcel}/>
+        {window.innerWidth <= 1200 && <Subscribe />}
         {this.props.footer && <Footer />}
         <DonateModal show={this.state.modal} close = {this.hideModal}/>
       </div>
