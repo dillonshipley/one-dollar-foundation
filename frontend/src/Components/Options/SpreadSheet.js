@@ -9,7 +9,7 @@ function EventElement({data, type, index}){
         imgSrc = process.env.PUBLIC_URL + '/logos/achievement.png';
 
     return (
-        <div class = "event">
+        <div className = "event">
             <div className = "eventImage">
                 <img className = "eventImage" alt = "Couldn't find event pic!" src= {imgSrc} />
             </div>
@@ -68,13 +68,13 @@ export default function PrettySpreadSheet({revenues, expenses}){
 
     return (
         <div className = "excont">
-            {(((window.innerWidth < 1600) && (window.innerWidth > 1200) ||  window.innerWidth < 600) &&
+            {((((window.innerWidth < 1600) && (window.innerWidth > 1200)) ||  window.innerWidth < 600) &&
                 <div className = "flip">
                     <img src = {imgSrc} className = "flipImg" alt = "oops" onClick = {swapSelected}/>
                 </div>
             )}
             <div className = {"excelContainer " + ((window.innerWidth > 1600 || (window.innerWidth < 1200 && window.innerWidth > 600)) ? " twoCol" : " oneCol")}>
-                {(((window.innerWidth < 1600) && (window.innerWidth > 1200) ||  window.innerWidth < 600) &&
+                {((((window.innerWidth < 1600) && (window.innerWidth > 1200)) ||  window.innerWidth < 600) &&
                     <EventHolder type = {selected} data = {selected === 'rev' ? revenues : expenses} pos = {window.innerWidth > 1600}/>
                 )}
                 {(window.innerWidth > 1600 || (window.innerWidth < 1200 && window.innerWidth > 600)) && <EventHolder type = "rev" data = {revenues} pos = {window.innerWidth > 1600} />}

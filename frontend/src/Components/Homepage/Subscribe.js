@@ -68,7 +68,7 @@ export default function Subscribe(){
     }
 
     const suggestionInput = document.getElementById('suggestion').value;
-    fetch('https://odfserver-kmusbztw2q-uc.a.run.app/subscribe', {
+    fetch(process.env.REACT_APP_API_URL + "subscribe", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ export default function Subscribe(){
     })
     .then((data)=> {
       console.log(data.message);
-      if(data.message == "ExistsError"){
+      if(data.message === "ExistsError"){
         setSubscribeState("pre");
         setError("exists")
       } else {

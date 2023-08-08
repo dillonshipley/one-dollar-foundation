@@ -20,12 +20,19 @@ const crypto = require('crypto');
 // ---DATABASE---
 const { Pool } = require("pg");
 const databaseJSON = require('./config.json')
+
+const sslOptions = {
+    rejectUnauthorized: false, // Set to true for production use.
+  }
+
+
 const client = new Pool({
   user: databaseJSON.username,
   host: databaseJSON.host,
   database: databaseJSON.database,
   password: databaseJSON.password,
-  port: databaseJSON.port
+  port: databaseJSON.port,
+  ssl: sslOptions
 });
 
 
