@@ -11,8 +11,6 @@ import '../css/Subscribe.css';
 
 import Homepage from './Homepage/Homepage';
 
-
-
 class Body extends React.Component {
   constructor(props){
     super(props)

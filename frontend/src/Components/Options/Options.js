@@ -3,8 +3,8 @@ import PrettySpreadSheet from './SpreadSheet';
 
   
   async function logJSONData() {
-    //const response = await fetch("https://localhost:3001/")
-    const response = await fetch("https://odfserver-kmusbztw2q-uc.a.run.app/")
+    console.log(process.env.REACT_APP_API_URL);
+    const response = await fetch(process.env.REACT_APP_API_URL);
     const json = await response.json();
     return json;
   }
