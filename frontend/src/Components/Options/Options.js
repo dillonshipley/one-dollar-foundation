@@ -4,7 +4,12 @@ import PrettySpreadSheet from './SpreadSheet';
   
   async function logJSONData() {
     console.log(process.env.REACT_APP_API_URL);
-    const response = await fetch(process.env.REACT_APP_API_URL);
+    const response = await fetch(process.env.REACT_APP_API_URL, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
     const json = await response.json();
     return json;
   }
