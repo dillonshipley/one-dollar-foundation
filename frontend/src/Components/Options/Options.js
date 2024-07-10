@@ -22,7 +22,7 @@ function Goal({amount, goal, prog}){
             <div className="goal">
                 <div className="progress" style={{ width: `${(1 - (prog / amount)) * 100}%` }}></div>
                 <div className = "progressPercentage">
-                    {(prog / amount) * 100}%
+                    {amount !== 0 ? (prog / amount) * 100 : 0}%
                 </div>
             </div>
             <div className = "goalTitle">{goal}</div>
