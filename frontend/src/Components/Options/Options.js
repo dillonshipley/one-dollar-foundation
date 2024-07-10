@@ -1,16 +1,13 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import PrettySpreadSheet from './SpreadSheet';
+import axios from 'axios'
 
   
   async function logJSONData() {
-    console.log(process.env.REACT_APP_API_URL);
-    const response = await fetch(process.env.REACT_APP_API_URL, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    });
-    const json = await response.json();
+    //const response = await fetch("http://localhost:3001/")
+    // const response = await axios.get("http://localhost:3001/")
+    const response = await axios.get("https://odfserver-kmusbztw2q-uc.a.run.app/")
+    const json = await response.data;
     return json;
   }
 
