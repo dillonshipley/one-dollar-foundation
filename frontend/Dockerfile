@@ -11,7 +11,7 @@ COPY . .
 RUN yarn global add serve
 
 # Build the production version of your app
-RUN yarn install --production
+RUN npm install --production
 RUN yarn build
 
 # Set the command to start the serve package
