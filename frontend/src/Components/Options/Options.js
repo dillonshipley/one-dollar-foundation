@@ -5,7 +5,7 @@ import axios from 'axios'
   
   async function logJSONData() {
     //const response = await fetch("http://localhost:3001/")
-    const response = await axios.get(process.env.REACT_APP_API_URL);
+    const response = await axios.get("https://one-dollar-foundation-server-kmusbztw2q-uc.a.run.app/");
     //const response = await axios.get("https://odfserver-kmusbztw2q-uc.a.run.app/")
     const json = await response.data;
     return json;
